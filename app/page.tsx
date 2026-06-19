@@ -185,36 +185,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Team */}
-        <section id="team" className="team-section">
-          <div className="container">
-            <div className="section-header">
-              <div className="uppercase-label">The team</div>
-              <h2 className="section-heading">
-                Built by people who've seen<br />the pain firsthand.
-              </h2>
-              <p className="section-sub">Building together since middle school.</p>
-            </div>
-            <div className="team-grid">
-              {team.map(({ name, role, bio, photo, linkedin }) => (
-                <div key={name} className="team-card">
-                  <div className="team-card-top">
-                    <Image src={photo} alt={name} width={52} height={52} className="team-photo" />
-                    <div className="team-info">
-                      <div className="team-name">{name}</div>
-                      <div className="team-role">{role}</div>
-                    </div>
-                    <a href={linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin-btn" aria-label="LinkedIn">
-                      <PiLinkedinLogoDuotone size={22} />
-                    </a>
-                  </div>
-                  <p className="team-bio">{bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Pricing */}
         <section id="pricing" className="section-divided py-20">
           <div className="container">
@@ -267,6 +237,36 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Team */}
+        <section id="team" className="team-section">
+          <div className="container">
+            <div className="section-header">
+              <div className="uppercase-label">The team</div>
+              <h2 className="section-heading">
+                Built by people who've seen<br />the pain firsthand.
+              </h2>
+              <p className="section-sub">Building together since middle school.</p>
+            </div>
+            <div className="team-grid">
+              {team.map(({ name, role, bio, photo, linkedin }) => (
+                <div key={name} className="team-card">
+                  <div className="team-card-top">
+                    <Image src={photo} alt={name} width={52} height={52} className="team-photo" />
+                    <div className="team-info">
+                      <div className="team-name">{name}</div>
+                      <div className="team-role">{role}</div>
+                    </div>
+                    <a href={linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin-btn" aria-label="LinkedIn">
+                      <PiLinkedinLogoDuotone size={22} />
+                    </a>
+                  </div>
+                  <p className="team-bio">{bio}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="cta-section">
           <div className="container cta-inner">
@@ -308,7 +308,7 @@ export default function Home() {
           --card:    0 0% 100%;
           --primary: 248 89% 55%;
           --accent:  248 89% 65%;
-          --muted:   248 20% 92%;
+          --muted:   248 20% 93%;
           --muted-fg:248 22% 44%;
           --border:  248 25% 89%;
           --radius:  0.5rem;
@@ -317,6 +317,12 @@ export default function Home() {
         body {
           background: hsl(var(--bg));
           color: hsl(var(--fg));
+          background-image:
+            radial-gradient(ellipse 80% 50% at 20% -5%, hsl(248 89% 65% / .09) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 40% at 80% 10%, hsl(280 80% 65% / .06) 0%, transparent 55%),
+            radial-gradient(ellipse 50% 60% at 95% 50%, hsl(220 80% 65% / .05) 0%, transparent 60%),
+            radial-gradient(ellipse 70% 40% at 10% 80%, hsl(248 89% 65% / .06) 0%, transparent 55%);
+          background-attachment: fixed;
         }
 
         .container {
@@ -325,6 +331,18 @@ export default function Home() {
           margin-inline: auto;
           padding-inline: clamp(1rem, 5vw, 2rem);
         }
+
+        /* Dot grid overlay */
+        body::before {
+          content: '';
+          position: fixed;
+          inset: 0;
+          background-image: radial-gradient(hsl(248 30% 70% / .18) 1px, transparent 1px);
+          background-size: 28px 28px;
+          pointer-events: none;
+          z-index: 0;
+        }
+        main, nav, footer { position: relative; z-index: 1; }
 
         /* ── Nav ── */
         .synced-nav {
@@ -604,12 +622,15 @@ export default function Home() {
           overflow: hidden;
         }
         .feature-card {
-          background: hsl(var(--card));
+          background: color-mix(in srgb, hsl(var(--card)) 80%, transparent);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
           padding: 1.75rem;
-          transition: background .2s;
+          transition: background .2s, box-shadow .2s;
         }
         .feature-card:hover {
-          background: hsl(var(--muted));
+          background: hsl(var(--card));
+          box-shadow: 0 4px 24px -4px hsl(248 89% 65% / .1);
         }
         .feature-icon-wrap {
           width: 40px;
