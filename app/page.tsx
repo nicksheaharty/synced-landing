@@ -82,7 +82,7 @@ export default function Home() {
       {/* Nav */}
       <nav className={`synced-nav${scrolled ? " scrolled" : ""}`}>
         <div className="container nav-inner">
-          <a href="/" aria-label="Synced home" className="nav-logo">
+          <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${BASE}/icon-light.png`} alt="" width={26} height={26} className="nav-icon" />
             <LogoText />
@@ -226,7 +226,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="site-footer">
         <div className="container footer-inner">
-          <a href="/" aria-label="Synced home" className="nav-logo">
+          <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${BASE}/icon-light.png`} alt="" width={20} height={20} className="nav-icon" />
             <LogoText small />
