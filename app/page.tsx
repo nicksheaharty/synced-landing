@@ -79,8 +79,45 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e: PointerEvent) => {
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+    };
+    window.addEventListener("pointermove", handleMouseMove);
+
+    const cards = document.querySelectorAll(".feature-card, .pricing-card, .team-card");
+    const handleCardMouseMove = (e: MouseEvent) => {
+      const card = e.currentTarget as HTMLElement;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--card-mouse-x", `${x}px`);
+      card.style.setProperty("--card-mouse-y", `${y}px`);
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", handleCardMouseMove as any);
+    });
+
+    return () => {
+      window.removeEventListener("pointermove", handleMouseMove);
+      cards.forEach((card) => {
+        card.removeEventListener("mousemove", handleCardMouseMove as any);
+      });
+    };
+  }, []);
+
   return (
     <>
+      {/* Dynamic Background Elements */}
+      <div className="bg-grid-base" />
+      <div className="bg-grid-glow" />
+      <div className="cursor-glow" />
+      <div className="ambient-blob-1" />
+      <div className="ambient-blob-2" />
+      <div className="ambient-blob-3" />
+
       {/* Nav */}
       <nav className={`synced-nav${scrolled ? " scrolled" : ""}`}>
         <div className="container nav-inner">
@@ -95,9 +132,14 @@ export default function Home() {
             <a href="#pricing" className="nav-link">Pricing</a>
             <a href="#team" className="nav-link">Team</a>
           </nav>
-          <a href={APP_URL} className="btn-primary">
-            Try the app
-          </a>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+            <a href="https://meet.synced.it" className="nav-link" style={{ fontSize: "0.78rem", fontWeight: 500 }}>
+              Legacy App
+            </a>
+            <a href={APP_URL} className="btn-primary">
+              Get Started
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -314,6 +356,15 @@ export default function Home() {
           --radius:  0.5rem;
         }
 
+        ::selection {
+          background: hsl(var(--primary));
+          color: hsl(248 100% 98%);
+        }
+        ::-moz-selection {
+          background: hsl(var(--primary));
+          color: hsl(248 100% 98%);
+        }
+
         body {
           background: hsl(var(--bg));
           color: hsl(var(--fg));
@@ -323,6 +374,7 @@ export default function Home() {
             radial-gradient(ellipse 50% 60% at 95% 50%, hsl(220 80% 65% / .05) 0%, transparent 60%),
             radial-gradient(ellipse 70% 40% at 10% 80%, hsl(248 89% 65% / .06) 0%, transparent 55%);
           background-attachment: fixed;
+          overflow-x: hidden;
         }
 
         .container {
@@ -332,38 +384,183 @@ export default function Home() {
           padding-inline: clamp(1rem, 5vw, 2rem);
         }
 
-        /* Dot grid overlay */
-        body::before {
-          content: '';
+        /* ── Premium Interactive Background & Grids ── */
+        .bg-grid-base {
           position: fixed;
           inset: 0;
-          background-image: radial-gradient(hsl(248 30% 70% / .18) 1px, transparent 1px);
-          background-size: 28px 28px;
+          background-image: radial-gradient(hsl(248 30% 70% / 0.12) 1.2px, transparent 1.2px);
+          background-size: 32px 32px;
           pointer-events: none;
           z-index: 0;
         }
-        main, nav, footer { position: relative; z-index: 1; }
+
+        .bg-grid-glow {
+          position: fixed;
+          inset: 0;
+          background-image: radial-gradient(hsl(var(--primary)) 1.2px, transparent 1.2px);
+          background-size: 32px 32px;
+          mask-image: radial-gradient(300px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, transparent 100%);
+          -webkit-mask-image: radial-gradient(300px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), black 0%, transparent 100%);
+          pointer-events: none;
+          z-index: 1;
+          opacity: 0.65;
+          transition: opacity 0.5s ease;
+        }
+
+        .cursor-glow {
+          position: fixed;
+          inset: 0;
+          background: radial-gradient(600px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), hsl(var(--primary) / 0.055), transparent 80%);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        /* Ambient Animated Blobs */
+        .ambient-blob-1 {
+          position: fixed;
+          top: 10%;
+          left: 5%;
+          width: 450px;
+          height: 450px;
+          background: radial-gradient(circle, hsl(248 89% 65% / 0.12) 0%, transparent 70%);
+          filter: blur(40px);
+          pointer-events: none;
+          z-index: 0;
+          animation: drift-slow 25s infinite alternate ease-in-out;
+        }
+        .ambient-blob-2 {
+          position: fixed;
+          bottom: 15%;
+          right: 5%;
+          width: 550px;
+          height: 550px;
+          background: radial-gradient(circle, hsl(280 80% 65% / 0.08) 0%, transparent 70%);
+          filter: blur(50px);
+          pointer-events: none;
+          z-index: 0;
+          animation: drift-slower 35s infinite alternate-reverse ease-in-out;
+        }
+        .ambient-blob-3 {
+          position: fixed;
+          top: 45%;
+          left: 55%;
+          width: 380px;
+          height: 380px;
+          background: radial-gradient(circle, hsl(220 80% 65% / 0.07) 0%, transparent 70%);
+          filter: blur(45px);
+          pointer-events: none;
+          z-index: 0;
+          animation: drift-rotate 30s infinite linear;
+        }
+
+        @keyframes drift-slow {
+          0% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(80px, -60px) scale(1.15); }
+          100% { transform: translate(-60px, 80px) scale(0.9); }
+        }
+        @keyframes drift-slower {
+          0% { transform: translate(0, 0) scale(0.95); }
+          50% { transform: translate(-70px, 80px) scale(1.1); }
+          100% { transform: translate(60px, -60px) scale(1); }
+        }
+        @keyframes drift-rotate {
+          0% { transform: rotate(0deg) translate(40px) rotate(0deg); }
+          100% { transform: rotate(360deg) translate(40px) rotate(-360deg); }
+        }
+
+        main, nav, footer { position: relative; z-index: 2; }
+
+        /* ── Glassmorphic & Reactive Cards ── */
+        .feature-card,
+        .pricing-card,
+        .team-card {
+          position: relative;
+          overflow: hidden;
+          background: color-mix(in srgb, hsl(var(--card)) 65%, transparent);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid hsl(var(--border) / 0.6);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.015);
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .feature-card:hover,
+        .pricing-card:hover,
+        .team-card:hover {
+          transform: translateY(-4px);
+          background: color-mix(in srgb, hsl(var(--card)) 85%, transparent);
+          border-color: hsl(var(--primary) / 0.35);
+          box-shadow: 
+            0 12px 30px -10px hsl(248 89% 65% / 0.08),
+            0 1px 1px hsl(var(--primary) / 0.05);
+        }
+
+        /* Border glow indicator */
+        .feature-card::before,
+        .pricing-card::before,
+        .team-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(240px circle at var(--card-mouse-x, -999px) var(--card-mouse-y, -999px), hsl(var(--primary) / 0.08), transparent 80%);
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .feature-card:hover::before,
+        .pricing-card:hover::before,
+        .team-card:hover::before {
+          opacity: 1;
+        }
+
+        /* Ensure card contents stay on top of the relative glow */
+        .feature-card > *,
+        .pricing-card > *,
+        .team-card > * {
+          position: relative;
+          z-index: 1;
+        }
 
         /* ── Nav ── */
         .synced-nav {
           position: fixed;
-          top: 0; left: 0; right: 0;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 100%;
           z-index: 100;
-          transition: background .25s, border-color .25s, box-shadow .25s;
-          border-bottom: 1px solid transparent;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          border: 1px solid transparent;
+          background: transparent;
+          padding-top: 1rem;
+          padding-bottom: 0.35rem;
         }
         .synced-nav.scrolled {
-          background: color-mix(in srgb, hsl(var(--bg)) 88%, transparent);
+          top: 1rem;
+          width: calc(100% - 2rem);
+          max-width: 1120px;
+          background: color-mix(in srgb, hsl(var(--card)) 65%, transparent);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
-          border-bottom-color: hsl(var(--border));
-          box-shadow: 0 1px 12px rgba(0,0,0,.05);
+          border-color: hsl(var(--border) / 0.6);
+          border-radius: 14px;
+          padding-top: 0.35rem;
+          padding-bottom: 0.35rem;
+          box-shadow: 
+            0 12px 30px -10px rgba(0,0,0,.05),
+            0 1px 1px hsl(var(--primary) / 0.02);
         }
         .nav-inner {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 60px;
+          height: 48px;
         }
         .nav-logo {
           display: flex;
@@ -461,6 +658,13 @@ export default function Home() {
           height: 2.75rem;
           padding: 0 1.4rem;
           font-size: 0.9375rem;
+        }
+
+        .btn-sm {
+          height: 2.25rem;
+          padding: 0 1rem;
+          font-size: 0.8125rem;
+          border-radius: var(--radius);
         }
 
         /* ── Hero ── */
@@ -622,15 +826,7 @@ export default function Home() {
           overflow: hidden;
         }
         .feature-card {
-          background: color-mix(in srgb, hsl(var(--card)) 80%, transparent);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
           padding: 1.75rem;
-          transition: background .2s, box-shadow .2s;
-        }
-        .feature-card:hover {
-          background: hsl(var(--card));
-          box-shadow: 0 4px 24px -4px hsl(248 89% 65% / .1);
         }
         .feature-icon-wrap {
           width: 40px;
@@ -667,23 +863,16 @@ export default function Home() {
           .team-grid { grid-template-columns: 1fr; }
         }
         .team-card {
-          background: hsl(var(--card));
-          border: 1px solid hsl(var(--border));
           border-radius: 12px;
           padding: 1.25rem;
           display: flex;
           flex-direction: column;
           gap: 0.875rem;
-          transition: border-color .2s, box-shadow .2s;
         }
         .team-card-top {
           display: flex;
           align-items: center;
           gap: 0.875rem;
-        }
-        .team-card:hover {
-          border-color: hsl(var(--primary) / .35);
-          box-shadow: 0 4px 16px -4px rgba(68,41,242,.1);
         }
         .team-photo {
           width: 52px;
@@ -764,8 +953,6 @@ export default function Home() {
           .pricing-grid { grid-template-columns: 1fr; }
         }
         .pricing-card {
-          background: hsl(var(--card));
-          border: 1px solid hsl(var(--border));
           border-radius: 14px;
           padding: 2rem;
           display: flex;
@@ -773,8 +960,17 @@ export default function Home() {
           gap: 1rem;
         }
         .pricing-card-featured {
-          border-color: hsl(var(--primary) / .35);
-          box-shadow: 0 0 0 1px hsl(var(--primary) / .12), 0 8px 32px -8px rgba(68,41,242,.14);
+          border-color: hsl(var(--primary) / 0.4);
+          background: color-mix(in srgb, hsl(var(--card)) 75%, transparent);
+        }
+        .pricing-card-featured:hover {
+          border-color: hsl(var(--primary) / 0.6);
+          box-shadow: 
+            0 16px 40px -12px rgba(68,41,242,.2),
+            0 1px 2px hsl(var(--primary) / 0.1);
+        }
+        .pricing-card-featured::before {
+          background: radial-gradient(240px circle at var(--card-mouse-x, -999px) var(--card-mouse-y, -999px), hsl(var(--primary) / 0.15), transparent 80%);
         }
         .pricing-card-header {
           display: flex;
