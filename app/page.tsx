@@ -86,7 +86,7 @@ export default function Home() {
     };
     window.addEventListener("pointermove", handleMouseMove);
 
-    const cards = document.querySelectorAll(".feature-card, .pricing-card, .team-card");
+    const cards = document.querySelectorAll(".feature-card, .pricing-card, .team-card, .screenshot-wrap");
     const handleCardMouseMove = (e: MouseEvent) => {
       const card = e.currentTarget as HTMLElement;
       const rect = card.getBoundingClientRect();
@@ -184,7 +184,7 @@ export default function Home() {
         {/* Screenshot */}
         <section className="screenshot-section">
           <div className="container">
-            <div className="screenshot-wrap">
+            <a href={APP_URL} className="screenshot-wrap">
               <Image
                 src={`${BASE}/demo-light.png`}
                 alt="Synced app dashboard"
@@ -193,7 +193,10 @@ export default function Home() {
                 priority
                 className="w-full h-auto block"
               />
-            </div>
+              <div className="screenshot-tooltip">
+                Click to Launch
+              </div>
+            </a>
           </div>
         </section>
 
@@ -218,7 +221,7 @@ export default function Home() {
             <div className="section-header">
               <div className="uppercase-label">Why Synced</div>
               <h2 className="section-heading">
-                Everything an exam demands.<br />Nothing it doesn't.
+                One workspace to<br />streamline your exam prep.
               </h2>
               <p className="section-sub">
                 Regulatory examinations move fast. Synced keeps your team coordinated from day one to final response.
@@ -785,6 +788,8 @@ export default function Home() {
           padding-bottom: 0;
         }
         .screenshot-wrap {
+          display: block;
+          position: relative;
           border-radius: 14px;
           overflow: hidden;
           border: 1px solid hsl(var(--border));
@@ -792,7 +797,63 @@ export default function Home() {
             0 0 0 1px hsl(var(--border) / .5),
             0 24px 80px -16px rgba(68,41,242,.15);
           line-height: 0;
-          cursor: url('${BASE}/icon-light.png') 16 16, pointer;
+          cursor: url('${BASE}/icon-cursor.png') 16 16, pointer;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                      border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                      box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .screenshot-wrap:hover {
+          transform: translateY(-4px);
+          border-color: hsl(var(--primary) / 0.3);
+          box-shadow:
+            0 0 0 1px hsl(var(--primary) / 0.1),
+            0 32px 90px -12px rgba(68,41,242,.24);
+        }
+        .screenshot-wrap::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(600px circle at var(--card-mouse-x, -999px) var(--card-mouse-y, -999px), hsl(var(--primary) / 0.08), transparent 80%);
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          pointer-events: none;
+          z-index: 10;
+        }
+        .screenshot-wrap:hover::before {
+          opacity: 1;
+        }
+        .screenshot-wrap > * {
+          position: relative;
+          z-index: 1;
+        }
+        .screenshot-tooltip {
+          position: absolute;
+          left: var(--card-mouse-x, -999px);
+          top: calc(var(--card-mouse-y, -999px) + 24px);
+          transform: translateX(-50%);
+          background: hsl(var(--fg)/0.8);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid hsl(var(--primary) / 0.4);
+          color: #ffffff;
+          padding: 0.85rem 0.85rem;
+          border-radius: 8px;
+          font-family: inherit;
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0em;
+          text-transform: capitalize;
+          box-shadow: 
+            0 10px 24px -6px hsl(var(--primary) / 0.25),
+            0 1px 2px rgba(0, 0, 0, 0.1);
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: 100;
+          white-space: nowrap;
+        }
+        .screenshot-wrap:hover .screenshot-tooltip {
+          opacity: 1;
         }
 
         /* ── Agency strip ── */
@@ -928,7 +989,7 @@ export default function Home() {
           object-position: center top;
           border: 2px solid hsl(var(--border));
           flex-shrink: 0;
-          cursor: url('${BASE}/icon-light.png') 16 16, pointer;
+          cursor: url('${BASE}/icon-cursor.png') 16 16, pointer;
         }
         .team-info {
           flex: 1;
