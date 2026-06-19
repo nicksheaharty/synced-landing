@@ -56,14 +56,14 @@ const team = [
     name: "Aum Dhruv",
     role: "Chief Executive Officer",
     bio: "ORFE at Princeton. Built TigerMeet.org — used across Princeton, Penn, UF, and Brandeis for 10,000+ meetings. Two internships at Amazon building AR hardware. Worked at the SEC.",
-    photo: "/aum.jpeg",
+    photo: `${BASE}/aum.jpeg`,
     linkedin: "https://www.linkedin.com/in/aumdhruv/",
   },
   {
     name: "Nick Harty",
     role: "Chief Technology Officer",
     bio: "Engineering & Economics at Wharton. Shipped product inside regulated institutions. Raised $20k non-dilutive. Coordinated 400 congressional offices for the Congressional App Challenge.",
-    photo: "/nick.jpeg",
+    photo: `${BASE}/nick.jpeg`,
     linkedin: "https://www.linkedin.com/in/nicksheaharty/",
   },
 ];
@@ -125,7 +125,7 @@ export default function Home() {
           <div className="container">
             <div className="screenshot-wrap">
               <Image
-                src="/demo-light.png"
+                src={`${BASE}/demo-light.png`}
                 alt="Synced app dashboard"
                 width={1200}
                 height={720}
