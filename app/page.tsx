@@ -14,6 +14,7 @@ import {
 } from "react-icons/pi";
 
 const APP_URL = "https://app.synced.it";
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const features = [
   {
@@ -83,7 +84,7 @@ export default function Home() {
         <div className="container nav-inner">
           <a href="/" aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icon-light.png" alt="" width={26} height={26} className="nav-icon" />
+            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={26} className="nav-icon" />
             <LogoText />
           </a>
           <a href={APP_URL} className="btn-primary">
@@ -227,7 +228,7 @@ export default function Home() {
         <div className="container footer-inner">
           <a href="/" aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icon-light.png" alt="" width={20} height={20} className="nav-icon" />
+            <img src={`${BASE}/icon-light.png`} alt="" width={20} height={20} className="nav-icon" />
             <LogoText small />
           </a>
           <nav className="footer-links">
@@ -424,7 +425,7 @@ export default function Home() {
             0 0 0 1px hsl(var(--border) / .5),
             0 24px 80px -16px rgba(68,41,242,.15);
           line-height: 0;
-          cursor: url('/icon-light.png') 16 16, pointer;
+          cursor: url('${BASE}/icon-light.png') 16 16, pointer;
         }
 
         /* ── Agency strip ── */
@@ -572,7 +573,7 @@ export default function Home() {
           object-position: center top;
           border: 2px solid hsl(var(--border));
           flex-shrink: 0;
-          cursor: url('/icon-light.png') 16 16, pointer;
+          cursor: url('${BASE}/icon-light.png') 16 16, pointer;
         }
         .team-info {
           flex: 1;
