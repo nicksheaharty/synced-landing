@@ -2,17 +2,27 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nicksheaharty.github.io/synced-landing";
 
 export const metadata: Metadata = {
   title: "Synced | Coordination infrastructure for regulated meetings",
   description:
     "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Synced | Coordination infrastructure for regulated meetings",
     description:
       "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
     type: "website",
-    images: [{ url: `${base}/social-preview.png`, width: 1200, height: 630 }],
+    url: siteUrl,
+    siteName: "Synced",
+    images: [{ url: `${siteUrl}/social-preview.png`, width: 1200, height: 630, alt: "Synced" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Synced | Coordination infrastructure for regulated meetings",
+    description: "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
+    images: [`${siteUrl}/social-preview.png`],
   },
 };
 
