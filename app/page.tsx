@@ -149,13 +149,13 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-glow" />
           <div className="container hero-container">
-            <span className="eyebrow">Regulatory compliance scheduling</span>
+            <span className="eyebrow">Regulatory compliance scheduling for banks &amp; fintechs</span>
             <h1 className="hero-title">
               Exam-ready<br />
               <em className="not-italic hero-accent">from day one.</em>
             </h1>
             <p className="hero-sub">
-              Synced gives compliance teams one place to coordinate exams — scheduling, deadlines, follow-ups, and audit logs across SEC, OCC, and CFPB examinations.
+              Synced gives banks, fintechs, and partner compliance teams one place to coordinate exams — scheduling, deadlines, follow-ups, and audit logs across SEC, OCC, and CFPB examinations.
             </p>
             <div className="hero-ctas">
               <a href={APP_URL} className="btn-primary btn-lg">
@@ -167,6 +167,17 @@ export default function Home() {
               </a>
             </div>
             <p className="hero-footnote">No credit card required · Free for small teams</p>
+
+            <div className="hero-3d-wrap">
+              <Image
+                src={`${BASE}/logo3d.png`}
+                alt="Synced 3D Logo"
+                width={360}
+                height={360}
+                priority
+                className="hero-3d-img"
+              />
+            </div>
           </div>
         </section>
 
@@ -189,7 +200,7 @@ export default function Home() {
         {/* Agency strip */}
         <section id="agencies" className="agency-section">
           <div className="container">
-            <p className="uppercase-label">Built for institutions regulated by</p>
+            <p className="uppercase-label">Built for banks &amp; fintechs regulated by</p>
             <div className="agency-badges">
               {agencies.map((a) => (
                 <span key={a} className="agency-badge">
@@ -685,6 +696,41 @@ export default function Home() {
         }
         .hero-container {
           position: relative;
+        }
+        .hero-3d-wrap {
+          display: none;
+          margin-right: 2em;
+        }
+        @media (min-width: 1024px) {
+          .hero-3d-wrap {
+            display: block;
+            position: absolute;
+            top: 45%;
+            right: -20px;
+            transform: translateY(-50%);
+            width: 320px;
+            height: 320px;
+            pointer-events: none;
+            z-index: 10;
+            animation: float-3d 6s ease-in-out infinite;
+          }
+          .hero-3d-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 25px 50px rgba(68, 41, 242, 0.12));
+          }
+        }
+        @keyframes float-3d {
+          0% {
+            transform: translateY(-50%) translate3d(0, 0px, 0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-50%) translate3d(0, -15px, 0) rotate(2.5deg);
+          }
+          100% {
+            transform: translateY(-50%) translate3d(0, 0px, 0) rotate(0deg);
+          }
         }
         .eyebrow {
           display: inline-flex;
