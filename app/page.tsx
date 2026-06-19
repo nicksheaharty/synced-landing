@@ -80,9 +80,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const bgContainer = document.querySelector(".bg-container") as HTMLElement;
     const handleMouseMove = (e: PointerEvent) => {
-      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+      if (bgContainer) {
+        bgContainer.style.setProperty("--mouse-x", `${e.clientX}px`);
+        bgContainer.style.setProperty("--mouse-y", `${e.clientY}px`);
+      }
     };
     window.addEventListener("pointermove", handleMouseMove);
 
@@ -111,12 +114,14 @@ export default function Home() {
   return (
     <>
       {/* Dynamic Background Elements */}
-      <div className="bg-grid-base" />
-      <div className="bg-grid-glow" />
-      <div className="cursor-glow" />
-      <div className="ambient-blob-1" />
-      <div className="ambient-blob-2" />
-      <div className="ambient-blob-3" />
+      <div className="bg-container">
+        <div className="bg-grid-base" />
+        <div className="bg-grid-glow" />
+        <div className="cursor-glow" />
+        <div className="ambient-blob-1" />
+        <div className="ambient-blob-2" />
+        <div className="ambient-blob-3" />
+      </div>
 
       {/* Nav */}
       <nav className={`synced-nav${scrolled ? " scrolled" : ""}`}>
@@ -193,9 +198,7 @@ export default function Home() {
                 priority
                 className="w-full h-auto block"
               />
-              <div className="screenshot-tooltip">
-                Click to Launch
-              </div>
+
             </a>
           </div>
         </section>
@@ -399,8 +402,15 @@ export default function Home() {
         }
 
         /* ── Premium Interactive Background & Grids ── */
-        .bg-grid-base {
+        .bg-container {
           position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .bg-grid-base {
+          position: absolute;
           inset: 0;
           background-image: radial-gradient(hsl(248 30% 70% / 0.12) 1.2px, transparent 1.2px);
           background-size: 32px 32px;
@@ -409,7 +419,7 @@ export default function Home() {
         }
 
         .bg-grid-glow {
-          position: fixed;
+          position: absolute;
           inset: 0;
           background-image: radial-gradient(hsl(var(--primary)) 1.2px, transparent 1.2px);
           background-size: 32px 32px;
@@ -419,19 +429,25 @@ export default function Home() {
           z-index: 1;
           opacity: 0.65;
           transition: opacity 0.5s ease;
+          will-change: mask-image, -webkit-mask-image;
         }
 
         .cursor-glow {
-          position: fixed;
-          inset: 0;
-          background: radial-gradient(600px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), hsl(var(--primary) / 0.055), transparent 80%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 800px;
+          height: 800px;
+          background: radial-gradient(circle, hsl(var(--primary) / 0.055) 0%, transparent 70%);
+          transform: translate3d(calc(var(--mouse-x, -999px) - 400px), calc(var(--mouse-y, -999px) - 400px), 0);
           pointer-events: none;
           z-index: 0;
+          will-change: transform;
         }
 
         /* Ambient Animated Blobs */
         .ambient-blob-1 {
-          position: fixed;
+          position: absolute;
           top: 10%;
           left: 5%;
           width: 450px;
@@ -499,6 +515,7 @@ export default function Home() {
                       border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                       box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                       background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: transform;
         }
 
         .feature-card:hover,
@@ -826,35 +843,7 @@ export default function Home() {
           position: relative;
           z-index: 1;
         }
-        .screenshot-tooltip {
-          position: absolute;
-          left: var(--card-mouse-x, -999px);
-          top: calc(var(--card-mouse-y, -999px) + 24px);
-          transform: translateX(-50%);
-          background: hsl(var(--fg)/0.8);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid hsl(var(--primary) / 0.4);
-          color: #ffffff;
-          padding: 0.85rem 0.85rem;
-          border-radius: 8px;
-          font-family: inherit;
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 0em;
-          text-transform: capitalize;
-          box-shadow: 
-            0 10px 24px -6px hsl(var(--primary) / 0.25),
-            0 1px 2px rgba(0, 0, 0, 0.1);
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          z-index: 100;
-          white-space: nowrap;
-        }
-        .screenshot-wrap:hover .screenshot-tooltip {
-          opacity: 1;
-        }
+
 
         /* ── Agency strip ── */
         .agency-section {
