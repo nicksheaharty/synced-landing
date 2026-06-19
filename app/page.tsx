@@ -11,6 +11,8 @@ import {
   PiMonitorDuotone,
   PiArrowRightDuotone,
   PiLinkedinLogoDuotone,
+  PiBankDuotone,
+  PiMoneyWavyDuotone,
 } from "react-icons/pi";
 
 const APP_URL = "https://app.synced.it";
@@ -87,6 +89,12 @@ export default function Home() {
             <img src={`${BASE}/icon-light.png`} alt="" width={26} height={26} className="nav-icon" />
             <LogoText />
           </a>
+          <nav className="nav-links">
+            <a href="#features" className="nav-link">Features</a>
+            <a href="#agencies" className="nav-link">Compliance</a>
+            <a href="#pricing" className="nav-link">Pricing</a>
+            <a href="#team" className="nav-link">Team</a>
+          </nav>
           <a href={APP_URL} className="btn-primary">
             Try the app
           </a>
@@ -137,7 +145,7 @@ export default function Home() {
         </section>
 
         {/* Agency strip */}
-        <section className="agency-section">
+        <section id="agencies" className="agency-section">
           <div className="container">
             <p className="uppercase-label">Built for institutions regulated by</p>
             <div className="agency-badges">
@@ -152,7 +160,7 @@ export default function Home() {
         </section>
 
         {/* Features */}
-        <section className="features-section">
+        <section id="features" className="features-section">
           <div className="container">
             <div className="section-header">
               <div className="uppercase-label">Why Synced</div>
@@ -178,7 +186,7 @@ export default function Home() {
         </section>
 
         {/* Team */}
-        <section className="team-section">
+        <section id="team" className="team-section">
           <div className="container">
             <div className="section-header">
               <div className="uppercase-label">The team</div>
@@ -203,6 +211,58 @@ export default function Home() {
                   <p className="team-bio">{bio}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="section-divided py-20">
+          <div className="container">
+            <div className="section-header">
+              <div className="uppercase-label">Pricing</div>
+              <h2 className="section-heading">Built for your institution.</h2>
+              <p className="section-sub">Custom pricing based on team size and exam volume. Reach out and we'll get you set up.</p>
+            </div>
+            <div className="pricing-grid">
+
+              {/* Banks */}
+              <div className="pricing-card">
+                <div className="pricing-card-header">
+                  <div className="pricing-icon"><PiBankDuotone size={28} /></div>
+                  <div>
+                    <div className="pricing-title">Banks &amp; Credit Unions</div>
+                    <p className="pricing-sub">For institutions under OCC, Federal Reserve, or FDIC supervision.</p>
+                  </div>
+                </div>
+                <ul className="pricing-features">
+                  <li><PiCheckSquareDuotone size={16} /> Unlimited exams &amp; deadlines</li>
+                  <li><PiCheckSquareDuotone size={16} /> Full compliance audit trail</li>
+                  <li><PiCheckSquareDuotone size={16} /> Team scheduling &amp; availability</li>
+                  <li><PiCheckSquareDuotone size={16} /> Examiner follow-up tracking</li>
+                  <li><PiCheckSquareDuotone size={16} /> Google &amp; Outlook calendar sync</li>
+                  <li><PiCheckSquareDuotone size={16} /> Dedicated onboarding</li>
+                </ul>
+              </div>
+
+              {/* Fintech */}
+              <div className="pricing-card pricing-card-featured">
+                <div className="pricing-card-header">
+                  <div className="pricing-icon pricing-icon-featured"><PiMoneyWavyDuotone size={28} /></div>
+                  <div>
+                    <div className="pricing-title">Fintech &amp; Partner Banks</div>
+                    <p className="pricing-sub">For fintechs and BaaS partners navigating SEC, CFPB, or partner bank exams.</p>
+                  </div>
+                </div>
+                <ul className="pricing-features">
+                  <li><PiCheckSquareDuotone size={16} /> Everything in Banks</li>
+                  <li><PiCheckSquareDuotone size={16} /> Multi-agency exam support</li>
+                  <li><PiCheckSquareDuotone size={16} /> Cross-entity team workspaces</li>
+                  <li><PiCheckSquareDuotone size={16} /> Partner bank coordination</li>
+                  <li><PiCheckSquareDuotone size={16} /> Priority support</li>
+                  <li><PiCheckSquareDuotone size={16} /> Custom integrations</li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </section>
@@ -294,6 +354,45 @@ export default function Home() {
           text-decoration: none;
         }
         .nav-icon { border-radius: 6px; display: block; }
+        .nav-inner {
+          gap: 2rem;
+        }
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 1.75rem;
+          margin-right: auto;
+          margin-left: 2rem;
+        }
+        .nav-link {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: hsl(var(--muted-fg));
+          text-decoration: none;
+          padding-bottom: 2px;
+          position: relative;
+          transition: color .2s;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: hsl(var(--primary));
+          border-radius: 1px;
+          transition: width .25s ease;
+        }
+        .nav-link:hover {
+          color: hsl(var(--fg));
+        }
+        .nav-link:hover::after {
+          width: 100%;
+        }
+        @media (max-width: 640px) {
+          .nav-links { display: none; }
+        }
 
         /* ── Buttons ── */
         .btn-primary {
@@ -634,7 +733,81 @@ export default function Home() {
           line-height: 1.65;
         }
 
-        /* ── Footer ── */
+        /* ── Pricing ── */
+        .pricing-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+          .pricing-grid { grid-template-columns: 1fr; }
+        }
+        .pricing-card {
+          background: hsl(var(--card));
+          border: 1px solid hsl(var(--border));
+          border-radius: 14px;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .pricing-card-featured {
+          border-color: hsl(var(--primary) / .35);
+          box-shadow: 0 0 0 1px hsl(var(--primary) / .12), 0 8px 32px -8px rgba(68,41,242,.14);
+        }
+        .pricing-card-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        .pricing-icon {
+          width: 52px;
+          height: 52px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: hsl(var(--primary) / .1);
+          border-radius: 12px;
+          color: hsl(var(--primary));
+          flex-shrink: 0;
+        }
+        .pricing-icon-featured {
+          background: hsl(var(--primary) / .15);
+        }
+        .pricing-title {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 1.35rem;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          color: hsl(var(--fg));
+          margin-bottom: 0.3rem;
+        }
+        .pricing-sub {
+          font-size: 0.875rem;
+          color: hsl(var(--muted-fg));
+          line-height: 1.6;
+        }
+        .pricing-features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+          flex: 1;
+        }
+        .pricing-features li {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 0.875rem;
+          color: hsl(var(--fg));
+        }
+        .pricing-features li svg {
+          color: hsl(var(--primary));
+          flex-shrink: 0;
+        }
+/* ── Footer ── */
         .site-footer {
           border-top: 1px solid hsl(var(--border));
           padding: 2rem 0;
