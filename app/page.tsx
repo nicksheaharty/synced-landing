@@ -352,47 +352,14 @@ export default function Home() {
           </a>
           <nav className="footer-links">
             <a href="mailto:nick@storiara.com" className="footer-link">Contact</a>
-            <a href={`${APP_URL}/privacy`} className="footer-link">Privacy</a>
-            <a href={`${APP_URL}/terms`} className="footer-link">Terms</a>
+            <a href={`${BASE}/privacy/`} className="footer-link">Privacy</a>
+            <a href={`${BASE}/terms/`} className="footer-link">Terms</a>
           </nav>
           <span className="footer-copy">© 2026 Synced.it</span>
         </div>
       </footer>
 
       <style>{`
-        /* ── Tokens ── */
-        :root {
-          --bg:      248 30% 97%;
-          --fg:      248 60% 8%;
-          --card:    0 0% 100%;
-          --primary: 248 89% 55%;
-          --accent:  248 89% 65%;
-          --muted:   248 20% 93%;
-          --muted-fg:248 22% 44%;
-          --border:  248 25% 89%;
-          --radius:  0.5rem;
-        }
-
-        ::selection {
-          background: hsl(var(--primary));
-          color: hsl(248 100% 98%);
-        }
-        ::-moz-selection {
-          background: hsl(var(--primary));
-          color: hsl(248 100% 98%);
-        }
-
-        body {
-          background: hsl(var(--bg));
-          color: hsl(var(--fg));
-          background-image:
-            radial-gradient(ellipse 80% 50% at 20% -5%, hsl(248 89% 65% / .09) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 40% at 80% 10%, hsl(280 80% 65% / .06) 0%, transparent 55%),
-            radial-gradient(ellipse 50% 60% at 95% 50%, hsl(220 80% 65% / .05) 0%, transparent 60%),
-            radial-gradient(ellipse 70% 40% at 10% 80%, hsl(248 89% 65% / .06) 0%, transparent 55%);
-          background-attachment: fixed;
-          overflow-x: hidden;
-        }
 
         .container {
           width: 100%;
