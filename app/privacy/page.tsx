@@ -203,8 +203,8 @@ export default function PrivacyPolicy() {
           </a>
           <nav className="footer-links">
             <a href="mailto:nick@storiara.com" className="footer-link">Contact</a>
-            <a href={`${BASE}/privacy/`} className="footer-link">Privacy</a>
-            <a href={`${BASE}/terms/`} className="footer-link">Terms</a>
+            <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
+            <a href={`${BASE}/terms`} className="footer-link">Terms</a>
           </nav>
           <span className="footer-copy">© 2026 Synced.it</span>
         </div>
