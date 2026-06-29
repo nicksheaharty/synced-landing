@@ -16,42 +16,43 @@ import {
 } from "react-icons/pi";
 
 const APP_URL = "https://app.synced.it";
+const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const features = [
   {
-    icon: PiCalendarDuotone,
-    title: "Meeting coordination",
-    body: "Sync Google and Outlook calendars. Find team availability instantly. Schedule exam meetings in seconds.",
-  },
-  {
-    icon: PiClockDuotone,
-    title: "Deadline tracking",
-    body: "Never miss a statutory response window. Deadlines surface before they're urgent, with alerts for every exam type.",
-  },
-  {
     icon: PiScrollDuotone,
-    title: "Compliance audit trail",
-    body: "Every action timestamped and logged. Produce a complete ledger for examiners — no scrambling, no gaps.",
-  },
-  {
-    icon: PiUsersDuotone,
-    title: "Team-wide visibility",
-    body: "Compliance managers, legal counsel, audit leads — one shared workspace. Everyone sees the same picture.",
+    title: "Find information instantly",
+    body: "Search your email, files, and cloud storage without leaving your inbox. Synced pulls context from across your accounts.",
   },
   {
     icon: PiCheckSquareDuotone,
-    title: "Follow-up management",
-    body: "Track open items and document requests from examiners. Close the loop before it becomes a finding.",
+    title: "Draft and schedule automatically",
+    body: "Reply to emails, create documents, and set up meetings — all from your conversation. Just approve and send.",
+  },
+  {
+    icon: PiCalendarDuotone,
+    title: "Coordinate schedules effortlessly",
+    body: "Synced checks calendars, finds available times, and proposes meetings. No more back-and-forth scheduling.",
+  },
+  {
+    icon: PiClockDuotone,
+    title: "Manage follow-ups intelligently",
+    body: "Set reminders, track commitments, and never let a task slip through the cracks.",
+  },
+  {
+    icon: PiUsersDuotone,
+    title: "Work in one unified space",
+    body: "All your conversations, files, and tasks in one place. No more context switching between apps.",
   },
   {
     icon: PiMonitorDuotone,
-    title: "Keyboard-first UX",
-    body: "Command palette, dark mode, VS Code-style navigation. Built for people who care about how their tools feel.",
+    title: "Built for how you work",
+    body: "Command palette, shortcuts, VS Code-style navigation. Designed for people who value efficiency.",
   },
 ];
 
-const agencies = ["SEC", "OCC", "CFPB", "FDIC", "Federal Reserve", "Partner Banks"];
+const agencies = ["Gmail", "Outlook", "Slack", "Google Drive", "Dropbox", "More"];
 
 const team = [
   {
@@ -133,15 +134,14 @@ export default function Home() {
           </a>
           <nav className="nav-links">
             <a href="#features" className="nav-link">Features</a>
-            <a href="#agencies" className="nav-link">Compliance</a>
-            <a href="#pricing" className="nav-link">Pricing</a>
+            <a href="#integrations" className="nav-link">Integrations</a>
             <a href="#team" className="nav-link">Team</a>
           </nav>
           <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-            <a href="https://meet.synced.it" className="nav-link" style={{ fontSize: "0.78rem", fontWeight: 500 }}>
-              Legacy App
+            <a href={WAITLIST_URL} className="nav-link" style={{ fontSize: "0.78rem", fontWeight: 500 }}>
+              Join Waitlist
             </a>
-            <a href={APP_URL} className="btn-primary">
+            <a href={WAITLIST_URL} className="btn-primary">
               Get Started
             </a>
           </div>
@@ -154,24 +154,21 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-glow" />
           <div className="container hero-container">
-            <span className="eyebrow">Regulatory compliance scheduling for banks &amp; fintechs</span>
+            <span className="eyebrow">Your automated inbox that gets things done</span>
             <h1 className="hero-title">
-              Exam-ready<br />
-              <em className="not-italic hero-accent">from day one.</em>
+              Turn conversations into<br />
+              <em className="not-italic hero-accent">completed work.</em>
             </h1>
             <p className="hero-sub">
-              Synced gives banks, fintechs, and partner compliance teams one place to coordinate exams — scheduling, deadlines, follow-ups, and audit logs across SEC, OCC, and CFPB examinations.
+              Stop copying emails into AI, digging through files, and coordinating schedules. Synced connects to your email, messages, cloud storage, and calendar to handle the busywork for you.
             </p>
             <div className="hero-ctas">
-              <a href={APP_URL} className="btn-primary btn-lg">
-                Get started free
+              <a href={WAITLIST_URL} className="btn-primary btn-lg">
+                Join the Waitlist
                 <PiArrowRightDuotone size={18} />
               </a>
-              <a href="mailto:nick@storiara.com" className="btn-ghost btn-lg">
-                Talk to us
-              </a>
             </div>
-            <p className="hero-footnote">No credit card required · Free for small teams</p>
+            <p className="hero-footnote">Coming soon · Be first to access</p>
 
             <div className="hero-3d-wrap">
               <Image
@@ -189,7 +186,7 @@ export default function Home() {
         {/* Screenshot */}
         <section className="screenshot-section">
           <div className="container">
-            <a href={APP_URL} className="screenshot-wrap">
+            <a href={WAITLIST_URL} className="screenshot-wrap">
               <Image
                 src={`${BASE}/demo-light.png`}
                 alt="Synced app dashboard"
@@ -203,10 +200,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Agency strip */}
-        <section id="agencies" className="agency-section">
+        {/* Integrations strip */}
+        <section id="integrations" className="agency-section">
           <div className="container">
-            <p className="uppercase-label">Built for banks &amp; fintechs regulated by</p>
+            <p className="uppercase-label">Connects to your favorite tools</p>
             <div className="agency-badges">
               {agencies.map((a) => (
                 <span key={a} className="agency-badge">
@@ -222,12 +219,12 @@ export default function Home() {
         <section id="features" className="features-section">
           <div className="container">
             <div className="section-header">
-              <div className="uppercase-label">Why Synced</div>
+              <div className="uppercase-label">How Synced works</div>
               <h2 className="section-heading">
-                One workspace to<br />streamline your exam prep.
+                Email as easy as<br />texting.
               </h2>
               <p className="section-sub">
-                Regulatory examinations move fast. Synced keeps your team coordinated from day one to final response.
+                Synced learns what you need, finds the information, drafts responses, and manages follow-ups — all while asking for input only when it matters.
               </p>
             </div>
             <div className="feature-grid">
@@ -244,65 +241,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing */}
-        <section id="pricing" className="section-divided py-20">
-          <div className="container">
-            <div className="section-header">
-              <div className="uppercase-label">Pricing</div>
-              <h2 className="section-heading">Built for your institution.</h2>
-              <p className="section-sub">Custom pricing based on team size and exam volume. Reach out and we'll get you set up.</p>
-            </div>
-            <div className="pricing-grid">
-
-              {/* Banks */}
-              <div className="pricing-card">
-                <div className="pricing-card-header">
-                  <div className="pricing-icon"><PiBankDuotone size={28} /></div>
-                  <div>
-                    <div className="pricing-title">Banks &amp; Credit Unions</div>
-                    <p className="pricing-sub">For institutions under OCC, Federal Reserve, or FDIC supervision.</p>
-                  </div>
-                </div>
-                <ul className="pricing-features">
-                  <li><PiCheckSquareDuotone size={16} /> Unlimited exams &amp; deadlines</li>
-                  <li><PiCheckSquareDuotone size={16} /> Full compliance audit trail</li>
-                  <li><PiCheckSquareDuotone size={16} /> Team scheduling &amp; availability</li>
-                  <li><PiCheckSquareDuotone size={16} /> Examiner follow-up tracking</li>
-                  <li><PiCheckSquareDuotone size={16} /> Google &amp; Outlook calendar sync</li>
-                  <li><PiCheckSquareDuotone size={16} /> Dedicated onboarding</li>
-                </ul>
-              </div>
-
-              {/* Fintech */}
-              <div className="pricing-card pricing-card-featured">
-                <div className="pricing-card-header">
-                  <div className="pricing-icon pricing-icon-featured"><PiMoneyWavyDuotone size={28} /></div>
-                  <div>
-                    <div className="pricing-title">Fintech &amp; Partner Banks</div>
-                    <p className="pricing-sub">For fintechs and BaaS partners navigating SEC, CFPB, or partner bank exams.</p>
-                  </div>
-                </div>
-                <ul className="pricing-features">
-                  <li><PiCheckSquareDuotone size={16} /> Everything in Banks</li>
-                  <li><PiCheckSquareDuotone size={16} /> Multi-agency exam support</li>
-                  <li><PiCheckSquareDuotone size={16} /> Cross-entity team workspaces</li>
-                  <li><PiCheckSquareDuotone size={16} /> Partner bank coordination</li>
-                  <li><PiCheckSquareDuotone size={16} /> Priority support</li>
-                  <li><PiCheckSquareDuotone size={16} /> Custom integrations</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
         {/* Team */}
         <section id="team" className="team-section">
           <div className="container">
             <div className="section-header">
               <div className="uppercase-label">The team</div>
               <h2 className="section-heading">
-                Built by people who've seen<br />the pain firsthand.
+                Built by people who know<br />the pain of inbox overload.
               </h2>
               <p className="section-sub">Building together since middle school.</p>
             </div>
@@ -330,11 +275,11 @@ export default function Home() {
         <section className="cta-section">
           <div className="container cta-inner">
             <h2 className="cta-title">
-              Your next exam<br />starts now.
+              Make your inbox<br />work for you.
             </h2>
-            <p className="cta-sub">Join compliance teams already using Synced to run cleaner, faster examinations.</p>
-            <a href={APP_URL} className="btn-primary btn-lg">
-              Try Synced free
+            <p className="cta-sub">Join thousands ready to reclaim their time. Synced handles the busywork — you focus on what matters.</p>
+            <a href={WAITLIST_URL} className="btn-primary btn-lg">
+              Join the Waitlist
               <PiArrowRightDuotone size={18} />
             </a>
           </div>
@@ -351,7 +296,7 @@ export default function Home() {
             <LogoText small />
           </a>
           <nav className="footer-links">
-            <a href="mailto:nick@storiara.com" className="footer-link">Contact</a>
+            <a href={WAITLIST_URL} className="footer-link">Join Waitlist</a>
             <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
             <a href={`${BASE}/terms`} className="footer-link">Terms</a>
           </nav>
