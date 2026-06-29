@@ -679,13 +679,13 @@ export default function Home() {
         }
         .hero-title {
           font-family: "p22-mackinac-pro", serif;
-          font-size: clamp(2rem, 4.5vw, 3.25rem);
+          font-size: clamp(1.6rem, 3.5vw, 2.5rem);
           font-weight: 700;
           letter-spacing: -0.03em;
           line-height: 1.12;
           margin-bottom: 1.5rem;
           color: hsl(var(--fg));
-          max-width: 560px;
+          max-width: 600px;
         }
         .hero-accent {
           color: hsl(var(--primary));
