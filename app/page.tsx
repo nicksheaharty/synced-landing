@@ -138,11 +138,8 @@ export default function Home() {
             <a href="#team" className="nav-link">Team</a>
           </nav>
           <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-            <a href={WAITLIST_URL} className="nav-link" style={{ fontSize: "0.78rem", fontWeight: 500 }}>
-              Join Waitlist
-            </a>
             <a href={WAITLIST_URL} className="btn-primary">
-              Get Started
+              Join Waitlist
             </a>
           </div>
         </div>
@@ -154,7 +151,7 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-glow" />
           <div className="container hero-container">
-            <span className="eyebrow">Your automated inbox that gets things done</span>
+            <span className="eyebrow">Your Automated Inbox</span>
             <h1 className="hero-title">
               Turn conversations into<br />
               <em className="not-italic hero-accent">completed work.</em>
@@ -675,9 +672,10 @@ export default function Home() {
           color: hsl(var(--primary));
           background: hsl(var(--primary) / .08);
           border: 1px solid hsl(var(--primary) / .18);
-          padding: 0.3rem 0.75rem;
+          padding: 0.5rem 1rem;
           border-radius: 999px;
           margin-bottom: 1.5rem;
+          box-shadow: 0 2px 8px rgba(68, 41, 242, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         .hero-title {
           font-family: "p22-mackinac-pro", serif;
@@ -768,21 +766,29 @@ export default function Home() {
         .agency-badges {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 0.75rem;
           justify-content: center;
         }
         .agency-badge {
           display: inline-flex;
           align-items: center;
-          gap: 0.4rem;
-          padding: 0.3rem 0.85rem;
-          border-radius: 999px;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
           border: 1px solid hsl(var(--border));
           background: hsl(var(--card));
-          font-size: 0.75rem;
+          font-size: 0.8125rem;
           font-weight: 600;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.02em;
           color: hsl(var(--muted-fg));
+          transition: all 0.2s ease;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .agency-badge:hover {
+          border-color: hsl(var(--primary) / 0.3);
+          background: hsl(var(--primary) / 0.05);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(68, 41, 242, 0.1);
         }
         .badge-dot {
           width: 6px;
