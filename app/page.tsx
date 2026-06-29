@@ -297,7 +297,7 @@ export default function Home() {
             <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
             <a href={`${BASE}/terms`} className="footer-link">Terms</a>
           </nav>
-          <span className="footer-copy">© 2026 Synced.it</span>
+          <span className="footer-copy">© 2026 Synced</span>
         </div>
       </footer>
 
@@ -1103,7 +1103,7 @@ function LogoText({ small }: { small?: boolean }) {
         color: "hsl(var(--fg))",
       }}
     >
-      Synced<span style={{ color: "hsl(var(--primary))" }}>.</span>It
+      Synced
     </span>
   );
 }
