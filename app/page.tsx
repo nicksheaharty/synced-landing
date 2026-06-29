@@ -14,6 +14,14 @@ import {
   PiBankDuotone,
   PiMoneyWavyDuotone,
 } from "react-icons/pi";
+import {
+  SiGmail,
+  SiGooglecalendar,
+  SiSlack,
+  SiGoogledrive,
+  SiDropbox,
+  SiNotion,
+} from "react-icons/si";
 
 const APP_URL = "https://app.synced.it";
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
@@ -52,7 +60,14 @@ const features = [
   },
 ];
 
-const agencies = ["Gmail", "Outlook", "Slack", "Google Drive", "Dropbox", "More"];
+const integrations = [
+  { name: "Gmail", icon: SiGmail, color: "#EA4335" },
+  { name: "Google Calendar", icon: SiGooglecalendar, color: "#4285F4" },
+  { name: "Slack", icon: SiSlack, color: "#4A154B" },
+  { name: "Google Drive", icon: SiGoogledrive, color: "#0F9D58" },
+  { name: "Dropbox", icon: SiDropbox, color: "#0061FF" },
+  { name: "Notion", icon: SiNotion, color: "#000000" },
+];
 
 const team = [
   {
@@ -180,32 +195,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Screenshot */}
-        <section className="screenshot-section">
-          <div className="container">
-            <a href={WAITLIST_URL} className="screenshot-wrap">
-              <Image
-                src={`${BASE}/demo-light.png`}
-                alt="Synced app dashboard"
-                width={1200}
-                height={720}
-                priority
-                className="w-full h-auto block"
-              />
-
-            </a>
-          </div>
-        </section>
+        {/* Screenshot – hidden */}
 
         {/* Integrations strip */}
         <section id="integrations" className="agency-section">
           <div className="container">
             <p className="uppercase-label">Connects to your favorite tools</p>
             <div className="agency-badges">
-              {agencies.map((a) => (
-                <span key={a} className="agency-badge">
-                  <span className="badge-dot" />
-                  {a}
+              {integrations.map(({ name, icon: Icon, color }) => (
+                <span key={name} className="agency-badge">
+                  <Icon size={18} style={{ color, flexShrink: 0 }} />
+                  {name}
                 </span>
               ))}
             </div>
@@ -679,13 +679,13 @@ export default function Home() {
         }
         .hero-title {
           font-family: "p22-mackinac-pro", serif;
-          font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+          font-size: clamp(2rem, 4.5vw, 3.25rem);
           font-weight: 700;
           letter-spacing: -0.03em;
-          line-height: 1.08;
+          line-height: 1.12;
           margin-bottom: 1.5rem;
           color: hsl(var(--fg));
-          max-width: 580px;
+          max-width: 560px;
         }
         .hero-accent {
           color: hsl(var(--primary));
@@ -759,7 +759,7 @@ export default function Home() {
         .agency-section {
           padding: 3rem 0;
           border-top: 1px solid hsl(var(--border));
-          margin-top: 4rem;
+          margin-top: 5rem;
           text-align: center;
         }
         .agency-section .uppercase-label { margin-bottom: 1.25rem; }

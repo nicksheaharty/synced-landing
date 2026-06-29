@@ -5,14 +5,14 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nicksheaharty.github.io/synced-landing";
 
 export const metadata: Metadata = {
-  title: "Synced | Coordination infrastructure for regulated meetings",
+  title: "Synced | Your Automated Inbox",
   description:
-    "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
+    "Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up — all from your conversations.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Synced | Coordination infrastructure for regulated meetings",
+    title: "Synced | Your Automated Inbox",
     description:
-      "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
+      "Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting.",
     type: "website",
     url: siteUrl,
     siteName: "Synced",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Synced | Coordination infrastructure for regulated meetings",
-    description: "Bulletproof meeting coordination, statutory deadline tracking, and compliance audit trail for SEC, OCC, and CFPB exams.",
+    title: "Synced | Your Automated Inbox",
+    description: "Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting.",
     images: [`${siteUrl}/social-preview.png`],
   },
 };
