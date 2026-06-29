@@ -221,7 +221,7 @@ export default function Home() {
             <div className="section-header">
               <div className="uppercase-label">How Synced works</div>
               <h2 className="section-heading">
-                Email as easy as<br />texting.
+                Email as easy as<br />iMessage.
               </h2>
               <p className="section-sub">
                 Synced learns what you need, finds the information, drafts responses, and manages follow-ups — all while asking for input only when it matters.
