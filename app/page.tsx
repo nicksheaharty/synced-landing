@@ -168,8 +168,8 @@ export default function Home() {
           <div className="container hero-container">
             <span className="eyebrow">Your Automated Inbox</span>
             <h1 className="hero-title">
-              Turn conversations into<br />
-              <em className="not-italic hero-accent">completed work.</em>
+              <span className="hero-title-line">Turn conversations into</span>
+              <span className="hero-title-line hero-accent">completed work.</span>
             </h1>
             <p className="hero-sub">
               Stop copying emails into AI, digging through files, and coordinating schedules. Synced connects to your email, messages, cloud storage, and calendar to handle the busywork for you.
@@ -679,13 +679,17 @@ export default function Home() {
         }
         .hero-title {
           font-family: "p22-mackinac-pro", serif;
-          font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+          font-size: clamp(2rem, 5.5vw, 3.5rem);
           font-weight: 700;
           letter-spacing: -0.03em;
-          line-height: 1.12;
+          line-height: 1.15;
           margin-bottom: 1.5rem;
           color: hsl(var(--fg));
-          max-width: 600px;
+          max-width: 800px;
+        }
+        .hero-title-line {
+          display: block;
+          white-space: nowrap;
         }
         .hero-accent {
           color: hsl(var(--primary));
