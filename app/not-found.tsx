@@ -1,8 +1,36 @@
-1:"$Sreact.fragment"
-3:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-:HL["/icon-light.png","image"]
-2:T6b0,
+import Link from "next/link";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
+
+export default function NotFound() {
+  return (
+    <>
+      <div className="bg-container">
+        <div className="bg-grid-base" />
+        <div className="ambient-blob-1" />
+        <div className="ambient-blob-2" />
+      </div>
+
+      <main className="nf-main">
+        <a href={`${BASE}/`} className="nf-logo" aria-label="Synced home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${BASE}/icon-light.png`} alt="" width={28} height={28} style={{ borderRadius: 6 }} />
+          <span className="nf-brand">Synced</span>
+        </a>
+
+        <div className="nf-body">
+          <span className="nf-code">404</span>
+          <h1 className="nf-title">Page not found</h1>
+          <p className="nf-sub">This page doesn't exist — or it moved.</p>
+          <div className="nf-actions">
+            <a href={`${BASE}/`} className="btn-primary">Go home</a>
+            <a href={WAITLIST_URL} className="btn-ghost">Join the waitlist</a>
+          </div>
+        </div>
+      </main>
+
+      <style>{`
         .nf-main {
           position: relative;
           z-index: 2;
@@ -73,5 +101,7 @@
           flex-wrap: wrap;
           justify-content: center;
         }
-      0:{"rsc":["$","$1","c",{"children":[[["$","div",null,{"className":"bg-container","children":[["$","div",null,{"className":"bg-grid-base"}],["$","div",null,{"className":"ambient-blob-1"}],["$","div",null,{"className":"ambient-blob-2"}]]}],["$","main",null,{"className":"nf-main","children":[["$","a",null,{"href":"/","className":"nf-logo","aria-label":"Synced home","children":[["$","img",null,{"src":"/icon-light.png","alt":"","width":28,"height":28,"style":{"borderRadius":6}}],["$","span",null,{"className":"nf-brand","children":"Synced"}]]}],["$","div",null,{"className":"nf-body","children":[["$","span",null,{"className":"nf-code","children":"404"}],["$","h1",null,{"className":"nf-title","children":"Page not found"}],["$","p",null,{"className":"nf-sub","children":"This page doesn't exist — or it moved."}],["$","div",null,{"className":"nf-actions","children":[["$","a",null,{"href":"/","className":"btn-primary","children":"Go home"}],["$","a",null,{"href":"https://forms.gle/g64ZQ3Wy7hhp1M6X7","className":"btn-ghost","children":"Join the waitlist"}]]}]]}]]}],["$","style",null,{"children":"$2"}]],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"b9nmuoH033jchoti9TmZS"}
-5:null
+      `}</style>
+    </>
+  );
+}

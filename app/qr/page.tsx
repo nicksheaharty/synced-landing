@@ -20,7 +20,7 @@ export default function QRPage() {
             value={WAITLIST_URL}
             size={280}
             bgColor="transparent"
-            fgColor="#ffffff"
+            fgColor="#3d22e8"
             level="M"
             includeMargin={false}
           />
@@ -30,13 +30,17 @@ export default function QRPage() {
       </main>
 
       <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { color-scheme: light only; }
 
-        html, body { height: 100%; }
+        html, body {
+          height: 100%;
+          background: #f5f4fc !important;
+          color: #0f0b2e !important;
+        }
 
         .qr-main {
           min-height: 100dvh;
-          background: #0a0a0f;
+          background: #f5f4fc;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -61,7 +65,7 @@ export default function QRPage() {
           font-size: 1.6rem;
           font-weight: 700;
           letter-spacing: -0.01em;
-          color: #ffffff;
+          color: #0f0b2e;
         }
 
         .qr-wrap {
@@ -71,7 +75,7 @@ export default function QRPage() {
         .qr-label {
           font-size: 0.95rem;
           font-weight: 500;
-          color: rgba(255, 255, 255, 0.45);
+          color: #6b6490;
           letter-spacing: 0.02em;
         }
       `}</style>
