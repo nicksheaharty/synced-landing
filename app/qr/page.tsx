@@ -26,7 +26,7 @@ export default function QRPage() {
           />
         </div>
 
-        <p className="qr-label">Scan to join the waitlist</p>
+        <p className="qr-label">Scan to get early access</p>
       </main>
 
       <style>{`
