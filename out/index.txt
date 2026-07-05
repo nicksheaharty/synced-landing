@@ -1,18 +1,94 @@
 1:"$Sreact.fragment"
 2:I[39756,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 3:I[37457,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
-4:I[47257,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"ClientPageRoot"]
-5:I[31713,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js","/_next/static/chunks/2as3x08tvmog-.js"],"default"]
-8:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-b:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"ViewportBoundary"]
-d:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"MetadataBoundary"]
-f:I[68027,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"default",1]
+5:I[47257,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"ClientPageRoot"]
+6:I[31713,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js","/_next/static/chunks/2as3x08tvmog-.js"],"default"]
+c:I[68027,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"default",1]
 :HL["/_next/static/chunks/2oqt4jl_gxtgq.css","style"]
 :HL["https://use.typekit.net/pxn1uhe.css","style"]
-0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1d4h-sglyo8ft.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"h-full antialiased","style":{"colorScheme":"light"},"children":[["$","head",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://use.typekit.net/pxn1uhe.css"}],["$","link",null,{"rel":"icon","href":"/favicon-light.png","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"icon","href":"/favicon-dark.png","media":"(prefers-color-scheme: dark)"}]]}],["$","body",null,{"className":"min-h-full flex flex-col","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[["$","$L4",null,{"Component":"$5","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@6","$@7"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/2as3x08tvmog-.js","async":true,"nonce":"$undefined"}]],["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]]}],{},null,false,null]},null,false,null],["$","$1","h",{"children":[null,["$","$Lb",null,{"children":"$Lc"}],["$","div",null,{"hidden":true,"children":["$","$Ld",null,{"children":["$","$9",null,{"name":"Next.Metadata","children":"$Le"}]}]}],null]}],false]],"m":"$undefined","G":["$f",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"2abVsNf-CQ36h-bqU2ewV"}
-6:{}
-7:"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params"
-c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-a:null
-e:[["$","title","0",{"children":"Synced | Your Automated Inbox"}],["$","meta","1",{"name":"description","content":"Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up — all from your conversations."}],["$","meta","2",{"property":"og:title","content":"Synced | Your Automated Inbox"}],["$","meta","3",{"property":"og:description","content":"Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting."}],["$","meta","4",{"property":"og:url","content":"https://synced.it"}],["$","meta","5",{"property":"og:site_name","content":"Synced"}],["$","meta","6",{"property":"og:image","content":"https://synced.it/social-preview.png"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"property":"og:image:alt","content":"Synced"}],["$","meta","10",{"property":"og:type","content":"website"}],["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","12",{"name":"twitter:title","content":"Synced | Your Automated Inbox"}],["$","meta","13",{"name":"twitter:description","content":"Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting."}],["$","meta","14",{"name":"twitter:image","content":"https://synced.it/social-preview.png"}]]
+:HL["/icon-light.png","image"]
+4:T6b0,
+        .nf-main {
+          position: relative;
+          z-index: 2;
+          min-height: 100dvh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 4rem;
+          padding: 2rem;
+          text-align: center;
+        }
+
+        .nf-logo {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          text-decoration: none;
+          position: absolute;
+          top: 1.5rem;
+          left: 2rem;
+        }
+
+        .nf-brand {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          color: hsl(var(--fg));
+        }
+
+        .nf-body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .nf-code {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(5rem, 18vw, 9rem);
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          line-height: 1;
+          color: hsl(var(--primary) / 0.15);
+          user-select: none;
+        }
+
+        .nf-title {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(1.5rem, 4vw, 2.25rem);
+          font-weight: 700;
+          letter-spacing: -0.025em;
+          color: hsl(var(--fg));
+          margin: 0;
+        }
+
+        .nf-sub {
+          font-size: 1rem;
+          color: hsl(var(--muted-fg));
+          margin: 0;
+        }
+
+        .nf-actions {
+          display: flex;
+          gap: 0.75rem;
+          margin-top: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1d4h-sglyo8ft.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"h-full antialiased","style":{"colorScheme":"light"},"children":[["$","head",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://use.typekit.net/pxn1uhe.css"}],["$","link",null,{"rel":"icon","href":"/favicon-light.png","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"icon","href":"/favicon-dark.png","media":"(prefers-color-scheme: dark)"}]]}],["$","body",null,{"className":"min-h-full flex flex-col","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","div",null,{"className":"bg-container","children":[["$","div",null,{"className":"bg-grid-base"}],["$","div",null,{"className":"ambient-blob-1"}],["$","div",null,{"className":"ambient-blob-2"}]]}],["$","main",null,{"className":"nf-main","children":[["$","a",null,{"href":"/","className":"nf-logo","aria-label":"Synced home","children":[["$","img",null,{"src":"/icon-light.png","alt":"","width":28,"height":28,"style":{"borderRadius":6}}],["$","span",null,{"className":"nf-brand","children":"Synced"}]]}],["$","div",null,{"className":"nf-body","children":[["$","span",null,{"className":"nf-code","children":"404"}],["$","h1",null,{"className":"nf-title","children":"Page not found"}],["$","p",null,{"className":"nf-sub","children":"This page doesn't exist — or it moved."}],["$","div",null,{"className":"nf-actions","children":[["$","a",null,{"href":"/","className":"btn-primary","children":"Go home"}],["$","a",null,{"href":"https://forms.gle/g64ZQ3Wy7hhp1M6X7","className":"btn-ghost","children":"Join the waitlist"}]]}]]}]]}],["$","style",null,{"children":"$4"}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[["$","$L5",null,{"Component":"$6","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@7","$@8"]}}],["$L9"],"$La"]}],{},null,false,null]},null,false,null],"$Lb",false]],"m":"$undefined","G":["$c",["$Ld"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"b9nmuoH033jchoti9TmZS"}
+e:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"ViewportBoundary"]
+13:I[97367,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"MetadataBoundary"]
+9:["$","script","script-0",{"src":"/_next/static/chunks/2as3x08tvmog-.js","async":true,"nonce":"$undefined"}]
+a:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+b:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}]
+d:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+7:{}
+8:"$0:f:0:1:1:children:0:props:children:0:props:serverProvidedParams:params"
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+10:null
+14:[["$","title","0",{"children":"Synced | Your Automated Inbox"}],["$","meta","1",{"name":"description","content":"Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up — all from your conversations."}],["$","meta","2",{"property":"og:title","content":"Synced | Your Automated Inbox"}],["$","meta","3",{"property":"og:description","content":"Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting."}],["$","meta","4",{"property":"og:url","content":"https://synced.it"}],["$","meta","5",{"property":"og:site_name","content":"Synced"}],["$","meta","6",{"property":"og:image","content":"https://synced.it/social-preview.png"}],["$","meta","7",{"property":"og:image:width","content":"1200"}],["$","meta","8",{"property":"og:image:height","content":"630"}],["$","meta","9",{"property":"og:image:alt","content":"Synced"}],["$","meta","10",{"property":"og:type","content":"website"}],["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","12",{"name":"twitter:title","content":"Synced | Your Automated Inbox"}],["$","meta","13",{"name":"twitter:description","content":"Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting."}],["$","meta","14",{"name":"twitter:image","content":"https://synced.it/social-preview.png"}]]

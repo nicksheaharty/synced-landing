@@ -3,4 +3,76 @@
 3:I[37457,["/_next/static/chunks/1d4h-sglyo8ft.js","/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 :HL["/_next/static/chunks/2oqt4jl_gxtgq.css","style"]
 :HL["https://use.typekit.net/pxn1uhe.css","style"]
-0:{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1d4h-sglyo8ft.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/14mumt5_n0xhi.js","async":true}]],["$","html",null,{"lang":"en","className":"h-full antialiased","style":{"colorScheme":"light"},"children":[["$","head",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://use.typekit.net/pxn1uhe.css"}],["$","link",null,{"rel":"icon","href":"/favicon-light.png","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"icon","href":"/favicon-dark.png","media":"(prefers-color-scheme: dark)"}]]}],["$","body",null,{"className":"min-h-full flex flex-col","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"2abVsNf-CQ36h-bqU2ewV"}
+:HL["/icon-light.png","image"]
+4:T6b0,
+        .nf-main {
+          position: relative;
+          z-index: 2;
+          min-height: 100dvh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 4rem;
+          padding: 2rem;
+          text-align: center;
+        }
+
+        .nf-logo {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          text-decoration: none;
+          position: absolute;
+          top: 1.5rem;
+          left: 2rem;
+        }
+
+        .nf-brand {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          color: hsl(var(--fg));
+        }
+
+        .nf-body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .nf-code {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(5rem, 18vw, 9rem);
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          line-height: 1;
+          color: hsl(var(--primary) / 0.15);
+          user-select: none;
+        }
+
+        .nf-title {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(1.5rem, 4vw, 2.25rem);
+          font-weight: 700;
+          letter-spacing: -0.025em;
+          color: hsl(var(--fg));
+          margin: 0;
+        }
+
+        .nf-sub {
+          font-size: 1rem;
+          color: hsl(var(--muted-fg));
+          margin: 0;
+        }
+
+        .nf-actions {
+          display: flex;
+          gap: 0.75rem;
+          margin-top: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      0:{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2oqt4jl_gxtgq.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1d4h-sglyo8ft.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/14mumt5_n0xhi.js","async":true}]],["$","html",null,{"lang":"en","className":"h-full antialiased","style":{"colorScheme":"light"},"children":[["$","head",null,{"children":[["$","link",null,{"rel":"stylesheet","href":"https://use.typekit.net/pxn1uhe.css"}],["$","link",null,{"rel":"icon","href":"/favicon-light.png","media":"(prefers-color-scheme: light)"}],["$","link",null,{"rel":"icon","href":"/favicon-dark.png","media":"(prefers-color-scheme: dark)"}]]}],["$","body",null,{"className":"min-h-full flex flex-col","children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","div",null,{"className":"bg-container","children":[["$","div",null,{"className":"bg-grid-base"}],["$","div",null,{"className":"ambient-blob-1"}],["$","div",null,{"className":"ambient-blob-2"}]]}],["$","main",null,{"className":"nf-main","children":[["$","a",null,{"href":"/","className":"nf-logo","aria-label":"Synced home","children":[["$","img",null,{"src":"/icon-light.png","alt":"","width":28,"height":28,"style":{"borderRadius":6}}],["$","span",null,{"className":"nf-brand","children":"Synced"}]]}],["$","div",null,{"className":"nf-body","children":[["$","span",null,{"className":"nf-code","children":"404"}],["$","h1",null,{"className":"nf-title","children":"Page not found"}],["$","p",null,{"className":"nf-sub","children":"This page doesn't exist — or it moved."}],["$","div",null,{"className":"nf-actions","children":[["$","a",null,{"href":"/","className":"btn-primary","children":"Go home"}],["$","a",null,{"href":"https://forms.gle/g64ZQ3Wy7hhp1M6X7","className":"btn-ghost","children":"Join the waitlist"}]]}]]}]]}],["$","style",null,{"children":"$4"}]],[]]}]}]]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"b9nmuoH033jchoti9TmZS"}
