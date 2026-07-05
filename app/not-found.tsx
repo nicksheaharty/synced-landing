@@ -25,7 +25,7 @@ export default function NotFound() {
           <p className="nf-sub">This page doesn't exist — or it moved.</p>
           <div className="nf-actions">
             <a href={`${BASE}/`} className="btn-primary">Go home</a>
-            <a href={WAITLIST_URL} className="btn-ghost">Join the waitlist</a>
+            <a href={WAITLIST_URL} className="btn-ghost">Get Early Access</a>
           </div>
         </div>
       </main>

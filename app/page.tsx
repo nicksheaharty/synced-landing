@@ -154,7 +154,7 @@ export default function Home() {
           </nav>
           <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
             <a href={WAITLIST_URL} className="btn-primary">
-              Join Waitlist
+              Get Early Access
             </a>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function Home() {
             </p>
             <div className="hero-ctas">
               <a href={WAITLIST_URL} className="btn-primary btn-lg">
-                Join the Waitlist
+                Get Early Access
                 <PiArrowRightDuotone size={18} />
               </a>
             </div>
@@ -276,7 +276,7 @@ export default function Home() {
             </h2>
             <p className="cta-sub">Join thousands ready to reclaim their time. Synced handles the busywork — you focus on what matters.</p>
             <a href={WAITLIST_URL} className="btn-primary btn-lg">
-              Join the Waitlist
+              Get Early Access
               <PiArrowRightDuotone size={18} />
             </a>
           </div>
@@ -293,7 +293,7 @@ export default function Home() {
             <LogoText small />
           </a>
           <nav className="footer-links">
-            <a href={WAITLIST_URL} className="footer-link">Join Waitlist</a>
+            <a href={WAITLIST_URL} className="footer-link">Get Early Access</a>
             <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
             <a href={`${BASE}/terms`} className="footer-link">Terms</a>
           </nav>
