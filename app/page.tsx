@@ -13,6 +13,10 @@ import {
   PiLinkedinLogoDuotone,
   PiBankDuotone,
   PiMoneyWavyDuotone,
+  PiEnvelopeSimpleDuotone,
+  PiChatCircleDuotone,
+  PiCheckBold,
+  PiCaretDownBold,
 } from "react-icons/pi";
 import {
   SiGmail,
@@ -85,6 +89,166 @@ const team = [
     linkedin: "https://www.linkedin.com/in/nicksheaharty/",
   },
 ];
+
+const APP_COLORS = {
+  primary: "#4429F2",
+  background: "#EDEAF8",
+  surface: "#000000",
+  card: "#FFFFFF",
+  cardBorder: "rgba(0, 0, 0, 0.08)",
+  bubbleIn: "#E5E5EA",
+  muted: "rgba(0, 0, 0, 0.4)",
+  separator: "rgba(0, 0, 0, 0.1)",
+  actionBg: "rgba(68, 41, 242, 0.10)",
+};
+const BUBBLE_BLUE = "#007AFF";
+const SOURCE_COLORS: Record<string, string> = { gmail: "#EA4335", imessage: "#30D158" };
+const SOURCE_ICON: Record<string, typeof PiEnvelopeSimpleDuotone> = {
+  gmail: PiEnvelopeSimpleDuotone,
+  imessage: PiChatCircleDuotone,
+};
+const SOURCE_LABEL: Record<string, string> = { gmail: "Gmail", imessage: "iMessage" };
+
+const BOSS_CARD = {
+  id: "boss",
+  name: "Gary (your boss)",
+  source: "gmail" as const,
+  time: "11:58 PM",
+  inbound: "quick thing before tomorrow's 8am — need this \"ASAP\" 🙏🙏🙏",
+  tasksTotal: 4,
+  tasks: [
+    "Decode what \"quick thing\" actually means",
+    "Rebuild the deck Gary deleted by accident",
+    "Pretend the 11:58 PM email was totally normal",
+    "Draft a reply that hides how annoyed you are",
+  ],
+  fileOn: 1,
+  file: "Deck_FINAL_v7_ForRealThisTime.pptx",
+};
+
+const IMESSAGE_THREAD = {
+  id: "mom",
+  name: "Mom",
+  source: "imessage" as const,
+  time: "Just now",
+  messages: [
+    { from: "them", text: "did you get my email about thanksgiving" },
+    { from: "me", text: "yep — added it to the calendar and told everyone to bring a side, no ambush green bean casserole this year" },
+  ],
+};
+
+function IMessageThreadCard({ t }: { t: typeof IMESSAGE_THREAD }) {
+  const c = APP_COLORS;
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      {t.messages.map((m, i) => {
+        const outbound = m.from === "me";
+        return (
+          <div key={i} style={{ display: "flex", justifyContent: outbound ? "flex-end" : "flex-start" }}>
+            <div
+              style={{
+                maxWidth: "85%",
+                padding: "10px 14px",
+                fontSize: 14,
+                lineHeight: 1.45,
+                background: outbound ? BUBBLE_BLUE : c.bubbleIn,
+                color: outbound ? "#fff" : c.surface,
+                borderRadius: 18,
+                borderTopLeftRadius: outbound ? 18 : 4,
+                borderTopRightRadius: outbound ? 4 : 18,
+              }}
+            >
+              {m.text}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function AppMessageCard({ p }: { p: typeof BOSS_CARD }) {
+  const [expanded, setExpanded] = useState(true);
+  const c = APP_COLORS;
+  const srcColor = SOURCE_COLORS[p.source];
+  const SourceIcon = SOURCE_ICON[p.source];
+  const { tasks, tasksTotal, inbound, fileOn, file } = p;
+
+  return (
+    <div className="app-message-card" style={{ background: c.card, border: `1px solid ${c.cardBorder}` }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "14px 14px 12px" }}>
+        <div style={{ width: 36, height: 36, borderRadius: 18, background: srcColor, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#fff", fontSize: 15, fontWeight: 700 }}>
+          {p.name.charAt(0)}
+        </div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: c.surface, marginBottom: 3 }}>{p.name}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, background: srcColor + "20", padding: "3px 7px", borderRadius: 6 }}>
+              <SourceIcon size={12} style={{ color: srcColor }} />
+              <span style={{ fontSize: 11, fontWeight: 600, color: srcColor }}>{SOURCE_LABEL[p.source]}</span>
+            </span>
+            <span style={{ fontSize: 11, color: c.muted }}>{p.time}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ padding: "0 14px 14px" }}>
+        <div
+          style={{
+            maxWidth: "85%",
+            padding: "10px 14px",
+            fontSize: 14,
+            lineHeight: 1.45,
+            background: c.bubbleIn,
+            color: c.surface,
+            borderRadius: 18,
+            borderTopLeftRadius: 4,
+          }}
+        >
+          {inbound}
+        </div>
+      </div>
+
+      <div style={{ height: 1, background: c.separator, margin: "0 14px" }} />
+
+      <div style={{ padding: "12px 14px 14px" }}>
+        <div
+          onClick={() => setExpanded(!expanded)}
+          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }}
+        >
+          <span style={{ fontSize: 13, fontWeight: 600, color: c.primary }}>
+            {tasksTotal} Task{tasksTotal === 1 ? "" : "s"} Completed
+          </span>
+          <PiCaretDownBold size={14} style={{ color: c.primary, transform: expanded ? "rotate(180deg)" : "none", transition: "transform .2s" }} />
+        </div>
+        {expanded ? (
+          <div style={{ marginTop: 12 }}>
+            {tasks.map((t, i) => (
+              <div key={t} style={{ display: "flex", gap: 0, position: "relative", paddingBottom: i === tasks.length - 1 ? 0 : 16 }}>
+                <div style={{ position: "relative", width: 22, flexShrink: 0 }}>
+                  <div style={{ width: 22, height: 22, borderRadius: 11, background: c.actionBg, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 2 }}>
+                    <PiCheckBold size={11} style={{ color: c.primary }} />
+                  </div>
+                  {i < tasks.length - 1 ? (
+                    <div style={{ position: "absolute", top: 22, bottom: -16, left: 10.5, width: 1.5, background: c.separator }} />
+                  ) : null}
+                </div>
+                <div style={{ flex: 1, paddingLeft: 10 }}>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: c.surface }}>{t}</div>
+                  {i === fileOn ? (
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 4, marginTop: 6, background: "rgba(0,0,0,0.06)", padding: "4px 8px", borderRadius: 6 }}>
+                      <span style={{ fontSize: 11, color: c.muted }}>{file}</span>
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -195,7 +359,24 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Screenshot – hidden */}
+        {/* App showcase — a real MessageCard from the product, dropped into the marketing page */}
+        <section className="app-showcase-section">
+          <div className="container app-showcase-inner">
+            <div className="app-showcase-copy">
+              <div className="uppercase-label">Inside Synced</div>
+              <h2 className="section-heading">
+                Even your worst<br />senders get handled.
+              </h2>
+              <p className="section-sub">
+                An 11:58 PM &quot;quick thing&quot; from your boss becomes a rebuilt deck and
+                a diplomatic reply — before you&apos;ve even opened your laptop.
+              </p>
+            </div>
+            <div className="app-showcase-card-wrap">
+              <AppMessageCard p={BOSS_CARD} />
+            </div>
+          </div>
+        </section>
 
         {/* Integrations strip */}
         <section id="integrations" className="agency-section">
@@ -215,14 +396,19 @@ export default function Home() {
         {/* Features */}
         <section id="features" className="features-section">
           <div className="container">
-            <div className="section-header">
-              <div className="uppercase-label">How Synced works</div>
-              <h2 className="section-heading">
-                Email as easy as<br />iMessage.
-              </h2>
-              <p className="section-sub">
-                Synced learns what you need, finds the information, drafts responses, and manages follow-ups — all while asking for input only when it matters.
-              </p>
+            <div className="section-header features-header">
+              <div className="section-header-copy">
+                <div className="uppercase-label">How Synced works</div>
+                <h2 className="section-heading">
+                  Email as easy as<br />iMessage.
+                </h2>
+                <p className="section-sub">
+                  Synced learns what you need, finds the information, drafts responses, and manages follow-ups — all while asking for input only when it matters.
+                </p>
+              </div>
+              <div className="features-header-card">
+                <IMessageThreadCard t={IMESSAGE_THREAD} />
+              </div>
             </div>
             <div className="feature-grid">
               {features.map(({ icon: Icon, title, body }) => (
@@ -759,11 +945,58 @@ export default function Home() {
         }
 
 
+        /* ── App showcase ── */
+        .app-showcase-section {
+          padding: 5rem 0 2rem;
+        }
+        .app-showcase-inner {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          gap: 3rem;
+        }
+        .app-showcase-copy {
+          max-width: 420px;
+        }
+        .app-showcase-card-wrap {
+          width: 340px;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .app-showcase-card-wrap:hover {
+          transform: translateY(-4px);
+        }
+        .app-message-card {
+          border-radius: 20px;
+          overflow: hidden;
+          font-family: var(--font-sans, inherit);
+          box-shadow:
+            0 0 0 1px hsl(var(--border) / .5),
+            0 24px 70px -20px rgba(68, 41, 242, 0.22);
+        }
+        @media (max-width: 900px) {
+          .app-showcase-inner {
+            grid-template-columns: 1fr;
+            justify-items: center;
+            text-align: center;
+            gap: 2.5rem;
+          }
+          .app-showcase-copy {
+            max-width: 480px;
+          }
+          .app-showcase-card-wrap {
+            width: 100%;
+            max-width: 380px;
+          }
+          .section-sub {
+            margin-inline: auto;
+          }
+        }
+
         /* ── Agency strip ── */
         .agency-section {
           padding: 3rem 0;
           border-top: 1px solid hsl(var(--border));
-          margin-top: 5rem;
+          margin-top: 1.5rem;
           text-align: center;
         }
         .agency-section .uppercase-label { margin-bottom: 1.25rem; }
@@ -809,6 +1042,27 @@ export default function Home() {
           border-top: 1px solid hsl(var(--border));
         }
         .section-header { margin-bottom: 3rem; }
+        .features-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 3rem;
+        }
+        .section-header-copy { flex: 1; min-width: 0; }
+        .features-header-card {
+          width: 300px;
+          flex-shrink: 0;
+        }
+        @media (max-width: 900px) {
+          .features-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .features-header-card {
+            width: 100%;
+            max-width: 360px;
+          }
+        }
         .uppercase-label {
           font-size: 0.72rem;
           font-weight: 700;
