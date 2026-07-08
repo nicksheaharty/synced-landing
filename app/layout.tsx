@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nicksheaharty.githu
 export const metadata: Metadata = {
   title: "Synced | Your Automated Inbox",
   description:
-    "Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up — all from your conversations.",
+    "Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up, all from your conversations.",
   metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Synced | Your Automated Inbox",
