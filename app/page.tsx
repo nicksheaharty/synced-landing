@@ -40,7 +40,7 @@ const features = [
   {
     icon: PiCheckSquareDuotone,
     title: "Draft and schedule automatically",
-    body: "Reply to emails, create documents, and set up meetings — all from your conversation. Just approve and send.",
+    body: "Reply to emails, create documents, and set up meetings, all from your conversation. Just approve and send.",
   },
   {
     icon: PiCalendarDuotone,
@@ -77,7 +77,7 @@ const team = [
   {
     name: "Aum Dhruv",
     role: "Chief Executive Officer",
-    bio: "ORFE at Princeton. Built TigerMeet.org — used across Princeton, Penn, UF, and Brandeis for 10,000+ meetings. Two internships at Amazon building AR hardware. Worked at the SEC.",
+    bio: "ORFE at Princeton. Built TigerMeet.org, used across Princeton, Penn, UF, and Brandeis for 10,000+ meetings. Two internships at Amazon building AR hardware. Worked at the SEC.",
     photo: `${BASE}/aum.jpeg`,
     linkedin: "https://www.linkedin.com/in/aumdhruv/",
   },
@@ -114,7 +114,7 @@ const BOSS_CARD = {
   name: "Gary (your boss)",
   source: "gmail" as const,
   time: "11:58 PM",
-  inbound: "quick thing before tomorrow's 8am — need this \"ASAP\" 🙏🙏🙏",
+  inbound: "quick thing before tomorrow's 8am, need this \"ASAP\" 🙏🙏🙏",
   tasksTotal: 4,
   tasks: [
     "Decode what \"quick thing\" actually means",
@@ -133,7 +133,7 @@ const IMESSAGE_THREAD = {
   time: "Just now",
   messages: [
     { from: "them", text: "did you get my email about thanksgiving" },
-    { from: "me", text: "yep — added it to the calendar and told everyone to bring a side, no ambush green bean casserole this year" },
+    { from: "me", text: "yep, added it to the calendar and told everyone to bring a side, no ambush green bean casserole this year" },
   ],
 };
 
@@ -359,7 +359,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* App showcase — a real MessageCard from the product, dropped into the marketing page */}
+        {/* App showcase: a real MessageCard from the product, dropped into the marketing page */}
         <section className="app-showcase-section">
           <div className="container app-showcase-inner">
             <div className="app-showcase-copy">
@@ -369,7 +369,7 @@ export default function Home() {
               </h2>
               <p className="section-sub">
                 An 11:58 PM &quot;quick thing&quot; from your boss becomes a rebuilt deck and
-                a diplomatic reply — before you&apos;ve even opened your laptop.
+                a diplomatic reply, before you&apos;ve even opened your laptop.
               </p>
             </div>
             <div className="app-showcase-card-wrap">
@@ -403,7 +403,7 @@ export default function Home() {
                   Email as easy as<br />iMessage.
                 </h2>
                 <p className="section-sub">
-                  Synced learns what you need, finds the information, drafts responses, and manages follow-ups — all while asking for input only when it matters.
+                  Synced learns what you need, finds the information, drafts responses, and manages follow-ups, all while asking for input only when it matters.
                 </p>
               </div>
               <div className="features-header-card">
@@ -460,7 +460,7 @@ export default function Home() {
             <h2 className="cta-title">
               Make your inbox<br />work for you.
             </h2>
-            <p className="cta-sub">Join thousands ready to reclaim their time. Synced handles the busywork — you focus on what matters.</p>
+            <p className="cta-sub">Join thousands ready to reclaim their time. Synced handles the busywork, you focus on what matters.</p>
             <a href={WAITLIST_URL} className="btn-primary btn-lg">
               Get Early Access
               <PiArrowRightDuotone size={18} />
