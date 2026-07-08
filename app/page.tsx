@@ -25,7 +25,9 @@ import {
   SiGoogledrive,
   SiDropbox,
   SiNotion,
+  SiWhatsapp,
 } from "react-icons/si";
+import { PiMicrosoftOutlookLogoDuotone } from "react-icons/pi";
 
 const APP_URL = "https://app.synced.it";
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
@@ -66,8 +68,10 @@ const features = [
 
 const integrations = [
   { name: "Gmail", icon: SiGmail, color: "#EA4335" },
+  { name: "Outlook", icon: PiMicrosoftOutlookLogoDuotone, color: "#0078D4" },
   { name: "Google Calendar", icon: SiGooglecalendar, color: "#4285F4" },
   { name: "Slack", icon: SiSlack, color: "#4A154B" },
+  { name: "WhatsApp", icon: SiWhatsapp, color: "#25D366" },
   { name: "Google Drive", icon: SiGoogledrive, color: "#0F9D58" },
   { name: "Dropbox", icon: SiDropbox, color: "#0061FF" },
   { name: "Notion", icon: SiNotion, color: "#000000" },
