@@ -969,6 +969,7 @@ export default function Home() {
           border-radius: 20px;
           overflow: hidden;
           font-family: var(--font-sans, inherit);
+          text-align: left;
           box-shadow:
             0 0 0 1px hsl(var(--border) / .5),
             0 24px 70px -20px rgba(68, 41, 242, 0.22);
