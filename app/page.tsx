@@ -133,10 +133,9 @@ const BOSS_CARD = {
 const IMESSAGE_THREAD = {
   id: "mom",
   name: "Mom",
-  source: "imessage" as const,
   time: "Just now",
   messages: [
-    { from: "them", text: "did you get my email about thanksgiving" },
+    { from: "them", text: "Thanksgiving's at our place this year, 3pm. Let me know if you're bringing a side!", source: "gmail" as const },
     { from: "me", text: "yep, added it to the calendar and told everyone to bring a side, no ambush green bean casserole this year" },
   ],
 };
@@ -147,8 +146,15 @@ function IMessageThreadCard({ t }: { t: typeof IMESSAGE_THREAD }) {
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {t.messages.map((m, i) => {
         const outbound = m.from === "me";
+        const SourceIcon = m.source ? SOURCE_ICON[m.source] : null;
         return (
-          <div key={i} style={{ display: "flex", justifyContent: outbound ? "flex-end" : "flex-start" }}>
+          <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: outbound ? "flex-end" : "flex-start", gap: 4 }}>
+            {SourceIcon ? (
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 11, fontWeight: 600, color: SOURCE_COLORS[m.source!] }}>
+                <SourceIcon size={12} />
+                {SOURCE_LABEL[m.source!]}
+              </span>
+            ) : null}
             <div
               style={{
                 maxWidth: "85%",
