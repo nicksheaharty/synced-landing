@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: June 23, 2026</span>
+                <span className="eyebrow">Last updated: July 13, 2026</span>
                 <h1 className="legal-title">Privacy Policy</h1>
                 <p className="legal-subtitle">
                   We believe in plain language. Here is a clear breakdown of what data we collect, why we collect it, and how we protect it when you use Synced.
@@ -67,22 +67,28 @@ export default function PrivacyPolicy() {
               <div className="legal-body">
                 <h2>1. Overview</h2>
                 <p>
-                  Synced ("we," "our," or "us") provides coordination and exam readiness infrastructure for banks and fintech companies. To help teams coordinate meetings, manage deadlines, and build a compliance audit trail, we integrate with Google APIs to access calendars and email communications. This Privacy Policy details how we handle that information.
+                  Synced ("we," "our," or "us") provides coordination, AI document assistance, and exam readiness infrastructure for banks and fintech companies. To help teams coordinate meetings, manage deadlines, search and reference documentation, and build a compliance audit trail, we integrate with Google APIs to access calendars, contacts, files, and email communications. This Privacy Policy details how we handle that information.
                 </p>
 
                 <h2>2. Information We Collect</h2>
                 <p>
-                  We only request and collect the minimal amount of information required to deliver the core scheduling and regulatory deadline tracking services of Synced. Specifically:
+                  We only request and collect the minimal amount of information required to deliver the core scheduling, document assistance, and regulatory deadline tracking services of Synced. Specifically:
                 </p>
                 <ul>
                   <li>
-                    <strong>Account Authentication Details:</strong> When you sign up via Google OAuth, we collect your email address (`userinfo.email`) to authenticate your identity, secure your login, and set up your workspace profile.
+                    <strong>Account Authentication &amp; Profile Details:</strong> When you sign up via Google OAuth, we collect your primary email address (<code>userinfo.email</code>) and profile information (<code>userinfo.profile</code>) to authenticate your identity, secure your login, and set up your workspace profile.
                   </li>
                   <li>
-                    <strong>Calendar Information:</strong> If you connect your Google Calendar, we check your calendar schedules and events. This allows us to map compliance deadlines, track response windows, check team availability, and coordinate exam meetings automatically.
+                    <strong>Calendar Information (Read &amp; Write):</strong> If you connect your Google Calendar (using the <code>.../auth/calendar</code> scope), we retrieve calendar availability to find conflict-free meeting times, and create or modify calendar events per your request. Write access is necessary for the app's core feature of scheduling and updating meetings.
                   </li>
                   <li>
-                    <strong>Email Communications (Gmail):</strong> If you authorize access to your Gmail account (using the `gmail.readonly` and `gmail.modify` scopes), our system indexes incoming messages related to regulatory examinations (e.g., communications from the SEC, OCC, FDIC, or CFPB). This is used to detect regulatory response dates, flag document request lists, and keep compliance managers synced.
+                    <strong>Contacts Information (Read-only):</strong> If you connect your contacts (using the <code>.../auth/contacts.readonly</code> and <code>.../auth/contacts.other.readonly</code> scopes), we retrieve your contacts via the People API to automatically autocomplete and fill invitee email addresses when scheduling meetings or sending invites.
+                  </li>
+                  <li>
+                    <strong>Drive Files (Read-only):</strong> If you authorize access to Google Drive (using the <code>.../auth/drive.readonly</code> scope), our AI assistant searches your Drive files to locate relevant existing materials and reads or extracts content from them to answer your queries or compile context for your tasks.
+                  </li>
+                  <li>
+                    <strong>Email Communications (Gmail Read &amp; Write):</strong> If you connect your Gmail account (using the <code>.../auth/gmail.readonly</code> and <code>.../auth/gmail.modify</code> scopes), our system searches messages and retrieves message details/headers to compile context, summarize email threads, and answer your questions. We also use these scopes to create draft replies and send emails, with each draft requiring your explicit approval before sending.
                   </li>
                 </ul>
 
@@ -111,10 +117,10 @@ export default function PrivacyPolicy() {
                     <strong>No Ad Targeting:</strong> We will never sell, lease, or rent your personal information or data collected via Google APIs. We do not share this data with any third-party ad networks, data brokers, or advertising platforms.
                   </li>
                   <li>
-                    <strong>No AI/ML Model Training:</strong> We do not use personal data received from Google Workspace APIs (including calendar entries or email content) to train, retrain, or fine-tune generalized Artificial Intelligence (AI) or Machine Learning (ML) models.
+                    <strong>No AI/ML Model Training:</strong> We do not use personal data received from Google Workspace APIs (including email contents, calendar entries, files, or contacts) to train, retrain, or fine-tune generalized Artificial Intelligence (AI) or Machine Learning (ML) models.
                   </li>
                   <li>
-                    <strong>Limited Human Access:</strong> Our developers and employees will not read your calendar events or emails unless you request support resolving a specific technical bug, you explicitly consent in writing to help us debug an issue, or it is necessary for security investigations (e.g., detecting abuse or responding to malware).
+                    <strong>Limited Human Access:</strong> Our developers and employees will not read your calendar events, emails, files, or contacts unless you request support resolving a specific technical bug, you explicitly consent in writing to help us debug an issue, or it is necessary for security investigations (e.g., detecting abuse or responding to malware).
                   </li>
                   <li>
                     <strong>Restricted Sharing:</strong> We only transfer Google user data to third parties if it is necessary to provide or improve our user-facing features (such as secure databases and hosting providers), comply with applicable law, or as part of a merger or acquisition.

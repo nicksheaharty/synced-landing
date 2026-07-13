@@ -57,7 +57,7 @@ export default function TermsOfService() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: June 23, 2026</span>
+                <span className="eyebrow">Last updated: July 13, 2026</span>
                 <h1 className="legal-title">Terms of Service</h1>
                 <p className="legal-subtitle">
                   By using Synced, you agree to these Terms. Let's make sure we are aligned on rules, responsibilities, and disclaimers.
@@ -72,12 +72,12 @@ export default function TermsOfService() {
 
                 <h2>2. Description of Service</h2>
                 <p>
-                  Synced provides compliance exam coordination infrastructure designed to help financial institutions, banks, fintechs, and compliance professionals manage regulatory examinations (e.g. SEC, OCC, FDIC, CFPB). Features include team availability synchronization, deadline tracking, request coordination, and audit logs.
+                  Synced provides compliance exam coordination, AI document assistance, and coordination infrastructure designed to help financial institutions, banks, fintechs, and compliance professionals manage regulatory examinations (e.g. SEC, OCC, FDIC, CFPB). Features include team availability synchronization, deadline tracking, document reference search, and audit logs.
                 </p>
 
                 <h2>3. Account Registration &amp; Google Integrations</h2>
                 <p>
-                  To unlock the scheduling and automated request tracking features, you must log in or connect your account using Google OAuth.
+                  To unlock the scheduling, document search, and automated request tracking features, you must log in or connect your account using Google OAuth.
                 </p>
                 <ul>
                   <li>
@@ -86,9 +86,13 @@ export default function TermsOfService() {
                   <li>
                     <strong>Authorization Scope:</strong> By authorizing Synced to connect to your Google account, you grant us permission to access specific integrations:
                     <br />
-                    - <em>Email (Gmail):</em> To scan for regulatory notification metadata and parse dates to surface response deadlines.
+                    - <em>Email (Gmail):</em> To search emails, retrieve thread details, compile context for summaries, draft replies, and send user-approved email responses.
                     <br />
-                    - <em>Calendar:</em> To read availability blocks for scheduling and to write coordination meetings and alert timelines.
+                    - <em>Calendar:</em> To retrieve calendar availability to find conflict-free meeting times, and to create or modify calendar events per your request.
+                    <br />
+                    - <em>Contacts (Read-only):</em> To search and retrieve contact details via the People API to autocomplete email addresses and prevent typos when scheduling.
+                    <br />
+                    - <em>Drive (Read-only):</em> To search, retrieve, and read content from files in your Google Drive to answer queries or use as source context for compliance tasks.
                   </li>
                   <li>
                     <strong>Revocation:</strong> You can disconnect these integration permissions at any point through your Synced dashboard or your Google Account Security dashboard.
