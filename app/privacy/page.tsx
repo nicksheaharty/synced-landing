@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: July 13, 2026</span>
+                <span className="eyebrow">Last updated: July 20, 2026</span>
                 <h1 className="legal-title">Privacy Policy</h1>
                 <p className="legal-subtitle">
                   We believe in plain language. Here is a clear breakdown of what data we collect, why we collect it, and how we protect it when you use Synced.
@@ -70,9 +70,9 @@ export default function PrivacyPolicy() {
                   Synced ("we," "our," or "us") provides coordination, AI document assistance, and exam readiness infrastructure for banks and fintech companies. To help teams coordinate meetings, manage deadlines, search and reference documentation, and build a compliance audit trail, we integrate with Google APIs to access calendars, contacts, files, and email communications. This Privacy Policy details how we handle that information.
                 </p>
 
-                <h2>2. Information We Collect</h2>
+                <h2>2. Information We Collect and Access (Data Access)</h2>
                 <p>
-                  We only request and collect the minimal amount of information required to deliver the core scheduling, document assistance, and regulatory deadline tracking services of Synced. Specifically:
+                  We only request and collect the minimal amount of information required to deliver the core scheduling, document assistance, and regulatory deadline tracking services of Synced. We access both raw and aggregated/anonymized Google user data depending on the scope of the services you enable. Specifically:
                 </p>
                 <ul>
                   <li>
@@ -93,7 +93,7 @@ export default function PrivacyPolicy() {
                 </ul>
 
                 <div className="legal-callout">
-                  <h3>Google API Limited Use Disclosure</h3>
+                  <h3>Google Workspace API Limited Use Disclosure</h3>
                   <p>
                     Synced’s use and transfer of information received from Google APIs to any other app will adhere to the{" "}
                     <a
@@ -106,37 +106,49 @@ export default function PrivacyPolicy() {
                     </a>
                     , including the <strong>Limited Use</strong> requirements.
                   </p>
+                  <p style={{ marginTop: "1rem", fontWeight: "bold" }}>
+                    The use of raw or derived user data received from Workspace APIs will adhere to the Google User Data Policy, including the Limited Use requirements.
+                  </p>
                 </div>
 
-                <h2>3. How We Use Google OAuth Data</h2>
+                <h2>3. How We Use and Share Google User Data (Data Use, Transfer, and AI/ML Training Restrictions)</h2>
                 <p>
-                  We process data collected via Google OAuth strictly to support the functionalities of the Synced platform. We follow these strict guardrails:
+                  We process, use, and transfer raw, derived, or aggregated/anonymized Google user data strictly to deliver and improve the user-facing features of the Synced platform. We adhere to the following strict guardrails:
                 </p>
                 <ul>
                   <li>
-                    <strong>No Ad Targeting:</strong> We will never sell, lease, or rent your personal information or data collected via Google APIs. We do not share this data with any third-party ad networks, data brokers, or advertising platforms.
+                    <strong>Data Use:</strong> We use Google user data solely to enable critical app services: authenticating your profile, finding conflict-free meeting times on your calendar, scheduling and modifying calendar events, autocompleting recipient contacts, summarizing emails, and enabling our AI assistant to answer your questions using context from your Google Drive and Gmail.
                   </li>
                   <li>
-                    <strong>No AI/ML Model Training:</strong> We do not use personal data received from Google Workspace APIs (including email contents, calendar entries, files, or contacts) to train, retrain, or fine-tune generalized Artificial Intelligence (AI) or Machine Learning (ML) models.
+                    <strong>Prohibited Data Use:</strong> Raw, derived, or aggregated/anonymized Google user data is never used for any purpose other than to provide or improve user-facing features. Any use of this data for targeted advertising, serving ads, or lending purposes is strictly prohibited.
                   </li>
                   <li>
-                    <strong>Limited Human Access:</strong> Our developers and employees will not read your calendar events, emails, files, or contacts unless you request support resolving a specific technical bug, you explicitly consent in writing to help us debug an issue, or it is necessary for security investigations (e.g., detecting abuse or responding to malware).
+                    <strong>Data Transfer &amp; Types of Parties Shared With:</strong> We only share or transfer raw, derived, or aggregated/anonymized Google user data with third-party service providers (such as secure cloud hosting and database providers like Google Cloud Firebase/Firestore, and LLM processing APIs like OpenAI or Anthropic) as necessary to execute the app's user-facing services. These third parties are bound by strict confidentiality agreements and developer terms that prohibit them from using or retaining your data for any other purposes, including training their own AI models.
                   </li>
                   <li>
-                    <strong>Restricted Sharing:</strong> We only transfer Google user data to third parties if it is necessary to provide or improve our user-facing features (such as secure databases and hosting providers), comply with applicable law, or as part of a merger or acquisition.
+                    <strong>Prohibited Data Transfer:</strong> Transfer or sale of raw, derived, or aggregated/anonymized Google user data to data brokers, advertisers, ad networks, or any other third parties for purposes other than providing or improving our service is strictly prohibited.
+                  </li>
+                  <li>
+                    <strong>AI/ML Model Training Restrictions:</strong> We strictly prohibit using raw, derived, or aggregated/anonymized Google Workspace APIs user data (including email contents, calendar entries, files, or contacts) to develop, improve, or train any generalized Artificial Intelligence (AI) or Machine Learning (ML) models. No data received from Workspace APIs will be transferred to third-party services that use it for their own model training.
+                  </li>
+                  <li>
+                    <strong>Limited Human Access:</strong> Our developers and employees do not access or read your Google user data (calendar events, emails, files, or contacts) unless you explicitly request support to debug a specific issue, you provide written consent, or it is necessary for security investigations (such as detecting abuse or responding to malware).
                   </li>
                 </ul>
 
-                <h2>4. Data Security &amp; Storage</h2>
+                <h2>4. Data Security &amp; Storage (Data Protection)</h2>
                 <p>
-                  All credentials and synced metadata (such as deadline events and email parse logs) are encrypted in transit using industry-standard TLS protocols and encrypted at rest within our secure databases (e.g. Firebase Firestore). We employ strict firewalls, vulnerability logging, and access controls to prevent unauthorized access.
+                  We are committed to securing and protecting your Google user data. All credentials, tokens, and synced metadata (such as deadline events and email logs) are encrypted in transit using industry-standard TLS protocols and encrypted at rest within our secure databases. We employ strict firewalls, continuous vulnerability logging, and restricted access controls to prevent unauthorized access and ensure your Google user data is protected against loss, misuse, or alteration.
                 </p>
 
-                <h2>5. User Controls: Revoking and Deleting</h2>
+                <h2>5. User Controls, Retention, and Deletion (Data Retention &amp; Deletion)</h2>
                 <p>
-                  You are in full control of your integrations and credentials at all times:
+                  You are in full control of your integrations, credentials, and data at all times:
                 </p>
                 <ul>
+                  <li>
+                    <strong>Data Retention Policy:</strong> We retain your Google user data (such as account credentials, tokens, and cached metadata) only for as long as your Synced account is active or as necessary to provide you with the services of the platform.
+                  </li>
                   <li>
                     <strong>Revoking Access:</strong> You can disconnect your Google Calendar or Gmail account at any time directly in your Synced settings. Alternatively, you can revoke Synced's access to your Google account via the{" "}
                     <a
@@ -150,7 +162,7 @@ export default function PrivacyPolicy() {
                     .
                   </li>
                   <li>
-                    <strong>Data Deletion:</strong> If you close your account or request data deletion, all stored tokens, credentials, and cached calendar or email meta-records will be permanently expunged from our database records.
+                    <strong>Data Deletion Policy &amp; Practice:</strong> If you close your account or submit a request for data deletion, all associated stored tokens, credentials, and cached calendar or email records will be permanently and securely deleted from our servers and databases within 30 days.
                   </li>
                 </ul>
 
