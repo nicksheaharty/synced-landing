@@ -11,6 +11,7 @@ import {
   PiCursorClickDuotone,
   PiArrowRightDuotone,
   PiLinkedinLogoDuotone,
+  PiInstagramLogoDuotone,
   PiEnvelopeSimpleDuotone,
   PiChatCircleDuotone,
   PiCheckBold,
@@ -82,6 +83,7 @@ const team = [
     bio: "ORFE at Princeton. Built TigerMeet.org, used across Princeton, Penn, UF, and Brandeis for 10,000+ meetings. Two internships at Amazon building AR hardware. Worked at the SEC.",
     photo: `${BASE}/aum.webp`,
     linkedin: "https://www.linkedin.com/in/aumdhruv/",
+    instagram: "https://www.instagram.com/aum.dhruv/",
   },
   {
     name: "Nick Harty",
@@ -89,6 +91,7 @@ const team = [
     bio: "Engineering & Economics at Wharton. Shipped product inside regulated institutions. Raised $20k non-dilutive. Coordinated 400 congressional offices for the Congressional App Challenge.",
     photo: `${BASE}/nick.webp`,
     linkedin: "https://www.linkedin.com/in/nicksheaharty/",
+    instagram: "https://www.instagram.com/nicksheaharty/",
   },
 ];
 
@@ -432,7 +435,7 @@ export default function Home() {
               <p className="section-sub">Building together since middle school.</p>
             </div>
             <div className="team-grid">
-              {team.map(({ name, role, bio, photo, linkedin }) => (
+              {team.map(({ name, role, bio, photo, linkedin, instagram }) => (
                 <div key={name} className="team-card">
                   <div className="team-card-top">
                     <Image src={photo} alt={name} width={52} height={52} sizes="52px" className="team-photo" />
@@ -440,9 +443,14 @@ export default function Home() {
                       <div className="team-name">{name}</div>
                       <div className="team-role">{role}</div>
                     </div>
-                    <a href={linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin-btn" aria-label="LinkedIn">
-                      <PiLinkedinLogoDuotone size={22} />
-                    </a>
+                    <div className="team-social-links">
+                      <a href={linkedin} target="_blank" rel="noopener noreferrer" className="team-social-btn" aria-label={`${name} on LinkedIn`}>
+                        <PiLinkedinLogoDuotone size={22} />
+                      </a>
+                      <a href={instagram} target="_blank" rel="noopener noreferrer" className="team-social-btn" aria-label={`${name} on Instagram`}>
+                        <PiInstagramLogoDuotone size={22} />
+                      </a>
+                    </div>
                   </div>
                   <p className="team-bio">{bio}</p>
                 </div>
@@ -1170,16 +1178,22 @@ export default function Home() {
           color: hsl(var(--muted-fg));
           margin-top: 0.15rem;
         }
-        .team-linkedin-btn {
+        .team-social-links {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex-shrink: 0;
+          margin-left: auto;
+        }
+        .team-social-btn {
           color: hsl(var(--primary));
           opacity: 0.7;
           transition: opacity .15s, transform .15s;
           display: flex;
           align-items: center;
           flex-shrink: 0;
-          margin-left: auto;
         }
-        .team-linkedin-btn:hover { opacity: 1; transform: scale(1.1); }
+        .team-social-btn:hover { opacity: 1; transform: scale(1.1); }
         .team-bio {
           font-size: 0.82rem;
           line-height: 1.6;
