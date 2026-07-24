@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /qr
+
+Host: https://synced.it
+Sitemap: https://synced.it/sitemap.xml

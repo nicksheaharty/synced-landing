@@ -2,37 +2,105 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nicksheaharty.github.io/synced-landing";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://synced.it").replace(/\/$/, "");
+const title = "AI Inbox Assistant for Email & Scheduling | Synced";
+const description =
+  "Synced is an AI inbox assistant that searches email and files, drafts replies, coordinates calendars, and manages follow-ups from your conversations.";
 
 export const metadata: Metadata = {
-  title: "Synced | Your Automated Inbox",
-  description:
-    "Synced is an automated inbox that connects to your email, messages, cloud storage, and calendar to handle the busywork for you. Scan, draft, schedule, and follow up, all from your conversations.",
+  title,
+  description,
   metadataBase: new URL(siteUrl),
+  applicationName: "Synced",
+  authors: [{ name: "Synced", url: siteUrl }],
+  creator: "Synced",
+  publisher: "Synced",
+  keywords: [
+    "AI inbox assistant",
+    "email assistant",
+    "AI email automation",
+    "calendar scheduling assistant",
+    "automated follow-ups",
+    "inbox management",
+  ],
+  alternates: { canonical: siteUrl },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Synced | Your Automated Inbox",
-    description:
-      "Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting.",
+    title,
+    description,
     type: "website",
     url: siteUrl,
     siteName: "Synced",
-    images: [{ url: `${siteUrl}/social-preview.png`, width: 1200, height: 630, alt: "Synced" }],
+    locale: "en_US",
+    images: [
+      {
+        url: `${siteUrl}/social-preview.png`,
+        width: 1200,
+        height: 630,
+        alt: "Synced AI inbox assistant",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Synced | Your Automated Inbox",
-    description: "Synced connects to your email, messages, cloud storage, and calendar to complete work within your conversations. Make email as easy as texting.",
+    title,
+    description,
     images: [`${siteUrl}/social-preview.png`],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "Synced",
+        url: siteUrl,
+        logo: `${siteUrl}/icon-light.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Synced",
+        description,
+        publisher: { "@id": `${siteUrl}/#organization` },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Synced",
+        url: siteUrl,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description,
+        publisher: { "@id": `${siteUrl}/#organization` },
+      },
+    ],
+  };
+
   return (
     <html lang="en" className="h-full antialiased" style={{ colorScheme: "light" }}>
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/pxn1uhe.css" />
         <link rel="icon" href={`${base}/favicon-light.png`} media="(prefers-color-scheme: light)" />
         <link rel="icon" href={`${base}/favicon-dark.png`} media="(prefers-color-scheme: dark)" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

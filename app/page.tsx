@@ -326,13 +326,13 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-glow" />
           <div className="container hero-container">
-            <span className="eyebrow">Your Automated Inbox</span>
+            <span className="eyebrow">Your AI Inbox Assistant</span>
             <h1 className="hero-title">
-              <span className="hero-title-line">Turn conversations into</span>
+              <span className="hero-title-line">Turn your inbox into</span>
               <span className="hero-title-line hero-accent">completed work.</span>
             </h1>
             <p className="hero-sub">
-              Stop copying emails into AI, digging through files, and coordinating schedules. Synced connects to your email, messages, cloud storage, and calendar to handle the busywork for you.
+              Stop copying emails into AI, digging through files, and coordinating schedules. Synced is an AI inbox assistant that connects to your email, messages, cloud storage, and calendar to handle the busywork for you.
             </p>
             <div className="hero-ctas">
               <a href={WAITLIST_URL} className="btn-primary btn-lg">
@@ -345,7 +345,7 @@ export default function Home() {
             <div className="hero-3d-wrap">
               <Image
                 src={`${BASE}/logo3d.webp`}
-                alt="Synced 3D Logo"
+                alt="Synced AI inbox assistant logo"
                 width={720}
                 height={683}
                 priority
