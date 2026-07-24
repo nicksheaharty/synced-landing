@@ -38,8 +38,21 @@ body {
     radial-gradient(ellipse 60% 40% at 80% 10%, hsl(280 80% 65% / .06) 0%, transparent 55%),
     radial-gradient(ellipse 50% 60% at 95% 50%, hsl(220 80% 65% / .05) 0%, transparent 60%),
     radial-gradient(ellipse 70% 40% at 10% 80%, hsl(248 89% 65% / .06) 0%, transparent 55%);
-  background-attachment: fixed;
   overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  body { background-attachment: fixed; }
+}
+
+/* Skip layout and paint work for below-the-fold sections until they approach view. */
+.agency-section,
+.features-section,
+.team-section,
+.cta-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -260,6 +273,30 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
   z-index: 0;
   will-change: transform;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .bg-grid-glow,
+  .cursor-glow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .ambient-blob-1,
+  .ambient-blob-2,
+  .ambient-blob-3 {
+    animation: none !important;
+  }
+
+  .feature-card,
+  .team-card,
+  .btn-primary,
+  .btn-ghost {
+    transition: none !important;
+  }
 }
 
 /* Ambient Animated Blobs */

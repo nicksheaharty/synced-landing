@@ -11,8 +11,6 @@ import {
   PiCursorClickDuotone,
   PiArrowRightDuotone,
   PiLinkedinLogoDuotone,
-  PiBankDuotone,
-  PiMoneyWavyDuotone,
   PiEnvelopeSimpleDuotone,
   PiChatCircleDuotone,
   PiCheckBold,
@@ -82,14 +80,14 @@ const team = [
     name: "Aum Dhruv",
     role: "Chief Executive Officer",
     bio: "ORFE at Princeton. Built TigerMeet.org, used across Princeton, Penn, UF, and Brandeis for 10,000+ meetings. Two internships at Amazon building AR hardware. Worked at the SEC.",
-    photo: `${BASE}/aum.jpeg`,
+    photo: `${BASE}/aum.webp`,
     linkedin: "https://www.linkedin.com/in/aumdhruv/",
   },
   {
     name: "Nick Harty",
     role: "Chief Technology Officer",
     bio: "Engineering & Economics at Wharton. Shipped product inside regulated institutions. Raised $20k non-dilutive. Coordinated 400 congressional offices for the Congressional App Challenge.",
-    photo: `${BASE}/nick.jpeg`,
+    photo: `${BASE}/nick.webp`,
     linkedin: "https://www.linkedin.com/in/nicksheaharty/",
   },
 ];
@@ -222,17 +220,20 @@ function AppMessageCard({ p }: { p: typeof BOSS_CARD }) {
       <div style={{ height: 1, background: c.separator, margin: "0 14px" }} />
 
       <div style={{ padding: "12px 14px 14px" }}>
-        <div
+        <button
+          type="button"
+          aria-expanded={expanded}
+          aria-controls="completed-tasks"
           onClick={() => setExpanded(!expanded)}
-          style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }}
+          style={{ display: "flex", width: "100%", alignItems: "center", justifyContent: "space-between", cursor: "pointer", padding: 0, border: 0, background: "transparent" }}
         >
           <span style={{ fontSize: 13, fontWeight: 600, color: c.primary }}>
             {tasksTotal} Task{tasksTotal === 1 ? "" : "s"} Completed
           </span>
           <PiCaretDownBold size={14} style={{ color: c.primary, transform: expanded ? "rotate(180deg)" : "none", transition: "transform .2s" }} />
-        </div>
+        </button>
         {expanded ? (
-          <div style={{ marginTop: 12 }}>
+          <div id="completed-tasks" style={{ marginTop: 12 }}>
             {tasks.map((t, i) => (
               <div key={t} style={{ display: "flex", gap: 0, position: "relative", paddingBottom: i === tasks.length - 1 ? 0 : 16 }}>
                 <div style={{ position: "relative", width: 22, flexShrink: 0 }}>
@@ -263,16 +264,27 @@ function AppMessageCard({ p }: { p: typeof BOSS_CARD }) {
 export default function Home() {
   useEffect(() => {
     const bgContainer = document.querySelector(".bg-container") as HTMLElement;
-    const handleMouseMove = (e: PointerEvent) => {
-      if (bgContainer) {
-        bgContainer.style.setProperty("--mouse-x", `${e.clientX}px`);
-        bgContainer.style.setProperty("--mouse-y", `${e.clientY}px`);
-      }
-    };
-    window.addEventListener("pointermove", handleMouseMove);
+    const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!supportsFinePointer.matches) return;
 
-    const cards = document.querySelectorAll(".feature-card, .pricing-card, .team-card, .screenshot-wrap");
-    const handleCardMouseMove = (e: MouseEvent) => {
+    let animationFrame = 0;
+    let pointerX = -999;
+    let pointerY = -999;
+    const updatePointer = () => {
+      bgContainer?.style.setProperty("--mouse-x", `${pointerX}px`);
+      bgContainer?.style.setProperty("--mouse-y", `${pointerY}px`);
+      animationFrame = 0;
+    };
+    const handleMouseMove = (e: PointerEvent) => {
+      pointerX = e.clientX;
+      pointerY = e.clientY;
+      if (!animationFrame) animationFrame = requestAnimationFrame(updatePointer);
+    };
+    window.addEventListener("pointermove", handleMouseMove, { passive: true });
+
+    const cards = document.querySelectorAll<HTMLElement>(".feature-card, .pricing-card, .team-card, .screenshot-wrap");
+    const handleCardMouseMove = (event: Event) => {
+      const e = event as MouseEvent;
       const card = e.currentTarget as HTMLElement;
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -282,13 +294,14 @@ export default function Home() {
     };
 
     cards.forEach((card) => {
-      card.addEventListener("mousemove", handleCardMouseMove as any);
+      card.addEventListener("mousemove", handleCardMouseMove);
     });
 
     return () => {
       window.removeEventListener("pointermove", handleMouseMove);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
       cards.forEach((card) => {
-        card.removeEventListener("mousemove", handleCardMouseMove as any);
+        card.removeEventListener("mousemove", handleCardMouseMove);
       });
     };
   }, []);
@@ -331,11 +344,12 @@ export default function Home() {
 
             <div className="hero-3d-wrap">
               <Image
-                src={`${BASE}/logo3d.png`}
+                src={`${BASE}/logo3d.webp`}
                 alt="Synced 3D Logo"
-                width={360}
-                height={360}
+                width={720}
+                height={683}
                 priority
+                sizes="(max-width: 640px) 78vw, 360px"
                 className="hero-3d-img"
               />
             </div>
@@ -421,7 +435,7 @@ export default function Home() {
               {team.map(({ name, role, bio, photo, linkedin }) => (
                 <div key={name} className="team-card">
                   <div className="team-card-top">
-                    <Image src={photo} alt={name} width={52} height={52} className="team-photo" />
+                    <Image src={photo} alt={name} width={52} height={52} sizes="52px" className="team-photo" />
                     <div className="team-info">
                       <div className="team-name">{name}</div>
                       <div className="team-role">{role}</div>
