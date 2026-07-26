@@ -45,7 +45,7 @@ export default function Header() {
           <a href={`${BASE}/#team`} className="nav-link">Team</a>
         </nav>
         <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-          <a href={WAITLIST_URL} className="btn-primary">
+          <a href={WAITLIST_URL} className="btn-primary nav-cta">
             Get Early Access
           </a>
         </div>

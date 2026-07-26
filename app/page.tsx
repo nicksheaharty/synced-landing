@@ -488,6 +488,14 @@ export default function Home() {
             <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
             <a href={`${BASE}/terms`} className="footer-link">Terms</a>
           </nav>
+          <div className="footer-social-links">
+            <a href="https://www.linkedin.com/company/syncedinbox/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on LinkedIn">
+              <PiLinkedinLogoDuotone size={20} />
+            </a>
+            <a href="https://www.instagram.com/synced.it/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on Instagram">
+              <PiInstagramLogoDuotone size={20} />
+            </a>
+          </div>
           <span className="footer-copy">© 2026 Synced</span>
         </div>
       </footer>
@@ -702,39 +710,6 @@ export default function Home() {
         .nav-icon { border-radius: 6px; display: block; }
         .nav-inner {
           gap: 2rem;
-        }
-        .nav-links {
-          display: flex;
-          align-items: center;
-          gap: 1.75rem;
-          margin-right: auto;
-          margin-left: 2rem;
-        }
-        .nav-link {
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: hsl(var(--muted-fg));
-          text-decoration: none;
-          padding-bottom: 2px;
-          position: relative;
-          transition: color .2s;
-        }
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: hsl(var(--primary));
-          border-radius: 1px;
-          transition: width .25s ease;
-        }
-        .nav-link:hover {
-          color: hsl(var(--fg));
-        }
-        .nav-link:hover::after {
-          width: 100%;
         }
         @media (max-width: 640px) {
           .nav-links { display: none; }
@@ -1331,6 +1306,19 @@ export default function Home() {
           transition: color .15s;
         }
         .footer-link:hover { color: hsl(var(--fg)); }
+        .footer-social-links {
+          display: flex;
+          gap: 0.75rem;
+        }
+        .footer-social-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: hsl(var(--muted-fg));
+          opacity: 0.85;
+          transition: opacity .15s, color .15s;
+        }
+        .footer-social-btn:hover { opacity: 1; color: hsl(var(--fg)); }
         .footer-copy {
           font-size: 0.82rem;
           color: hsl(var(--muted-fg));

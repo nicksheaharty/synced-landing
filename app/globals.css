@@ -128,7 +128,7 @@ img { display: block; max-width: 100%; }
   margin-left: 2rem;
 }
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: hsl(var(--muted-fg));
   text-decoration: none;
@@ -176,6 +176,7 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
 }
 .btn-primary:hover  { opacity: .9; transform: translateY(-1px); }
+.nav-cta { font-size: 0.9375rem; }
 .btn-primary:active { transform: translateY(0); }
 
 .btn-ghost {
