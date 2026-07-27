@@ -3,9 +3,9 @@ import "./globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://synced.it").replace(/\/$/, "");
-const title = "AI Inbox Assistant for Email & Scheduling | Synced";
+const title = "Your Inbox on Autopilot | Synced";
 const description =
-  "Synced is an AI inbox assistant that searches email and files, drafts replies, coordinates calendars, and manages follow-ups from your conversations.";
+  "Synced is an AI inbox that searches your email and files, drafts replies, coordinates calendars, and manages follow-ups automatically.";
 
 export const metadata: Metadata = {
   title,
