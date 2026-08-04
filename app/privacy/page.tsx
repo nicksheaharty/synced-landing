@@ -207,8 +207,8 @@ export default function PrivacyPolicy() {
           position: relative;
           overflow: hidden;
           background: color-mix(in srgb, hsl(var(--card)) 65%, transparent);
-          backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
           border: 1px solid hsl(var(--border) / 0.6);
           border-radius: 16px;
           padding: clamp(1.5rem, 5vw, 3.5rem);
