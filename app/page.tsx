@@ -64,8 +64,8 @@ const features = [
   },
   {
     icon: PiClockDuotone,
-    title: "Manage follow-ups automatically",
-    body: "Synced tracks commitments and follow-ups across your conversations, so nothing slips through the cracks.",
+    title: "Turn messages into tasks",
+    body: "Delegate work to Synced straight from a conversation, then follow its progress and review the finished result in one place.",
   },
   {
     icon: PiPlugsConnectedDuotone,
@@ -74,8 +74,8 @@ const features = [
   },
   {
     icon: PiCursorClickDuotone,
-    title: "Only asks when it matters",
-    body: "Approve an email, pick a meeting time, confirm a detail, Synced lists exactly what needs you and handles the rest on its own.",
+    title: "Synced prompts you",
+    body: "Instead of you prompting Synced, Synced comes to you with the decisions only you can make, then handles everything else.",
   },
 ];
 
@@ -333,7 +333,7 @@ export default function Home() {
             <div className="app-showcase-copy">
               <div className="uppercase-label">Inside Synced</div>
               <h2 className="section-heading">
-                Even your worst<br />senders get handled.
+                Open your inbox.<br />Find work ready to approve.
               </h2>
               <p className="section-sub">
                 An 11:58 PM &quot;quick thing&quot; from your boss becomes a rebuilt deck and
