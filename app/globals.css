@@ -125,6 +125,76 @@ img { display: block; max-width: 100%; }
   .nav-links { display: none; }
 }
 
+/* ── Mobile Menu ── */
+.nav-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: hsl(var(--fg));
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-menu-btn:hover { background: hsl(var(--primary) / .08); }
+
+@media (max-width: 640px) {
+  .nav-menu-btn { display: flex; }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem clamp(1rem, 5vw, 2rem) 2rem;
+  background: hsl(var(--bg));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .2s ease, transform .2s ease, visibility 0s;
+}
+.mobile-menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  margin-bottom: 2.5rem;
+}
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.mobile-menu-link {
+  font-family: "p22-mackinac-pro", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--fg));
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.mobile-menu-cta {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+}
+@media (min-width: 641px) {
+  .mobile-menu { display: none; }
+}
+
 /* ── Global Buttons ── */
 .btn-primary {
   display: inline-flex;
@@ -146,6 +216,9 @@ img { display: block; max-width: 100%; }
 }
 .btn-primary:hover  { filter: brightness(1.06); box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 5px 14px rgba(68,41,242,.18); }
 .nav-cta { font-size: 0.9375rem; }
+@media (max-width: 640px) {
+  .nav-cta { display: none; }
+}
 .btn-primary:active { transform: scale(.97); transition-duration: 80ms; }
 .btn-primary:focus-visible, .nav-link:focus-visible, .footer-link:focus-visible {
   outline: 3px solid hsl(var(--primary) / .28);

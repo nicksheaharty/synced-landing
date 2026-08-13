@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Header, { LogoText } from "../components/Header";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -179,22 +180,7 @@ export default function PrivacyPolicy() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="site-footer relative z-2">
-        <div className="container footer-inner">
-          <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={20} height={20} className="nav-icon" />
-            <LogoText small />
-          </a>
-          <nav className="footer-links">
-            <a href="mailto:nick@storiara.com" className="footer-link">Contact</a>
-            <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
-            <a href={`${BASE}/terms`} className="footer-link">Terms</a>
-          </nav>
-          <span className="footer-copy">© 2026 Synced.it</span>
-        </div>
-      </footer>
+      <Footer />
 
       <style>{`
         /* ── Page-specific Styles ── */

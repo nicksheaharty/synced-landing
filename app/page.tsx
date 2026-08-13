@@ -32,7 +32,8 @@ import {
   SiNotion,
   SiZoom,
 } from "react-icons/si";
-import Header, { LogoText } from "./components/Header";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -297,7 +298,7 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-glow" />
           <div className="container hero-container">
-            <span className="eyebrow">Your Inbox on Autopilot</span>
+            <span className="eyebrow">Your AI Inbox on Autopilot</span>
             <h1 className="hero-title">
               <span className="hero-title-line">Turn your inbox into</span>
               <span className="hero-title-line hero-accent">completed work.</span>
@@ -406,6 +407,77 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Pricing */}
+        <section id="pricing" className="pricing-section">
+          <div className="container">
+            <div className="section-header" style={{ textAlign: "center", marginInline: "auto" }}>
+              <div className="uppercase-label">Pricing</div>
+              <h2 className="section-heading">Simple pricing, no surprises.</h2>
+              <p className="section-sub" style={{ marginInline: "auto" }}>
+                Start free. Upgrade when Synced becomes part of how you work.
+              </p>
+            </div>
+            <div className="pricing-grid pricing-grid-3">
+              <div className="pricing-card">
+                <div className="pricing-card-head">
+                  <div className="pricing-plan-name">Free</div>
+                  <div className="pricing-price">
+                    <span className="pricing-amount">$0</span>
+                    <span className="pricing-period">/user</span>
+                  </div>
+                  <p className="pricing-tagline">Try Synced on your main inbox.</p>
+                </div>
+                <ul className="pricing-features">
+                  <li><PiCheckBold size={14} /> 20 Action Plans a week</li>
+                  <li><PiCheckBold size={14} /> Unlimited Signals</li>
+                  <li><PiCheckBold size={14} /> Gmail, Drive, OneDrive &amp; Calendar</li>
+                  <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
+                </ul>
+                <a href={WAITLIST_URL} className="btn-ghost pricing-cta">Get Early Access</a>
+              </div>
+              <div className="pricing-card pricing-card-featured">
+                <span className="pricing-badge">Most popular</span>
+                <div className="pricing-card-head">
+                  <div className="pricing-plan-name">Pro</div>
+                  <div className="pricing-price">
+                    <span className="pricing-amount">$29.99</span>
+                    <span className="pricing-period">/user/month</span>
+                  </div>
+                  <p className="pricing-tagline">$24.99/user/month billed annually.</p>
+                </div>
+                <ul className="pricing-features">
+                  <li><PiCheckBold size={14} /> 100 Action Plans a week</li>
+                  <li><PiCheckBold size={14} /> Unlimited Signals</li>
+                  <li><PiCheckBold size={14} /> All integrations (adds Notion, GitHub, Slack &amp; Teams)</li>
+                  <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
+                  <li><PiCheckBold size={14} /> Priority support</li>
+                </ul>
+                <a href={WAITLIST_URL} className="btn-primary pricing-cta">Get Early Access</a>
+              </div>
+              <div className="pricing-card">
+                <div className="pricing-card-head">
+                  <div className="pricing-plan-name">Enterprise</div>
+                  <div className="pricing-price">
+                    <span className="pricing-amount pricing-amount-sm">Contact us</span>
+                  </div>
+                  <p className="pricing-tagline">For teams and companies.</p>
+                </div>
+                <ul className="pricing-features">
+                  <li><PiCheckBold size={14} /> Custom Action Plan limits</li>
+                  <li><PiCheckBold size={14} /> SSO &amp; admin controls</li>
+                  <li><PiCheckBold size={14} /> Security review &amp; custom contract</li>
+                  <li><PiCheckBold size={14} /> Dedicated support</li>
+                </ul>
+                <a href="https://forms.gle/tP89zuGpCL1BsR6f6" target="_blank" rel="noopener noreferrer" className="btn-ghost pricing-cta">Contact Sales</a>
+              </div>
+            </div>
+            <p className="pricing-footnote">
+              An Action Plan is one message Synced reads and acts on, whether it finishes the
+              task or hands it to you in Decide. <a href={`${BASE}/pricing`} className="text-link">See full pricing details</a>.
+            </p>
+          </div>
+        </section>
+
         {/* Team */}
         <section id="team" className="team-section">
           <div className="container">
@@ -462,30 +534,7 @@ export default function Home() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={20} height={20} className="nav-icon" />
-            <LogoText small />
-          </a>
-          <nav className="footer-links">
-            <a href={WAITLIST_URL} className="footer-link">Get Early Access</a>
-            <a href={`${BASE}/privacy`} className="footer-link">Privacy</a>
-            <a href={`${BASE}/terms`} className="footer-link">Terms</a>
-          </nav>
-          <div className="footer-social-links">
-            <a href="https://www.linkedin.com/company/syncedinbox/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on LinkedIn">
-              <PiLinkedinLogoDuotone size={20} />
-            </a>
-            <a href="https://www.instagram.com/synced.it/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on Instagram">
-              <PiInstagramLogoDuotone size={20} />
-            </a>
-          </div>
-          <span className="footer-copy">© 2026 Synced</span>
-        </div>
-      </footer>
+      <Footer />
 
       <style>{`
 
@@ -884,6 +933,120 @@ export default function Home() {
           color: hsl(var(--muted-fg));
         }
 
+        /* ── Pricing ── */
+        .pricing-section {
+          padding: 5rem 0;
+          border-top: 1px solid hsl(var(--border));
+        }
+        .pricing-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          max-width: 760px;
+          margin-inline: auto;
+        }
+        .pricing-grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+          max-width: 1040px;
+        }
+        .pricing-card {
+          position: relative;
+          background: hsl(var(--card));
+          border: 1px solid hsl(var(--border));
+          border-radius: 16px;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .pricing-card-featured {
+          border-color: hsl(var(--primary) / .4);
+          box-shadow: 0 16px 40px rgba(68, 41, 242, 0.12);
+        }
+        .pricing-badge {
+          position: absolute;
+          top: -0.7rem;
+          left: 50%;
+          transform: translateX(-50%);
+          background: hsl(var(--primary));
+          color: hsl(248 100% 98%);
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          padding: 0.3rem 0.75rem;
+          border-radius: 999px;
+        }
+        .pricing-card-head { margin-bottom: 1.5rem; }
+        .pricing-plan-name {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: hsl(var(--fg));
+          margin-bottom: 0.5rem;
+        }
+        .pricing-price {
+          display: flex;
+          align-items: baseline;
+          gap: 0.3rem;
+        }
+        .pricing-amount {
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 2.5rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          color: hsl(var(--fg));
+        }
+        .pricing-amount-sm { font-size: 1.75rem; }
+        .pricing-period {
+          font-size: 0.9rem;
+          color: hsl(var(--muted-fg));
+        }
+        .pricing-tagline {
+          font-size: 0.82rem;
+          color: hsl(var(--muted-fg));
+          margin-top: 0.5rem;
+        }
+        .pricing-features {
+          list-style: none;
+          margin: 0 0 2rem;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          flex: 1;
+        }
+        .pricing-features li {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.6rem;
+          font-size: 0.88rem;
+          color: hsl(var(--fg));
+          line-height: 1.45;
+        }
+        .pricing-features li svg {
+          color: hsl(var(--primary));
+          flex-shrink: 0;
+          margin-top: 0.2rem;
+        }
+        .pricing-cta {
+          width: 100%;
+          justify-content: center;
+        }
+        .pricing-footnote {
+          text-align: center;
+          font-size: 0.8rem;
+          color: hsl(var(--muted-fg));
+          max-width: 560px;
+          margin: 2rem auto 0;
+          line-height: 1.6;
+        }
+        .text-link {
+          color: hsl(var(--primary));
+          text-decoration: underline;
+          transition: opacity 0.2s;
+        }
+        .text-link:hover { opacity: 0.8; }
+
         /* ── CTA ── */
         .cta-section {
           padding: 6rem 0;
@@ -911,20 +1074,6 @@ export default function Home() {
           line-height: 1.65;
         }
 
-/* ── Footer ── */
-        .footer-social-links {
-          display: flex;
-          gap: 0.75rem;
-        }
-        .footer-social-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: hsl(var(--muted-fg));
-          opacity: 0.85;
-          transition: opacity .15s, color .15s;
-        }
-        .footer-social-btn:hover { opacity: 1; color: hsl(var(--fg)); }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
@@ -935,8 +1084,6 @@ export default function Home() {
           }
 
           .cta-inner { align-items: flex-start; }
-
-          .footer-inner { flex-direction: column; align-items: flex-start; }
         }
 
         @media (max-width: 600px) {
@@ -1106,6 +1253,7 @@ export default function Home() {
         }
 
         .features-section { padding: 8rem 0; border-top: 0; }
+        .pricing-section { padding: 6rem 0; border-top: 1px solid hsl(var(--border) / .75); }
         .team-section { padding: 8rem 0 4rem; border-top: 0; }
         .features-section { background: hsl(var(--card) / .46); }
         .features-header { align-items: flex-end; margin-bottom: 4rem; }
@@ -1154,9 +1302,9 @@ export default function Home() {
         .team-card { padding: 2rem 2rem 2rem 0; border-radius: 0; }
         .team-card + .team-card { padding-left: 2rem; border-left: 1px solid hsl(var(--border)); }
         .team-photo { border: 0; }
-        .team-social-btn, .footer-social-btn { min-width: 36px; min-height: 36px; justify-content: center; border-radius: 50%; transition: background-color .18s ease, opacity .18s ease, transform 80ms ease; }
-        .team-social-btn:hover, .footer-social-btn:hover { transform: none; background: hsl(var(--primary) / .08); }
-        .team-social-btn:active, .footer-social-btn:active { transform: scale(.92); }
+        .team-social-btn { min-width: 36px; min-height: 36px; justify-content: center; border-radius: 50%; transition: background-color .18s ease, opacity .18s ease, transform 80ms ease; }
+        .team-social-btn:hover { transform: none; background: hsl(var(--primary) / .08); }
+        .team-social-btn:active { transform: scale(.92); }
 
         .cta-section { padding: 4rem 0 8rem; border-top: 0; }
         .cta-inner {
@@ -1178,14 +1326,13 @@ export default function Home() {
         .cta-title { font-size: clamp(2.25rem, 4.5vw, 3.6rem); }
         .cta-sub { max-width: 520px; margin-top: 1rem; }
         .cta-inner > .btn-primary { min-width: 190px; justify-content: center; }
-        .site-footer { border-color: hsl(var(--border) / .75); }
-        .footer-link { padding: .5rem 0; }
 
         @media (max-width: 900px) {
           .hero-section { min-height: auto; }
           .hero-container { padding-right: clamp(1rem, 5vw, 2rem); }
           .app-showcase-inner { grid-template-columns: 1fr; }
           .features-header { align-items: flex-start; }
+          .pricing-grid { grid-template-columns: 1fr; max-width: 380px; }
           .cta-inner { grid-template-columns: 1fr; justify-items: start; }
           .agency-badge { flex-basis: 104px; }
         }
@@ -1202,6 +1349,8 @@ export default function Home() {
           .integration-icon-wrap { width: 58px; height: 58px; flex-basis: 58px; border-radius: 15px; }
           .integration-icon-wrap svg { width: 30px; height: 30px; }
           .integration-name { font-size: .7rem; line-height: 1.15; }
+          .pricing-section { padding: 3.5rem 0; }
+          .pricing-card { padding: 1.5rem; }
           .team-section { padding: 5rem 0 2.5rem; }
           .cta-section { padding: 2rem 0 4rem; }
           .cta-section > .container { padding-inline: 1.5rem; }

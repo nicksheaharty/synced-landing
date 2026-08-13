@@ -13,5 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       images: [`${siteUrl}/social-preview.png`],
     },
+    {
+      url: `${siteUrl}/pricing`,
+      lastModified: new Date("2026-08-13"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteUrl}/get-started`,
+      lastModified: new Date("2026-08-13"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
 }

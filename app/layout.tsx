@@ -3,7 +3,7 @@ import "./globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://synced.it").replace(/\/$/, "");
-const title = "Your Inbox on Autopilot | Synced";
+const title = "Your AI Inbox on Autopilot | Synced";
 const description =
   "Synced is an AI inbox that searches your email and files, drafts replies, coordinates calendars, and manages follow-ups automatically.";
 
