@@ -25,7 +25,7 @@ const columns = [
       { label: "Careers", href: "mailto:nick@storiara.com" },
       { label: "Contact", href: "mailto:nick@storiara.com" },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/syncedinbox/" },
-      { label: "Instagram", href: "https://www.instagram.com/synced.it/" },
+      { label: "Instagram", href: "https://www.instagram.com/syncedinbox/" },
     ],
   },
   {
@@ -62,7 +62,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/company/syncedinbox/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on LinkedIn">
                 <PiLinkedinLogoDuotone size={19} />
               </a>
-              <a href="https://www.instagram.com/synced.it/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on Instagram">
+              <a href="https://www.instagram.com/syncedinbox/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on Instagram">
                 <PiInstagramLogoDuotone size={19} />
               </a>
             </div>
