@@ -27,7 +27,7 @@ const coreLoop = [
 
 const webSteps = [
   {
-    title: "Open mail.synced.it",
+    title: "Open mail.syncedinbox.com",
     body: "Synced on the web is a desktop app. Use a full-size screen.",
   },
   {

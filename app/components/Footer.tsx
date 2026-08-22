@@ -33,7 +33,7 @@ const columns = [
     links: [
       { label: "Get Started guide", href: `${BASE}/get-started` },
       { label: "Pricing FAQ", href: `${BASE}/pricing` },
-      { label: "Web app", href: "https://mail.synced.it" },
+      { label: "Web app", href: "https://mail.syncedinbox.com" },
       { label: "Support", href: "mailto:nick@storiara.com" },
     ],
   },
