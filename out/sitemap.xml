@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://synced.it</loc>
+<loc>https://syncedinbox.com</loc>
 <image:image>
-<image:loc>https://synced.it/social-preview.png</image:loc>
+<image:loc>https://syncedinbox.com/social-preview.png</image:loc>
 </image:image>
 <lastmod>2026-07-23T00:00:00.000Z</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
+</url>
+<url>
+<loc>https://syncedinbox.com/pricing</loc>
+<lastmod>2026-08-13T00:00:00.000Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://syncedinbox.com/get-started</loc>
+<lastmod>2026-08-13T00:00:00.000Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
 </url>
 </urlset>

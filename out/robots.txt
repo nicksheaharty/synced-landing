@@ -1,6 +1,8 @@
 User-Agent: *
 Allow: /
 Disallow: /qr
+Disallow: /privacy
+Disallow: /terms
 
-Host: https://synced.it
-Sitemap: https://synced.it/sitemap.xml
+Host: https://syncedinbox.com
+Sitemap: https://syncedinbox.com/sitemap.xml

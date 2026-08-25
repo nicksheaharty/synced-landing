@@ -478,7 +478,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Team */}
+        {/* Team (hidden)
         <section id="team" className="team-section">
           <div className="container">
             <div className="section-header">
@@ -512,6 +512,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
 
         {/* CTA */}
         <section className="cta-section">
