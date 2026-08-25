@@ -21,7 +21,7 @@ const columns = [
   {
     heading: "Company",
     links: [
-      { label: "About", href: `${BASE}/#team` },
+      { label: "About", href: `${BASE}/` },
       { label: "Careers", href: "mailto:nick@storiara.com" },
       { label: "Contact", href: "mailto:nick@storiara.com" },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/syncedinbox/" },
