@@ -3,6 +3,7 @@ Allow: /
 Disallow: /qr
 Disallow: /privacy
 Disallow: /terms
+Disallow: /team
 
 Host: https://syncedinbox.com
 Sitemap: https://syncedinbox.com/sitemap.xml
