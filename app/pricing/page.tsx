@@ -20,7 +20,7 @@ const plans = [
     featured: false,
     features: [
       "20 Action Plans a week",
-      "Unlimited Signals",
+      "Unlimited Inboxes",
       "Gmail, Drive, OneDrive and Calendar",
       "Decide queue and Tasks",
       "Web and mobile apps",
@@ -37,7 +37,7 @@ const plans = [
     featured: true,
     features: [
       "100 Action Plans a week",
-      "Unlimited Signals",
+      "Unlimited Inboxes",
       "All integrations (adds Notion, GitHub, Slack and Teams)",
       "Decide queue and Tasks",
       "Web and mobile apps",
@@ -66,7 +66,7 @@ const plans = [
 const comparisonRows = [
   { label: "Pricing", free: "$0 / user", pro: "$29.99 / user / month", enterprise: "Contact us" },
   { label: "Action Plans", free: "20 / week", pro: "100 / week", enterprise: "Custom" },
-  { label: "Signals (input connectors)", free: "Unlimited", pro: "Unlimited", enterprise: "Unlimited" },
+  { label: "Inboxes (input connectors)", free: "Unlimited", pro: "Unlimited", enterprise: "Unlimited" },
   { label: "Output integrations", free: "Drive, OneDrive, Calendar", pro: "Drive, OneDrive, Dropbox, Notion, GitHub, Calendar", enterprise: "All, plus custom" },
   { label: "Decide queue", free: "Included", pro: "Included", enterprise: "Included" },
   { label: "Tasks", free: "Included", pro: "Included", enterprise: "Included" },
@@ -86,11 +86,11 @@ const faqs = [
   },
   {
     q: "When does the weekly count reset?",
-    a: "Every 7 days from when you connected your first Signal. You can see your usage and reset date any time from Settings.",
+    a: "Every 7 days from when you connected your first Inbox. You can see your usage and reset date any time from Settings.",
   },
   {
     q: "Can I switch between Free and Pro?",
-    a: "Yes. Upgrade or downgrade at any time. Changes apply to your next billing cycle, and you keep your Signals and history either way.",
+    a: "Yes. Upgrade or downgrade at any time. Changes apply to your next billing cycle, and you keep your Inboxes and history either way.",
   },
   {
     q: "Is there a discount for paying yearly?",
@@ -102,7 +102,7 @@ const faqs = [
   },
   {
     q: "When should we talk to Enterprise instead of using Pro?",
-    a: "If your company needs SSO, admin controls over who can connect Signals, a security review, or a custom contract, reach out and we will set that up directly.",
+    a: "If your company needs SSO, admin controls over who can connect Inboxes, a security review, or a custom contract, reach out and we will set that up directly.",
   },
 ];
 

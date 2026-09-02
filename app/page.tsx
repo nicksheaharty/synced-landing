@@ -408,7 +408,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 20 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited Signals</li>
+                  <li><PiCheckBold size={14} /> Unlimited Inboxes</li>
                   <li><PiCheckBold size={14} /> Gmail, Drive, OneDrive &amp; Calendar</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                 </ul>
@@ -426,7 +426,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 100 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited Signals</li>
+                  <li><PiCheckBold size={14} /> Unlimited Inboxes</li>
                   <li><PiCheckBold size={14} /> All integrations (adds Notion, GitHub, Slack &amp; Teams)</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                   <li><PiCheckBold size={14} /> Priority support</li>

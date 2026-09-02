@@ -20,7 +20,7 @@ const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const coreLoop = [
-  { icon: PiPlugsConnectedDuotone, label: "Connect a Signal" },
+  { icon: PiPlugsConnectedDuotone, label: "Connect an Inbox" },
   { icon: PiListChecksDuotone, label: "Synced drafts an Action Plan" },
   { icon: PiHandTapDuotone, label: "You clear Decide" },
 ];
@@ -40,7 +40,7 @@ const webSteps = [
   },
   {
     title: "Connect Gmail",
-    body: "Add more Signals like Outlook, Slack, or Teams anytime from Settings.",
+    body: "Add more Inboxes like Outlook, Slack, or Teams anytime from Settings.",
   },
   {
     title: "Check Messages, Decide, and Tasks",
@@ -158,7 +158,7 @@ export default function GetStartedPage() {
                   ))}
                 </ol>
                 <p className="platform-note">
-                  Same phone number as web. Your Signals and history carry over, no separate
+                  Same phone number as web. Your Inboxes and history carry over, no separate
                   pairing step.
                 </p>
               </div>
@@ -177,8 +177,8 @@ export default function GetStartedPage() {
               <div className="glossary-item">
                 <PiPlugsConnectedDuotone size={20} className="glossary-icon" />
                 <div>
-                  <div className="glossary-term">Signals</div>
-                  <p className="glossary-def">The inboxes and channels you connect: Gmail, Outlook, Slack, Teams, and more.</p>
+                  <div className="glossary-term">Inboxes</div>
+                  <p className="glossary-def">The mailboxes and channels you connect: Gmail, Outlook, Slack, Teams, and more.</p>
                 </div>
               </div>
               <div className="glossary-item">
@@ -206,7 +206,7 @@ export default function GetStartedPage() {
                 <PiUserCircleDuotone size={20} className="glossary-icon" />
                 <div>
                   <div className="glossary-term">One account, every device</div>
-                  <p className="glossary-def">Sign in with the same phone number on web and mobile and your Signals and history follow you.</p>
+                  <p className="glossary-def">Sign in with the same phone number on web and mobile and your Inboxes and history follow you.</p>
                 </div>
               </div>
               <div className="glossary-item">
