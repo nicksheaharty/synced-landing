@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 
@@ -22,7 +20,7 @@ export default function NotFound() {
         <div className="nf-body">
           <span className="nf-code">404</span>
           <h1 className="nf-title">Page not found</h1>
-          <p className="nf-sub">This page doesn't exist, or it moved.</p>
+          <p className="nf-sub">This page doesn&apos;t exist, or it moved.</p>
           <div className="nf-actions">
             <a href={`${BASE}/`} className="btn-primary">Go home</a>
             <a href={WAITLIST_URL} className="btn-ghost">Get Early Access</a>

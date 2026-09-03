@@ -9,8 +9,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 const plans = [
   {
     name: "Free",

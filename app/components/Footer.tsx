@@ -33,6 +33,7 @@ const columns = [
     links: [
       { label: "Get Started guide", href: `${BASE}/get-started` },
       { label: "Pricing FAQ", href: `${BASE}/pricing` },
+      { label: "Security", href: `${BASE}/security` },
       { label: "Web app", href: "https://mail.syncedinbox.com" },
       { label: "Support", href: "mailto:nick@storiara.com" },
     ],

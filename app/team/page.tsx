@@ -81,7 +81,7 @@ export default function TeamPage() {
                 <h2 className="cta-title">
                   Make your inbox<br />work for you.
                 </h2>
-                <p className="cta-sub">Join thousands ready to reclaim their time. Synced handles the busywork, you focus on what matters.</p>
+                <p className="cta-sub">Join the private beta. Synced handles the busywork, so you can focus on what matters.</p>
               </div>
               <a href={WAITLIST_URL} className="btn-primary btn-lg">
                 Get Early Access

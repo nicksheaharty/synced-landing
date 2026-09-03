@@ -68,7 +68,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         "@id": `${siteUrl}/#organization`,
         name: "Synced",
         url: siteUrl,
-        logo: `${siteUrl}/icon-light.png`,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/icon-light.png`,
+          width: 440,
+          height: 440,
+        },
+        sameAs: [
+          "https://www.linkedin.com/company/syncedinbox/",
+          "https://www.instagram.com/syncedinbox/",
+        ],
       },
       {
         "@type": "WebSite",
@@ -81,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       },
       {
         "@type": "SoftwareApplication",
+        "@id": `${siteUrl}/#software`,
         name: "Synced",
         url: siteUrl,
         applicationCategory: "BusinessApplication",

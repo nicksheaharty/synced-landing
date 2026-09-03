@@ -1,10 +1,10 @@
 "use client";
 
+/* eslint-disable react/no-unescaped-entities, @typescript-eslint/no-explicit-any */
+
 import { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: July 20, 2026</span>
+                <span className="eyebrow">Last updated: September 3, 2026</span>
                 <h1 className="legal-title">Privacy Policy</h1>
                 <p className="legal-subtitle">
                   We believe in plain language. Here is a clear breakdown of what data we collect, why we collect it, and how we protect it when you use Synced.
@@ -68,12 +68,12 @@ export default function PrivacyPolicy() {
               <div className="legal-body">
                 <h2>1. Overview</h2>
                 <p>
-                  Synced ("we," "our," or "us") provides coordination, AI document assistance, and exam readiness infrastructure for banks and fintech companies. To help teams coordinate meetings, manage deadlines, search and reference documentation, and build a compliance audit trail, we integrate with Google APIs to access calendars, contacts, files, and email communications. This Privacy Policy details how we handle that information.
+                  Synced ("we," "our," or "us") is an AI inbox assistant that helps users search connected messages and files, draft replies, coordinate calendars, and manage follow-ups. When you choose to connect Google services, Synced accesses only the data needed to provide the features you enable. This Privacy Policy explains what we access, how we use it, and the controls available to you.
                 </p>
 
                 <h2>2. Information We Collect and Access (Data Access)</h2>
                 <p>
-                  We only request and collect the minimal amount of information required to deliver the core scheduling, document assistance, and regulatory deadline tracking services of Synced. We access both raw and aggregated/anonymized Google user data depending on the scope of the services you enable. Specifically:
+                  We request the minimum information needed to provide Synced&apos;s inbox, scheduling, search, drafting, and follow-up features. The information available to Synced depends on the services and permissions you choose to enable. Specifically:
                 </p>
                 <ul>
                   <li>
@@ -148,7 +148,7 @@ export default function PrivacyPolicy() {
                 </p>
                 <ul>
                   <li>
-                    <strong>Data Retention Policy:</strong> We retain your Google user data (such as account credentials, tokens, and cached metadata) only for as long as your Synced account is active or as necessary to provide you with the services of the platform.
+                    <strong>Data Retention Policy:</strong> We retain account data, authorization tokens, and cached service data only while your Synced account is active or for as long as needed to provide the features you enable, meet legal obligations, resolve disputes, and protect the Service.
                   </li>
                   <li>
                     <strong>Revoking Access:</strong> You can disconnect your Google Calendar or Gmail account at any time directly in your Synced settings. Alternatively, you can revoke Synced's access to your Google account via the{" "}

@@ -1,10 +1,10 @@
 "use client";
 
+/* eslint-disable react/no-unescaped-entities, @typescript-eslint/no-explicit-any */
+
 import { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function TermsOfService() {
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function TermsOfService() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: July 13, 2026</span>
+                <span className="eyebrow">Last updated: September 3, 2026</span>
                 <h1 className="legal-title">Terms of Service</h1>
                 <p className="legal-subtitle">
                   By using Synced, you agree to these Terms. Let's make sure we are aligned on rules, responsibilities, and disclaimers.
@@ -68,17 +68,17 @@ export default function TermsOfService() {
               <div className="legal-body">
                 <h2>1. Acceptance of Terms</h2>
                 <p>
-                  By accessing, registering for, or using the services provided by Synced ("we," "our," or "us") via Synced.it (the "Platform" or "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use our Platform.
+                  By accessing, registering for, or using Synced through syncedinbox.com, mail.syncedinbox.com, or an official Synced application (the "Platform" or "Service"), you agree to these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Service.
                 </p>
 
                 <h2>2. Description of Service</h2>
                 <p>
-                  Synced provides compliance exam coordination, AI document assistance, and coordination infrastructure designed to help financial institutions, banks, fintechs, and compliance professionals manage regulatory examinations (e.g. SEC, OCC, FDIC, CFPB). Features include team availability synchronization, deadline tracking, document reference search, and audit logs.
+                  Synced is an AI inbox assistant that can search connected messages and files, summarize conversations, draft replies, coordinate calendars, and manage follow-ups. Some features may be offered as part of a private beta, may vary by platform or connected service, and may change as the product develops.
                 </p>
 
                 <h2>3. Account Registration &amp; Google Integrations</h2>
                 <p>
-                  To unlock the scheduling, document search, and automated request tracking features, you must log in or connect your account using Google OAuth.
+                  To use inbox search, scheduling, drafting, and related automation features, you may need to sign in or connect an account using Google OAuth.
                 </p>
                 <ul>
                   <li>
@@ -93,23 +93,23 @@ export default function TermsOfService() {
                     <br />
                     - <em>Contacts (Read-only):</em> To search and retrieve contact details via the People API to autocomplete email addresses and prevent typos when scheduling.
                     <br />
-                    - <em>Drive (Read-only):</em> To search, retrieve, and read content from files in your Google Drive to answer queries or use as source context for compliance tasks.
+                    - <em>Drive (Read-only):</em> To search, retrieve, and read content from files in your Google Drive to answer queries or use as source context for tasks you request.
                   </li>
                   <li>
                     <strong>Revocation:</strong> You can disconnect these integration permissions at any point through your Synced dashboard or your Google Account Security dashboard.
                   </li>
                 </ul>
 
-                <h2>4. Compliance Disclaimer &amp; User Responsibilities</h2>
+                <h2>4. AI Output Disclaimer &amp; User Responsibilities</h2>
                 <p>
                   <strong>IMPORTANT:</strong> Synced is an administrative and organizational utility tool.
                 </p>
                 <ul>
                   <li>
-                    <strong>Not Legal Advice:</strong> The Platform's alerts, deadline calculations, parsed request summaries, and compliance logs do not constitute regulatory compliance advice, legal counsel, or official supervision audit findings.
+                    <strong>Review AI Output:</strong> AI-generated summaries, drafts, suggested actions, dates, and other output may be incomplete or incorrect. You are responsible for reviewing output before relying on it or sending, scheduling, or approving an action.
                   </li>
                   <li>
-                    <strong>Final Verification:</strong> You and your organization retain ultimate responsibility for meeting statutory deadlines, responding to document requests, and satisfying regulatory mandates. You must independently check official examiner portals and communications to verify the completeness and accuracy of all deadlines.
+                    <strong>Final Verification:</strong> You retain responsibility for your communications, files, meetings, deadlines, and decisions. Verify important information against the original message, file, calendar, or other authoritative source.
                   </li>
                 </ul>
 
@@ -139,7 +139,7 @@ export default function TermsOfService() {
                   THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
                 </p>
                 <p>
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, SYNCED SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO, LOSS OF PROFITS, LOSS OF REVENUE, REGULATORY FINES OR AUDIT FINDINGS, OR DATA LOSS RESULTING FROM (I) THE USE OR THE INABILITY TO USE THE PLATFORM; (II) THE ACCURACY OF SURFACED DEADLINES; OR (III) ANY UNSCHEDULED SERVICE DOWNTIME OR DATA CORRUPTION.
+                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, SYNCED SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING LOSS OF PROFITS, LOSS OF REVENUE, MISSED COMMUNICATIONS OR DEADLINES, OR DATA LOSS RESULTING FROM (I) USE OF OR INABILITY TO USE THE PLATFORM; (II) RELIANCE ON AI-GENERATED OR SURFACED INFORMATION; OR (III) SERVICE DOWNTIME OR DATA CORRUPTION.
                 </p>
 
                 <h2>8. Governing Law</h2>

@@ -1,0 +1,22 @@
+# Synced
+
+> Synced is an AI inbox assistant that searches connected email and files, drafts replies, coordinates calendars, and manages follow-ups. Synced is currently available as a private beta on web and iOS, with Android planned.
+
+## Canonical pages
+
+- [Product overview](https://syncedinbox.com/): What Synced does, supported integrations, and core features.
+- [Pricing](https://syncedinbox.com/pricing): Current private-beta plans and limits.
+- [Get started](https://syncedinbox.com/get-started): Setup instructions for invited web and iOS users.
+- [Security](https://syncedinbox.com/security): Data access, user controls, and security practices.
+- [Privacy policy](https://syncedinbox.com/privacy): How Synced accesses, uses, retains, and deletes data.
+- [Terms of service](https://syncedinbox.com/terms): Rules and responsibilities for using Synced.
+- [Team](https://syncedinbox.com/team): The people building Synced.
+
+## Important facts
+
+- Synced does not send an AI-drafted message without the user's approval.
+- Connected-service access depends on the permissions and integrations a user enables.
+- Google Workspace data is not used to train generalized AI or machine-learning models.
+- Users can disconnect integrations and request account deletion.
+
+For current details, treat the canonical pages above as authoritative.

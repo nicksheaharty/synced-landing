@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  PiChatCircleTextDuotone,
   PiListChecksDuotone,
   PiHandTapDuotone,
   PiDeviceMobileDuotone,
@@ -17,8 +16,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 const coreLoop = [
   { icon: PiPlugsConnectedDuotone, label: "Connect an Inbox" },
   { icon: PiListChecksDuotone, label: "Synced drafts an Action Plan" },
@@ -51,7 +48,7 @@ const webSteps = [
 const mobileSteps = [
   {
     title: "Install Synced",
-    body: "iOS today, with Android on the way.",
+    body: "Private-beta access is available on iOS, with Android on the way.",
   },
   {
     title: "Verify your number",
@@ -85,8 +82,8 @@ export default function GetStartedPage() {
             <span className="eyebrow">Get started</span>
             <h1 className="learn-title">Set up Synced in under 5 minutes.</h1>
             <p className="learn-sub">
-              Sign in, connect Gmail, and start reviewing what Synced already handled for you.
-              Pick your platform below.
+              If you have private-beta access, sign in, connect Gmail, and start reviewing what
+              Synced already handled for you. Pick your platform below.
             </p>
             <div className="loop-strip">
               {coreLoop.map(({ icon: Icon, label }, i) => (
