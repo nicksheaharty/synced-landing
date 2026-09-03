@@ -6,6 +6,7 @@ import {
   PiLockKeyDuotone,
   PiPlugsConnectedDuotone,
   PiTrashDuotone,
+  PiUserCircleDuotone,
 } from "react-icons/pi";
 
 const controls = [
@@ -30,9 +31,14 @@ const controls = [
     body: "Credentials, authorization tokens, and stored service data are encrypted in transit using TLS and encrypted at rest. Access is restricted to providing the service, approved support, and necessary security investigations.",
   },
   {
+    icon: PiUserCircleDuotone,
+    title: "Human access is tightly limited",
+    body: "Our team does not read connected messages, files, contacts, or calendar data unless you request support, give consent, or access is required for a security investigation.",
+  },
+  {
     icon: PiTrashDuotone,
     title: "You can delete your data",
-    body: "You can disconnect services at any time and request account deletion. Synced's Privacy Policy explains retention, deletion, and the limited circumstances in which data may be retained.",
+    body: "Disconnect services at any time and request account deletion. Synced's Privacy Policy explains retention, deletion, and the limited circumstances in which data may be retained.",
   },
 ];
 
@@ -51,24 +57,28 @@ export default function SecurityPage() {
             safeguards and controls behind that access.
           </p>
         </section>
-        <section className="container security-grid" aria-label="Synced security controls">
-          {controls.map(({ icon: Icon, title, body }) => (
-            <article className="security-card" key={title}>
-              <div className="security-icon-wrap" aria-hidden="true"><Icon size={22} /></div>
-              <div className="security-card-copy">
-                <h2>{title}</h2>
-                <p>{body}</p>
-              </div>
-            </article>
-          ))}
+        <section className="container security-grid-shell" aria-label="Synced security controls">
+          <div className="security-grid">
+            {controls.map(({ icon: Icon, title, body }) => (
+              <article className="security-card" key={title}>
+                <div className="security-icon-wrap" aria-hidden="true"><Icon size={22} /></div>
+                <div className="security-card-copy">
+                  <h2>{title}</h2>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
-        <section className="container security-detail">
-          <h2>Read the complete data policy</h2>
-          <p>
-            The <a href="/privacy">Privacy Policy</a> describes the Google scopes Synced may
-            request, service providers used to deliver features, retention and deletion, and
-            Google API Services User Data Policy compliance.
-          </p>
+        <section className="container security-detail-shell">
+          <div className="security-detail">
+            <h2>Read the complete data policy</h2>
+            <p>
+              The <a href="/privacy">Privacy Policy</a> describes the Google scopes Synced may
+              request, service providers used to deliver features, retention and deletion, and
+              Google API Services User Data Policy compliance.
+            </p>
+          </div>
         </section>
       </main>
       <Footer />
@@ -107,12 +117,12 @@ export default function SecurityPage() {
           font-size: clamp(1rem, 1.8vw, 1.1rem);
           line-height: 1.6;
         }
+        .security-grid-shell { margin-top: 3.25rem; }
         .security-grid {
           display: grid;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 0;
           overflow: hidden;
-          margin-top: 3.25rem;
           border: 1px solid hsl(var(--border) / .85);
           border-radius: 24px;
           background: hsl(var(--card));
@@ -123,7 +133,6 @@ export default function SecurityPage() {
           display: flex;
           align-items: flex-start;
           gap: 1rem;
-          min-height: 190px;
           padding: 2rem;
           border-bottom: 1px solid hsl(var(--border) / .75);
           background: transparent;
@@ -132,47 +141,45 @@ export default function SecurityPage() {
         .security-card:nth-child(odd) {
           border-right: 1px solid hsl(var(--border) / .75);
         }
-        .security-card:last-child {
-          grid-column: 1 / -1;
-          min-height: 0;
-          border-right: 0;
+        .security-card:nth-last-child(-n + 2) {
           border-bottom: 0;
         }
         .security-card h2,
         .security-detail h2 {
           margin: .1rem 0 .5rem;
-          font-family: "p22-mackinac-pro", serif;
-          font-size: 1.15rem;
+          font-family: inherit;
+          font-size: .95rem;
           font-weight: 700;
-          letter-spacing: -.015em;
+          letter-spacing: 0;
+          line-height: 1.4;
           color: hsl(var(--fg));
         }
         .security-card p,
         .security-detail p {
           max-width: 620px;
           color: hsl(var(--muted-fg));
-          font-size: .92rem;
-          line-height: 1.65;
+          font-size: .85rem;
+          line-height: 1.58;
         }
         .security-icon-wrap {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 42px;
-          height: 42px;
-          flex: 0 0 42px;
+          width: 40px;
+          height: 40px;
+          flex: 0 0 40px;
           border-radius: 12px;
           background: hsl(var(--primary) / .1);
           color: hsl(var(--primary));
           transition: transform 180ms cubic-bezier(.23, 1, .32, 1), background-color 180ms ease;
         }
         .security-card-copy { min-width: 0; }
+        .security-detail-shell { margin-top: 1.5rem; }
         .security-detail {
           display: grid;
           grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
           gap: 2rem;
           align-items: start;
-          margin-top: 1.5rem;
           padding: 2rem;
           border: 1px solid hsl(var(--border) / .75);
           border-radius: 20px;
@@ -191,9 +198,11 @@ export default function SecurityPage() {
         }
         @media (max-width: 700px) {
           .security-main { padding: 8.25rem 0 5rem; }
-          .security-grid { grid-template-columns: 1fr; margin-top: 3rem; border-radius: 20px; }
+          .security-grid-shell { margin-top: 3rem; }
+          .security-grid { grid-template-columns: 1fr; border-radius: 20px; }
           .security-card,
           .security-card:last-child { grid-column: auto; min-height: 0; padding: 1.4rem; border-right: 0; border-bottom: 1px solid hsl(var(--border) / .75); }
+          .security-card:nth-last-child(-n + 2) { border-bottom: 1px solid hsl(var(--border) / .75); }
           .security-card:last-child { border-bottom: 0; }
           .security-detail { grid-template-columns: 1fr; gap: .75rem; padding: 1.5rem; }
         }
