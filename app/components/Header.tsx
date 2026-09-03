@@ -7,9 +7,9 @@ const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const NAV_ITEMS = [
-  { label: "Features", href: `${BASE}/#features` },
-  { label: "Integrations", href: `${BASE}/#integrations` },
   { label: "Pricing", href: `${BASE}/pricing` },
+  { label: "Security", href: `${BASE}/security` },
+  { label: "How it works", href: `${BASE}/#features` },
   { label: "Get Started", href: `${BASE}/get-started` },
 ];
 
