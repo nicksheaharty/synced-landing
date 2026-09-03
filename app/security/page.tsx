@@ -40,8 +40,9 @@ export default function SecurityPage() {
           </p>
         </section>
         <section className="container security-grid" aria-label="Synced security controls">
-          {controls.map((control) => (
+          {controls.map((control, index) => (
             <article className="security-card" key={control.title}>
+              <span className="security-card-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               <h2>{control.title}</h2>
               <p>{control.body}</p>
             </article>
@@ -58,18 +59,125 @@ export default function SecurityPage() {
       </main>
       <Footer />
       <style>{`
-        .security-main { position: relative; z-index: 2; padding: 10rem 0 7rem; }
-        .security-hero { max-width: 850px; text-align: center; }
-        .security-hero h1 { font-family: "p22-mackinac-pro", serif; font-size: clamp(2.5rem, 6vw, 4.75rem); letter-spacing: -.045em; line-height: 1; margin: 1rem auto 1.25rem; }
-        .security-hero p { max-width: 720px; margin: 0 auto; color: hsl(var(--muted-fg)); font-size: 1.05rem; line-height: 1.7; }
-        .security-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 4rem; }
-        .security-card { padding: 2rem; border: 1px solid hsl(var(--border)); border-radius: 18px; background: hsl(var(--card) / .72); }
-        .security-card:last-child { grid-column: 1 / -1; }
-        .security-card h2, .security-detail h2 { font-size: 1.15rem; margin-bottom: .65rem; }
-        .security-card p, .security-detail p { color: hsl(var(--muted-fg)); line-height: 1.65; }
-        .security-detail { margin-top: 1rem; padding: 2rem; border-radius: 18px; background: hsl(var(--primary) / .06); }
-        .security-detail a { color: hsl(var(--primary)); text-decoration: underline; text-underline-offset: 3px; }
-        @media (max-width: 700px) { .security-main { padding-top: 8rem; } .security-grid { grid-template-columns: 1fr; } .security-card:last-child { grid-column: auto; } }
+        .security-main {
+          position: relative;
+          z-index: 2;
+          padding: 9rem 0 8rem;
+        }
+        .security-hero {
+          max-width: none;
+          text-align: left;
+        }
+        .security-hero .eyebrow {
+          padding: 0;
+          margin-bottom: 1.35rem;
+          border: 0;
+          border-radius: 0;
+          background: transparent;
+          box-shadow: none;
+          letter-spacing: .08em;
+        }
+        .security-hero h1 {
+          max-width: 720px;
+          margin: 0 0 1.1rem;
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(2.25rem, 5vw, 3.5rem);
+          font-weight: 700;
+          letter-spacing: -.035em;
+          line-height: 1.08;
+          color: hsl(var(--fg));
+        }
+        .security-hero > p {
+          max-width: 600px;
+          margin: 0;
+          color: hsl(var(--muted-fg));
+          font-size: clamp(1rem, 1.8vw, 1.1rem);
+          line-height: 1.6;
+        }
+        .security-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0;
+          overflow: hidden;
+          margin-top: 3.5rem;
+          border: 1px solid hsl(var(--border) / .85);
+          border-radius: 24px;
+          background: hsl(var(--card));
+          box-shadow: 0 20px 55px rgba(35, 27, 72, .055);
+        }
+        .security-card {
+          position: relative;
+          min-height: 220px;
+          padding: 2rem;
+          border-bottom: 1px solid hsl(var(--border) / .75);
+          background: transparent;
+          transition: background-color 180ms ease;
+        }
+        .security-card:nth-child(odd) {
+          border-right: 1px solid hsl(var(--border) / .75);
+        }
+        .security-card:last-child {
+          grid-column: 1 / -1;
+          min-height: 0;
+          border-right: 0;
+          border-bottom: 0;
+        }
+        .security-card h2,
+        .security-detail h2 {
+          margin: 2.2rem 0 .65rem;
+          font-family: "p22-mackinac-pro", serif;
+          font-size: 1.15rem;
+          font-weight: 700;
+          letter-spacing: -.015em;
+          color: hsl(var(--fg));
+        }
+        .security-card p,
+        .security-detail p {
+          max-width: 620px;
+          color: hsl(var(--muted-fg));
+          font-size: .92rem;
+          line-height: 1.65;
+        }
+        .security-card-number {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+          font-size: .68rem;
+          font-weight: 700;
+          letter-spacing: .1em;
+          color: hsl(var(--primary));
+        }
+        .security-detail {
+          display: grid;
+          grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+          gap: 2rem;
+          align-items: start;
+          margin-top: 1.5rem;
+          padding: 2rem;
+          border: 1px solid hsl(var(--border) / .75);
+          border-radius: 20px;
+          background: hsl(var(--card) / .7);
+        }
+        .security-detail h2 { margin: 0; }
+        .security-detail a {
+          color: hsl(var(--primary));
+          font-weight: 600;
+          text-decoration: none;
+        }
+        .security-detail a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        @media (hover: hover) and (pointer: fine) {
+          .security-card:hover { background: hsl(var(--primary) / .035); }
+        }
+        @media (max-width: 700px) {
+          .security-main { padding: 8.5rem 0 5rem; }
+          .security-grid { grid-template-columns: 1fr; margin-top: 3rem; border-radius: 20px; }
+          .security-card,
+          .security-card:last-child { grid-column: auto; min-height: 0; padding: 1.5rem; border-right: 0; border-bottom: 1px solid hsl(var(--border) / .75); }
+          .security-card:last-child { border-bottom: 0; }
+          .security-card-number { top: 1.5rem; left: 1.5rem; }
+          .security-card h2 { margin-top: 2rem; }
+          .security-detail { grid-template-columns: 1fr; gap: .75rem; padding: 1.5rem; }
+        }
       `}</style>
     </>
   );
