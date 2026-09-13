@@ -1,16 +1,20 @@
 # syncedinbox.com
 
-Marketing site for Synced. Next.js 16 App Router, static export (`output: "export"`), so `npm run build` writes a plain HTML site to `out/`.
+Marketing site for Synced. Next.js 16 App Router, deployed on Firebase App Hosting. Every page is prerendered at build time.
 
 ```bash
 npm ci
 npm run dev        # http://localhost:3000
-npm run build      # static site in out/
+npm run build
 ```
 
 ## Hosting
 
-`out/` is a static site with clean URLs (`/integrations/gmail` is `out/integrations/gmail.html`). Cloudflare Pages, Vercel, and Netlify serve that correctly with no config. Choose a host that supports real 301 redirects; content consolidation depends on them.
+Firebase App Hosting builds and serves the site from `main` (its adapter runs `next build` and uses the standalone output). DNS for syncedinbox.com is on Cloudflare. To reproduce the production build locally:
+
+```bash
+npx -p @apphosting/adapter-nextjs apphosting-adapter-nextjs-build
+```
 
 ## Pages
 

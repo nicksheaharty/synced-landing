@@ -40,3 +40,6 @@ next-env.d.ts
 
 # static export output (rebuilt on deploy)
 /out/
+
+# Firebase App Hosting local build output
+/.apphosting/

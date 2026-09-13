@@ -1,15 +1,17 @@
 import type { NextConfig } from "next";
 import path from "path";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
+// Deployed on Firebase App Hosting, which runs Next.js as a server (its adapter
+// needs the standalone build output). Every page is still prerendered at build time.
 const nextConfig: NextConfig = {
-  output: "export",
   trailingSlash: false,
-  basePath,
-  assetPrefix: basePath,
   images: {
     unoptimized: true,
+  },
+  // The OG image route reads these at build time; make sure they're traced into
+  // the server bundle too, in case a card is ever rendered at request time.
+  outputFileTracingIncludes: {
+    "/og/[...slug]": ["./assets/fonts/**", "./public/icon-light.png"],
   },
   // Dev only: let other devices on the network (phone, another laptop) load the dev
   // server's JS. Without this, Next blocks /_next dev resources for non-localhost
