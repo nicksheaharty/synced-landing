@@ -139,12 +139,21 @@ export default function Header() {
   useEffect(() => {
     if (!menuOpen) return;
     document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    // The menu only exists below the desktop breakpoint; close it if the window grows past it.
+    const wide = window.matchMedia("(min-width: 881px)");
+    const onWide = () => wide.matches && setMenuOpen(false);
+    document.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
     };
   }, [menuOpen]);
 
-  const flat = NAV_ITEMS.flatMap((item) => ("children" in item ? item.children : [item]));
+  const primary = NAV_ITEMS.filter((item): item is NavLink => !("children" in item));
+  const groups = NAV_ITEMS.filter((item): item is { label: string; children: NavLink[] } => "children" in item);
 
   return (
     <>
@@ -197,16 +206,33 @@ export default function Header() {
             <PiXBold size={22} />
           </button>
         </div>
-        <nav className="mobile-menu-links">
-          {flat.map((item) => (
-            <a key={item.label} href={item.href} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>
-              {item.label}
-            </a>
+        <nav className="mobile-menu-body" aria-label="Menu">
+          <div className="mobile-menu-links">
+            {primary.map((item) => (
+              <a key={item.label} href={item.href} className="mobile-menu-link" onClick={() => setMenuOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+          {groups.map((group) => (
+            <div key={group.label} className="mobile-menu-group">
+              <div className="mobile-menu-group-label">{group.label}</div>
+              <div className="mobile-menu-grid">
+                {group.children.map((item) => (
+                  <a key={item.label} href={item.href} className="mobile-menu-sublink" onClick={() => setMenuOpen(false)}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
-        <a href={WAITLIST_URL} className="btn-primary btn-lg mobile-menu-cta" onClick={() => setMenuOpen(false)}>
-          Get Early Access
-        </a>
+        <div className="mobile-menu-footer">
+          <a href={WAITLIST_URL} className="btn-primary btn-lg mobile-menu-cta" onClick={() => setMenuOpen(false)}>
+            Get Early Access
+          </a>
+          <span className="mobile-menu-note">Free plan, no credit card</span>
+        </div>
       </div>
     </>
   );

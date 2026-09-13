@@ -212,7 +212,7 @@ img { display: block; max-width: 100%; }
   z-index: 200;
   display: flex;
   flex-direction: column;
-  padding: 1rem clamp(1rem, 5vw, 2rem) 2rem;
+  height: 100dvh;
   background: hsl(var(--bg));
   opacity: 0;
   visibility: hidden;
@@ -226,31 +226,80 @@ img { display: block; max-width: 100%; }
   transition: opacity .2s ease, transform .2s ease, visibility 0s;
 }
 .mobile-menu-top {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 48px;
-  margin-bottom: 2.5rem;
+  margin-top: calc(1rem + 1px);
+  padding-inline: clamp(1rem, 5vw, 2rem);
+}
+.mobile-menu-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.75rem clamp(1rem, 5vw, 2rem) 1.5rem;
 }
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 }
 .mobile-menu-link {
   font-family: "p22-mackinac-pro", serif;
-  font-size: 1.75rem;
+  font-size: clamp(1.5rem, 7vw, 1.85rem);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.2;
   color: hsl(var(--fg));
   text-decoration: none;
-  padding: 0.75rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid hsl(var(--border));
+  transition: color .15s ease;
+}
+.mobile-menu-link:active { color: hsl(var(--primary)); }
+.mobile-menu-group { margin-top: 1.75rem; }
+.mobile-menu-group-label {
+  margin-bottom: .6rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+}
+.mobile-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+}
+.mobile-menu-sublink {
+  padding: .7rem 0;
+  border-bottom: 1px solid hsl(var(--border) / .75);
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(var(--fg));
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.mobile-menu-sublink:active { color: hsl(var(--primary)); }
+.mobile-menu-footer {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  padding: 1rem clamp(1rem, 5vw, 2rem) calc(1rem + env(safe-area-inset-bottom));
+  border-top: 1px solid hsl(var(--border) / .75);
+  background: hsl(var(--bg));
 }
 .mobile-menu-cta {
-  margin-top: auto;
   width: 100%;
   justify-content: center;
+}
+.mobile-menu-note {
+  font-size: .75rem;
+  color: hsl(var(--muted-fg));
 }
 @media (min-width: 881px) {
   .mobile-menu { display: none; }
