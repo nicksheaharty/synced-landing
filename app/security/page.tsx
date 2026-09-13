@@ -76,7 +76,8 @@ export default function SecurityPage() {
             <p>
               The <a href="/privacy">Privacy Policy</a> describes the Google scopes Synced may
               request, service providers used to deliver features, retention and deletion, and
-              Google API Services User Data Policy compliance.
+              Google API Services User Data Policy compliance. Synced has completed Google&apos;s
+              OAuth verification for restricted scopes, including the CASA security assessment.
             </p>
           </div>
         </section>

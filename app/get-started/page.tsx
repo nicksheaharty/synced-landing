@@ -63,8 +63,8 @@ const mobileSteps = [
     body: "Required to finish setup. Add Outlook, Slack, or Teams whenever you're ready.",
   },
   {
-    title: "Open Home",
-    body: "Home is your conversation list. Tasks holds what's delegated to you. Answer is Decide, built for on the go.",
+    title: "Open Messages",
+    body: "Same tabs as web: Messages is your inbox, Decide holds approvals, and Tasks tracks what's delegated to you.",
   },
 ];
 

@@ -18,7 +18,7 @@ const plans = [
     featured: false,
     features: [
       "20 Action Plans a week",
-      "Unlimited Inboxes",
+      "Unlimited integrations, 4 accounts each",
       "Gmail, Drive, OneDrive and Calendar",
       "Decide queue and Tasks",
       "Web and mobile apps",
@@ -35,7 +35,7 @@ const plans = [
     featured: true,
     features: [
       "100 Action Plans a week",
-      "Unlimited Inboxes",
+      "Unlimited integrations, 4 accounts each",
       "All integrations (adds Notion, GitHub, Slack and Teams)",
       "Decide queue and Tasks",
       "Web and mobile apps",
@@ -64,7 +64,7 @@ const plans = [
 const comparisonRows = [
   { label: "Pricing", free: "$0 / user", pro: "$29.99 / user / month", enterprise: "Contact us" },
   { label: "Action Plans", free: "20 / week", pro: "100 / week", enterprise: "Custom" },
-  { label: "Inboxes (input connectors)", free: "Unlimited", pro: "Unlimited", enterprise: "Unlimited" },
+  { label: "Inboxes (input connectors)", free: "Unlimited, 4 accounts each", pro: "Unlimited, 4 accounts each", enterprise: "Unlimited, 4 accounts each" },
   { label: "Output integrations", free: "Drive, OneDrive, Calendar", pro: "Drive, OneDrive, Dropbox, Notion, GitHub, Calendar", enterprise: "All, plus custom" },
   { label: "Decide queue", free: "Included", pro: "Included", enterprise: "Included" },
   { label: "Tasks", free: "Included", pro: "Included", enterprise: "Included" },
@@ -80,11 +80,11 @@ const faqs = [
   },
   {
     q: "What happens if I hit my weekly limit?",
-    a: "Synced keeps collecting your messages. Anything past your weekly limit waits until your count resets, so you never lose a message, you just wait for the next cycle or upgrade to keep going.",
+    a: "Synced keeps collecting your messages, so you never lose one. New requests past your weekly limit go to your Tasks list as to-dos for you to handle, with the steps written out. Replies on requests Synced is already working on keep going. Your count resets Monday at 00:00 UTC, or upgrade to keep Synced doing the work.",
   },
   {
     q: "When does the weekly count reset?",
-    a: "Every 7 days from when you connected your first Inbox. You can see your usage and reset date any time from Settings.",
+    a: "Every Monday at 00:00 UTC. You can see how many Action Plans you've used this week any time from Settings.",
   },
   {
     q: "Can I switch between Free and Pro?",

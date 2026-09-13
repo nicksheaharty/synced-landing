@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: September 3, 2026</span>
+                <span className="eyebrow">Last updated: September 13, 2026</span>
                 <h1 className="legal-title">Privacy Policy</h1>
                 <p className="legal-subtitle">
                   We believe in plain language. Here is a clear breakdown of what data we collect, why we collect it, and how we protect it when you use Synced.
@@ -90,6 +90,9 @@ export default function PrivacyPolicy() {
                   </li>
                   <li>
                     <strong>Email Communications (Gmail Read &amp; Write):</strong> If you connect your Gmail account (using the <code>.../auth/gmail.readonly</code> and <code>.../auth/gmail.modify</code> scopes), our system searches messages and retrieves message details/headers to compile context, summarize email threads, and answer your questions. We also use these scopes to create draft replies and send emails, with each draft requiring your explicit approval before sending.
+                  </li>
+                  <li>
+                    <strong>Gmail Settings (Out-of-Office):</strong> If you use Synced&apos;s out-of-office feature (using the <code>.../auth/gmail.settings.basic</code> scope), we read your current Gmail vacation responder and turn it on, off, or update its subject, message, and dates when you ask us to. We do not use this scope to change your filters, forwarding, or other Gmail settings.
                   </li>
                 </ul>
 
@@ -172,7 +175,7 @@ export default function PrivacyPolicy() {
                   If you have questions about this Privacy Policy, your data rights, or how to delete your account, please email us directly:
                 </p>
                 <p className="contact-email">
-                  <a href="mailto:nick@storiara.com">nick@storiara.com</a>
+                  <a href="mailto:contact@syncedinbox.com">contact@syncedinbox.com</a>
                 </p>
               </div>
             </div>

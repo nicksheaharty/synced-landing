@@ -58,7 +58,7 @@ export default function TermsOfService() {
           <div className="container">
             <div className="legal-card">
               <div className="legal-header">
-                <span className="eyebrow">Last updated: September 3, 2026</span>
+                <span className="eyebrow">Last updated: September 13, 2026</span>
                 <h1 className="legal-title">Terms of Service</h1>
                 <p className="legal-subtitle">
                   By using Synced, you agree to these Terms. Let's make sure we are aligned on rules, responsibilities, and disclaimers.
@@ -149,7 +149,7 @@ export default function TermsOfService() {
 
                 <h2>9. Term and Termination</h2>
                 <p>
-                  We reserve the right to suspend or terminate your workspace access at any time, with or without cause or notice, if we believe you are in violation of these Terms or engaged in activities harmful to other Platform users. You may terminate your account at any time by requesting deletion at <a href="mailto:nick@storiara.com" className="text-link">nick@storiara.com</a>.
+                  We reserve the right to suspend or terminate your workspace access at any time, with or without cause or notice, if we believe you are in violation of these Terms or engaged in activities harmful to other Platform users. You may terminate your account at any time by requesting deletion at <a href="mailto:contact@syncedinbox.com" className="text-link">contact@syncedinbox.com</a>.
                 </p>
 
                 <h2>10. Changes to Terms</h2>
@@ -162,7 +162,7 @@ export default function TermsOfService() {
                   If you have any questions or feedback regarding these Terms, please contact us at:
                 </p>
                 <p className="contact-email">
-                  <a href="mailto:nick@storiara.com">nick@storiara.com</a>
+                  <a href="mailto:contact@syncedinbox.com">contact@syncedinbox.com</a>
                 </p>
               </div>
             </div>

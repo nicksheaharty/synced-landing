@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# syncedinbox.com
 
-## Getting Started
-
-First, run the development server:
+Marketing site for Synced. Next.js 16 App Router, static export (`output: "export"`), so `npm run build` writes a plain HTML site to `out/`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
+npm run build      # static site in out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Hosting
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`out/` is a static site with clean URLs (`/integrations/gmail` is `out/integrations/gmail.html`). Cloudflare Pages, Vercel, and Netlify serve that correctly with no config. Choose a host that supports real 301 redirects; content consolidation depends on them.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages
 
-## Learn More
+- **Hand-built pages** live in their own folders: `/` (`app/page.tsx`), `/pricing`, `/get-started`, `/security`, `/team`, `/privacy`, `/terms`.
+- **Everything else** (integrations, features, use cases, comparisons, guides, templates, glossary, help, blog, company pages) is data in `content/`, rendered by a single route, `app/[...slug]/page.tsx`. To add or edit a page, edit its object in `content/<cluster>/`. Read `content/AUTHORING.md` first.
 
-To learn more about Next.js, take a look at the following resources:
+The content registry (`content/registry.ts`) drives the sitemap, `llms.txt`, `llms-full.txt`, breadcrumbs, hub pages, related links, JSON-LD, and OG images (`/og/<slug>.png`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Guardrails
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`content/validate.ts` runs during every build and fails it on:
+- two pages claiming the same search intent (`primaryIntent`), a duplicate slug, or a year in a slug
+- broken internal links or related pages
+- titles over 65 characters, descriptions outside 90–170
+- banned filler words, emoji, exclamation marks, generic headings
 
-## Deploy on Vercel
+Quick check without a full build: `npx tsx scripts/check-content.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## After deploying
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Submit the sitemap in Google Search Console and Bing Webmaster Tools.
+- `INDEXNOW_KEY=<key> npx tsx scripts/indexnow.ts` (see the script for one-time setup).
+
+Strategy and rationale: `SEO_GEO_PLAN.md`.

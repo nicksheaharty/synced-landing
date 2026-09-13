@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { CSSProperties } from "react";
 import {
   PiCalendarDuotone,
   PiClockDuotone,
@@ -15,35 +14,16 @@ import {
   PiChatCircleDuotone,
   PiCheckBold,
   PiCaretDownBold,
-  PiCalendar,
-  PiChatCircle,
-  PiCloud,
-  PiDropboxLogo,
-  PiGithubLogo,
-  PiGoogleDriveLogo,
-  PiMicrosoftOutlookLogo,
-  PiMicrosoftTeamsLogo,
-  PiSlackLogo,
-  PiWhatsappLogo,
+  PiShieldCheckDuotone,
+  PiHandTapDuotone,
+  PiUsersThreeDuotone,
 } from "react-icons/pi";
-import {
-  SiNotion,
-  SiZoom,
-} from "react-icons/si";
 import Header from "./components/Header";
+import { ConnectorGlyph } from "./components/ConnectorIcon";
 import Footer from "./components/Footer";
 
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-function GmailIcon({ size = 24, style }: { size?: number; style?: CSSProperties }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" aria-hidden="true" style={style}>
-      <path d="M54.5 17.4639C54.4999 16.2258 53.1364 15.6155 52.2373 16.294L52.2354 16.295L48.8613 18.8389L48.8604 18.8379L32.001 31.5635L15.1377 18.8418L15.1357 18.8408L11.7627 16.294L11.6768 16.2334C10.7794 15.6534 9.50006 16.2619 9.5 17.4639V48H13.5469V23.3701L32 37.2959L50.4531 23.3701V47.9981H54.5V17.4639ZM58.5 48.3633C58.5 50.3716 56.8831 51.998 54.8867 51.998H48.4531L48.249 51.9873C47.3077 51.8917 46.5594 51.1435 46.4639 50.2022L46.4531 49.998V31.3994L32 42.3076L17.5469 31.3994V50L17.5361 50.2041C17.4339 51.2127 16.5824 51.9998 15.5469 52H9.11328L8.93555 51.9951C8.52149 51.9747 8.11328 51.8826 7.72949 51.7227C7.34598 51.5627 6.99343 51.3375 6.68652 51.0576L6.55762 50.9346C6.26399 50.639 6.02375 50.295 5.84668 49.918L5.77441 49.7549C5.59298 49.3137 5.49971 48.8408 5.5 48.3633V17.4639C5.50006 12.9699 10.5988 10.404 14.1719 13.1006L32 26.5528L49.8281 13.1006C53.399 10.4063 58.4999 12.9699 58.5 17.4639V48.3633Z" fill="currentColor" />
-      <path opacity="0.2" d="M59 48.3633V17.4639C59 12.9698 53.8987 10.4061 50.3279 13.1008L46.9535 15.6445L32.5 26.5523L18.0465 15.6489L14.6721 13.1008C11.099 10.4039 6 12.9698 6 17.4639V48.3633C5.99971 48.8408 6.09295 49.3136 6.27438 49.7549C6.45581 50.1961 6.72188 50.597 7.05739 50.9347C7.39291 51.2724 7.79128 51.5403 8.22975 51.7231C8.66823 51.9059 9.1382 52 9.61283 52H16.0465C17.151 52 18.0465 51.1046 18.0465 50V31.3997L32.5 42.3074L46.9535 31.3997V49.9978C46.9535 51.1023 47.849 51.9978 48.9535 51.9978H55.3872C57.3835 51.9978 59 50.3716 59 48.3633Z" fill="currentColor" />
-    </svg>
-  );
-}
 
 const features = [
   {
@@ -78,20 +58,31 @@ const features = [
   },
 ];
 
+// Icons come from the app (see components/ConnectorIcon.tsx).
 const integrations = [
-  { name: "Gmail", icon: GmailIcon, color: "#EA4335" },
-  { name: "Outlook", icon: PiMicrosoftOutlookLogo, color: "#0078D4" },
-  { name: "Slack", icon: PiSlackLogo, color: "#E01E5A" },
-  { name: "Microsoft Teams", icon: PiMicrosoftTeamsLogo, color: "#6264A7" },
-  { name: "WhatsApp Business", icon: PiWhatsappLogo, color: "#25D366" },
-  { name: "Zoom", icon: SiZoom, color: "#2D8CFF" },
-  { name: "iMessage", icon: PiChatCircle, color: "#30D158" },
-  { name: "Google Drive", icon: PiGoogleDriveLogo, color: "#34A853" },
-  { name: "OneDrive", icon: PiCloud, color: "#0078D4" },
-  { name: "Dropbox", icon: PiDropboxLogo, color: "#0061FF" },
-  { name: "Notion", icon: SiNotion, color: "#000000" },
-  { name: "GitHub", icon: PiGithubLogo, color: "#000000" },
-  { name: "Calendar", icon: PiCalendar, color: "#4285F4" },
+  { name: "Gmail", brand: "gmail", slug: "gmail" },
+  { name: "Outlook", brand: "outlook", slug: "outlook" },
+  { name: "Slack", brand: "slack", slug: "slack" },
+  { name: "Microsoft Teams", brand: "teams", slug: "microsoft-teams" },
+  { name: "WhatsApp Business", brand: "whatsapp", slug: "whatsapp-business" },
+  { name: "Instagram Business", brand: "instagram", slug: "instagram-business" },
+  { name: "Messenger", brand: "messenger", slug: "messenger" },
+  { name: "SMS", brand: "sms", slug: "sms" },
+  { name: "GroupMe", brand: "groupme", slug: "groupme" },
+  { name: "Google Drive", brand: "drive", slug: "google-drive" },
+  { name: "OneDrive", brand: "onedrive", slug: "onedrive" },
+  { name: "Calendar", brand: "calendar", slug: "google-calendar" },
+];
+
+const personas = [
+  { label: "Founders", slug: "founders" },
+  { label: "Executive assistants", slug: "executive-assistants" },
+  { label: "Sales", slug: "sales" },
+  { label: "Recruiters", slug: "recruiters" },
+  { label: "Consultants", slug: "consultants" },
+  { label: "Agencies", slug: "agencies" },
+  { label: "Real estate agents", slug: "real-estate-agents" },
+  { label: "Small business owners", slug: "small-business-owners" },
 ];
 
 const APP_COLORS = {
@@ -279,11 +270,11 @@ export default function Home() {
           <div className="container hero-container">
             <span className="eyebrow">Your AI Inbox on Autopilot</span>
             <h1 className="hero-title">
-              <span className="hero-title-line">Turn your inbox into</span>
-              <span className="hero-title-line hero-accent">completed work.</span>
+              <span className="hero-title-line">Replies drafted.</span>
+              <span className="hero-title-line hero-accent">Meetings booked.</span>
             </h1>
             <p className="hero-sub">
-              Stop copying emails into AI, digging through files, and coordinating schedules. Synced is an AI inbox assistant that connects to your email, messages, cloud storage, and calendar to handle the busywork for you.
+              Synced reads your email and messages, finds the files, checks your calendar, and writes the response. You approve before anything sends.
             </p>
             <div className="hero-ctas">
               <a href={WAITLIST_URL} className="btn-primary btn-lg">
@@ -291,7 +282,7 @@ export default function Home() {
                 <PiArrowRightDuotone size={18} />
               </a>
             </div>
-            <p className="hero-footnote">Private beta on web and iOS · Android coming soon</p>
+            <p className="hero-footnote">Free plan, no credit card · Private beta on web and iOS</p>
 
             <div className="hero-3d-wrap">
               <Image
@@ -331,15 +322,16 @@ export default function Home() {
           <div className="container">
             <p className="uppercase-label">Connects to your favorite tools</p>
             <div className="agency-badges">
-              {integrations.map(({ name, icon: Icon, color }) => (
-                <span key={name} className="agency-badge">
+              {integrations.map(({ name, brand, slug }) => (
+                <a key={name} href={`${BASE}/integrations/${slug}`} className="agency-badge">
                   <span className="integration-icon-wrap">
-                    <Icon size={22} style={{ color, flexShrink: 0 }} />
+                    <ConnectorGlyph brand={brand} size={26} />
                   </span>
                   <span className="integration-name">{name}</span>
-                </span>
+                </a>
               ))}
             </div>
+            <a href={`${BASE}/integrations`} className="text-link integrations-all">See all integrations, including what&apos;s coming soon</a>
           </div>
         </section>
 
@@ -355,6 +347,7 @@ export default function Home() {
                 <p className="section-sub">
                   Synced learns what you need, finds the information, drafts responses, and manages follow-ups, all while asking for input only when it matters.
                 </p>
+                <a href={`${BASE}/how-it-works`} className="text-link section-link">See how Synced works</a>
               </div>
               <div className="features-header-card">
                 <div className="product-window message-window">
@@ -386,14 +379,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Who it's for + trust */}
+        <section className="fit-section">
+          <div className="container">
+            <div className="fit-grid">
+              <div>
+                <div className="uppercase-label">Who it&apos;s for</div>
+                <h2 className="fit-heading">People whose work runs through their inbox.</h2>
+                <div className="persona-chips">
+                  {personas.map((p) => (
+                    <a key={p.slug} href={`${BASE}/for/${p.slug}`} className="persona-chip">{p.label}</a>
+                  ))}
+                </div>
+              </div>
+              <ul className="trust-list">
+                <li>
+                  <span className="trust-icon"><PiHandTapDuotone size={20} /></span>
+                  <span><strong>Nothing sends without you.</strong> Every AI-drafted message waits for your approval.</span>
+                </li>
+                <li>
+                  <span className="trust-icon"><PiShieldCheckDuotone size={20} /></span>
+                  <span><strong>Your data isn&apos;t training data.</strong> Google Workspace data is never used to train AI models. <a href={`${BASE}/security`} className="text-link">Security</a></span>
+                </li>
+                <li>
+                  <span className="trust-icon"><PiUsersThreeDuotone size={20} /></span>
+                  <span><strong>Built by Aum Dhruv and Nick Harty.</strong> Two founders who have built together since middle school. <a href={`${BASE}/team`} className="text-link">Team</a></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing */}
         <section id="pricing" className="pricing-section">
           <div className="container">
             <div className="section-header" style={{ textAlign: "center", marginInline: "auto" }}>
               <div className="uppercase-label">Pricing</div>
-              <h2 className="section-heading">Simple pricing, no surprises.</h2>
+              <h2 className="section-heading">Start free. Upgrade when it sticks.</h2>
               <p className="section-sub" style={{ marginInline: "auto" }}>
-                Start free. Upgrade when Synced becomes part of how you work.
+                Every plan includes unlimited integrations, up to 4 accounts each. Plans differ in how many messages Synced acts on each week.
               </p>
             </div>
             <div className="pricing-grid pricing-grid-3">
@@ -408,7 +432,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 20 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited Inboxes</li>
+                  <li><PiCheckBold size={14} /> Unlimited integrations, 4 accounts each</li>
                   <li><PiCheckBold size={14} /> Gmail, Drive, OneDrive &amp; Calendar</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                 </ul>
@@ -426,7 +450,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 100 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited Inboxes</li>
+                  <li><PiCheckBold size={14} /> Unlimited integrations, 4 accounts each</li>
                   <li><PiCheckBold size={14} /> All integrations (adds Notion, GitHub, Slack &amp; Teams)</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                   <li><PiCheckBold size={14} /> Priority support</li>
@@ -451,8 +475,9 @@ export default function Home() {
               </div>
             </div>
             <p className="pricing-footnote">
-              An Action Plan is one message Synced reads and acts on, whether it finishes the
-              task or hands it to you in Decide. <a href={`${BASE}/pricing`} className="text-link">See full pricing details</a>.
+              <a href={`${BASE}/pricing`} className="text-link">Compare plans and read the pricing FAQ</a>
+              {" · "}
+              <a href={`${BASE}/glossary/action-plan`} className="text-link">What counts as an Action Plan</a>
             </p>
           </div>
         </section>
@@ -942,6 +967,45 @@ export default function Home() {
           line-height: 1.65;
         }
 
+
+        /* ── Links, who it's for, trust ── */
+        .integrations-all { display: inline-block; margin-top: 1.75rem; font-size: .85rem; font-weight: 600; }
+        .section-link { display: inline-block; margin-top: .25rem; font-size: .9rem; font-weight: 600; }
+        a.agency-badge { text-decoration: none; }
+        .fit-section { padding: 6rem 0; border-top: 1px solid hsl(var(--border) / .75); }
+        .fit-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .fit-heading {
+          margin: 0 0 1.75rem;
+          font-family: "p22-mackinac-pro", serif;
+          font-size: clamp(1.9rem, 4vw, 2.75rem);
+          font-weight: 700;
+          letter-spacing: -.035em;
+          line-height: 1.06;
+          color: hsl(var(--fg));
+        }
+        .persona-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+        .persona-chip {
+          padding: .5rem .95rem;
+          border: 1px solid hsl(var(--border) / .85);
+          border-radius: 999px;
+          background: hsl(var(--card));
+          font-size: .84rem;
+          font-weight: 600;
+          color: hsl(var(--fg));
+          transition: border-color .18s ease, background-color .18s ease, transform 80ms ease;
+        }
+        .persona-chip:hover { border-color: hsl(var(--primary) / .35); background: hsl(var(--primary) / .05); }
+        .persona-chip:active { transform: scale(.97); }
+        .trust-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+        .trust-list li { display: flex; gap: 1rem; align-items: flex-start; font-size: .92rem; line-height: 1.6; color: hsl(var(--muted-fg)); }
+        .trust-list strong { color: hsl(var(--fg)); font-weight: 700; }
+        .trust-icon {
+          flex: 0 0 40px; width: 40px; height: 40px;
+          display: inline-flex; align-items: center; justify-content: center;
+          border-radius: 12px; background: hsl(var(--primary) / .1); color: hsl(var(--primary));
+        }
+        @media (max-width: 900px) { .fit-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { .fit-section { padding: 4rem 0; } }
 
         /* ── Mobile ── */
         @media (max-width: 768px) {

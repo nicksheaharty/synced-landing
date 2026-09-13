@@ -74,6 +74,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           width: 440,
           height: 440,
         },
+        legalName: "Synced Inc.",
+        foundingDate: "2025",
+        foundingLocation: { "@type": "Place", name: "San Francisco, California" },
+        address: { "@type": "PostalAddress", addressLocality: "San Francisco", addressRegion: "CA", addressCountry: "US" },
+        email: "contact@syncedinbox.com",
+        description: "Synced (syncedinbox.com) makes an AI inbox assistant for email and messages.",
+        founder: [
+          { "@id": `${siteUrl}/team#aum-dhruv` },
+          { "@id": `${siteUrl}/team#nick-harty` },
+        ],
         sameAs: [
           "https://www.linkedin.com/company/syncedinbox/",
           "https://www.instagram.com/syncedinbox/",
@@ -94,9 +104,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         name: "Synced",
         url: siteUrl,
         applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
+        operatingSystem: "Web, iOS",
         description,
         publisher: { "@id": `${siteUrl}/#organization` },
+        offers: [
+          { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD", url: `${siteUrl}/pricing` },
+          {
+            "@type": "Offer",
+            name: "Pro",
+            price: "29.99",
+            priceCurrency: "USD",
+            url: `${siteUrl}/pricing`,
+            priceSpecification: { "@type": "UnitPriceSpecification", price: "29.99", priceCurrency: "USD", unitText: "user per month" },
+          },
+        ],
       },
     ],
   };
@@ -104,6 +125,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="h-full antialiased" style={{ colorScheme: "light" }}>
       <head>
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/pxn1uhe.css" />
         <link rel="icon" href={`${base}/favicon-light.png`} media="(prefers-color-scheme: light)" />
         <link rel="icon" href={`${base}/favicon-dark.png`} media="(prefers-color-scheme: dark)" />

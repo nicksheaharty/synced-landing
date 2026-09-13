@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Dev only: let other devices on the network (phone, another laptop) load the dev
+  // server's JS. Without this, Next blocks /_next dev resources for non-localhost
+  // origins, the page never hydrates, and the header dropdown/scroll state are dead.
+  allowedDevOrigins: ["10.102.77.178", "*.local"],
   turbopack: {
     root: path.resolve(__dirname),
   },

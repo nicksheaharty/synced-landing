@@ -7,40 +7,61 @@ import { LogoText } from "./Header";
 const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
+// Hardcoded rather than read from content/registry: the footer is imported by
+// client pages, and pulling the registry in would ship every page's copy to the browser.
 const columns = [
   {
     heading: "Product",
     links: [
-      { label: "Features", href: `${BASE}/#features` },
-      { label: "Integrations", href: `${BASE}/#integrations` },
+      { label: "How it works", href: `${BASE}/how-it-works` },
+      { label: "Features", href: `${BASE}/features` },
+      { label: "Integrations", href: `${BASE}/integrations` },
       { label: "Pricing", href: `${BASE}/pricing` },
-      { label: "Get Started", href: `${BASE}/get-started` },
+      { label: "iOS app", href: `${BASE}/ios` },
+      { label: "Web app", href: "https://mail.syncedinbox.com" },
       { label: "Get Early Access", href: WAITLIST_URL },
     ],
   },
   {
-    heading: "Company",
+    heading: "Use cases",
     links: [
-      { label: "Team", href: `${BASE}/team` },
-      { label: "Careers", href: "mailto:nick@storiara.com" },
-      { label: "Contact", href: "mailto:nick@storiara.com" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/company/syncedinbox/" },
-      { label: "Instagram", href: "https://www.instagram.com/syncedinbox/" },
+      { label: "Founders", href: `${BASE}/for/founders` },
+      { label: "Executive assistants", href: `${BASE}/for/executive-assistants` },
+      { label: "Sales", href: `${BASE}/for/sales` },
+      { label: "Recruiters", href: `${BASE}/for/recruiters` },
+      { label: "Small businesses", href: `${BASE}/for/small-business-owners` },
+      { label: "All use cases", href: `${BASE}/for` },
     ],
   },
   {
     heading: "Resources",
     links: [
-      { label: "Get Started guide", href: `${BASE}/get-started` },
-      { label: "Pricing FAQ", href: `${BASE}/pricing` },
-      { label: "Security", href: `${BASE}/security` },
-      { label: "Web app", href: "https://mail.syncedinbox.com" },
-      { label: "Support", href: "mailto:nick@storiara.com" },
+      { label: "Get started", href: `${BASE}/get-started` },
+      { label: "Guides", href: `${BASE}/guides` },
+      { label: "Templates", href: `${BASE}/templates` },
+      { label: "Compare", href: `${BASE}/compare` },
+      { label: "Glossary", href: `${BASE}/glossary` },
+      { label: "Blog", href: `${BASE}/blog` },
+      { label: "Changelog", href: `${BASE}/changelog` },
+      { label: "Help center", href: `${BASE}/help` },
     ],
   },
   {
-    heading: "Legal",
+    heading: "Company",
     links: [
+      { label: "About", href: `${BASE}/about` },
+      { label: "Team", href: `${BASE}/team` },
+      { label: "FAQ", href: `${BASE}/faq` },
+      { label: "Press", href: `${BASE}/press` },
+      { label: "Contact", href: `${BASE}/contact` },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/syncedinbox/" },
+      { label: "Instagram", href: "https://www.instagram.com/syncedinbox/" },
+    ],
+  },
+  {
+    heading: "Trust",
+    links: [
+      { label: "Security", href: `${BASE}/security` },
       { label: "Privacy Policy", href: `${BASE}/privacy` },
       { label: "Terms of Service", href: `${BASE}/terms` },
     ],
@@ -92,7 +113,12 @@ export default function Footer() {
         </div>
 
         <div className="corp-footer-bottom">
-          <span className="footer-copy">© 2026 Synced. All rights reserved.</span>
+          <span className="footer-copy">© 2026 Synced Inc. All rights reserved.</span>
+          <span className="footer-copy">
+            <a href={`${BASE}/sitemap.xml`} className="corp-footer-link">Sitemap</a>
+            {" · "}
+            <a href={`${BASE}/llms.txt`} className="corp-footer-link">llms.txt</a>
+          </span>
         </div>
       </div>
 
@@ -103,7 +129,7 @@ export default function Footer() {
         }
         .corp-footer-top {
           display: grid;
-          grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.4fr);
+          grid-template-columns: minmax(0, .8fr) minmax(0, 3fr);
           gap: 3rem;
           padding-bottom: 3rem;
         }
@@ -120,7 +146,7 @@ export default function Footer() {
         }
         .corp-footer-columns {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 1.5rem;
         }
         .corp-footer-heading {
@@ -148,9 +174,14 @@ export default function Footer() {
         .corp-footer-link:hover { color: hsl(var(--fg)); }
 
         .corp-footer-bottom {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: .75rem;
           padding-top: 1.75rem;
           border-top: 1px solid hsl(var(--border) / .75);
         }
+        .corp-footer-bottom .corp-footer-link { font-size: .82rem; }
         .footer-social-links {
           display: flex;
           gap: 0.6rem;
