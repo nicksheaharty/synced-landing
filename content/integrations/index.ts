@@ -42,7 +42,7 @@ const hub: Page = {
     },
     {
       type: "p",
-      text: "Integrations are unlimited, with up to 4 accounts each. Which integrations you can use depends on your plan, and [pricing](/pricing) has the full table.",
+      text: "Inboxes are unlimited, 4 accounts each. Which integrations you can use depends on your plan, and [pricing](/pricing) has the full table.",
     },
     { type: "h2", text: "All integrations" },
     { type: "index", clusters: ["integration"] },
@@ -50,7 +50,7 @@ const hub: Page = {
   faqs: [
     {
       q: "How many Inboxes can I connect?",
-      a: "Integrations are unlimited on Free, Pro, and Enterprise, with up to 4 accounts per integration. What's limited is the number of [Action Plans](/glossary/action-plan) per week: 20 on Free and 100 on Pro.",
+      a: "Inboxes are unlimited on Free, Pro, and Enterprise, 4 accounts each. What's limited is the number of [Action Plans](/glossary/action-plan) per week: 20 on Free and 100 on Pro.",
     },
     {
       q: "Does Synced send anything without asking me?",

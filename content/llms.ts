@@ -13,7 +13,7 @@ const FACTS = [
   "Live output integrations: Google Drive, OneDrive, Google Calendar, and Outlook calendar (included with an Outlook connection). Coming soon: iMessage, Dropbox, Notion, GitHub.",
   "An Action Plan is the set of steps Synced takes or proposes for one incoming message. One message is one Action Plan regardless of step count.",
   "Pricing: Free $0 with 20 Action Plans a week. Pro $29.99 per user per month, or $24.99 billed annually, with 100 Action Plans a week. Enterprise is custom, with SSO and admin controls.",
-  "Integrations are unlimited on every plan, with up to 4 accounts per integration. The Action Plan count resets every Monday at 00:00 UTC; the current count is shown under Usage in Settings.",
+  "Inboxes are unlimited on every plan, 4 accounts each. The Action Plan count resets every Monday at 00:00 UTC; the current count is shown under Usage in Settings.",
   "Synced does not send an AI-drafted message without the user's approval. Approvals happen in the Decide queue.",
   "Google Workspace data is not used to train generalized AI or machine-learning models. Synced follows the Google API Services User Data Policy, including Limited Use, and has completed Google's restricted-scope verification including the CASA security assessment.",
   "Data is encrypted in transit (TLS) and at rest. Users can disconnect integrations and request account deletion; deletion completes within 30 days.",

@@ -111,7 +111,7 @@ export const manageMultipleEmailAccounts: Page = {
     { type: "h2", text: "How Synced handles several accounts and apps" },
     {
       type: "p",
-      text: "[Synced](/) treats every connected account as an Inbox, with up to 4 accounts per integration. You can connect two Gmail accounts, an Outlook account, and Slack, and new messages from all of them show up in one Messages list. When Synced drafts a reply, it goes out from the account the message came in on, in the same thread, after you approve it. More on [connecting Inboxes](/features/inboxes).",
+      text: "[Synced](/) treats every connected account as an Inbox, with unlimited Inboxes, 4 accounts each. You can connect two Gmail accounts, an Outlook account, and Slack, and new messages from all of them show up in one Messages list. When Synced drafts a reply, it goes out from the account the message came in on, in the same thread, after you approve it. More on [connecting Inboxes](/features/inboxes).",
     },
     {
       type: "message",

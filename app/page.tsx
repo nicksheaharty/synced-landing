@@ -417,7 +417,7 @@ export default function Home() {
               <div className="uppercase-label">Pricing</div>
               <h2 className="section-heading">Start free. Upgrade when it sticks.</h2>
               <p className="section-sub" style={{ marginInline: "auto" }}>
-                Every plan includes unlimited integrations, up to 4 accounts each. Plans differ in how many messages Synced acts on each week.
+                Every plan includes unlimited Inboxes, 4 accounts each. Plans differ in how many messages Synced acts on each week.
               </p>
             </div>
             <div className="pricing-grid pricing-grid-3">
@@ -432,7 +432,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 20 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited integrations, 4 accounts each</li>
+                  <li><PiCheckBold size={14} /> Unlimited Inboxes, 4 accounts each</li>
                   <li><PiCheckBold size={14} /> Gmail, Drive, OneDrive &amp; Calendar</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                 </ul>
@@ -450,7 +450,7 @@ export default function Home() {
                 </div>
                 <ul className="pricing-features">
                   <li><PiCheckBold size={14} /> 100 Action Plans a week</li>
-                  <li><PiCheckBold size={14} /> Unlimited integrations, 4 accounts each</li>
+                  <li><PiCheckBold size={14} /> Unlimited Inboxes, 4 accounts each</li>
                   <li><PiCheckBold size={14} /> All integrations (adds Notion, GitHub, Slack &amp; Teams)</li>
                   <li><PiCheckBold size={14} /> Decide queue &amp; Tasks</li>
                   <li><PiCheckBold size={14} /> Priority support</li>

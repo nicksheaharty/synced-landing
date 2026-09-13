@@ -14,7 +14,7 @@ export const inboxConnector: Page = {
   eyebrow: "Glossary · Synced term",
   intro: "Where Synced's work starts: the accounts that send messages in.",
   answer:
-    "An Inbox, also called an input connector, is a message account connected to Synced, the AI inbox assistant, that Synced reads incoming messages from. Live Inboxes are Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Business, Instagram Business, Messenger, SMS via Twilio, and GroupMe. Integrations are unlimited, with up to 4 accounts each.",
+    "An Inbox, also called an input connector, is a message account connected to Synced, the AI inbox assistant, that Synced reads incoming messages from. Live Inboxes are Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Business, Instagram Business, Messenger, SMS via Twilio, and GroupMe. Inboxes are unlimited, 4 accounts each.",
   primaryIntent: "synced inbox connector definition",
   published: "2026-09-13",
   updated: "2026-09-13",

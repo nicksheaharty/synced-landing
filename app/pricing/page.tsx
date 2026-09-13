@@ -18,7 +18,7 @@ const plans = [
     featured: false,
     features: [
       "20 Action Plans a week",
-      "Unlimited integrations, 4 accounts each",
+      "Unlimited Inboxes, 4 accounts each",
       "Gmail, Drive, OneDrive and Calendar",
       "Decide queue and Tasks",
       "Web and mobile apps",
@@ -35,7 +35,7 @@ const plans = [
     featured: true,
     features: [
       "100 Action Plans a week",
-      "Unlimited integrations, 4 accounts each",
+      "Unlimited Inboxes, 4 accounts each",
       "All integrations (adds Notion, GitHub, Slack and Teams)",
       "Decide queue and Tasks",
       "Web and mobile apps",

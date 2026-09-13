@@ -95,7 +95,7 @@ export const inboxes: Page = {
   faqs: [
     {
       q: "How many inboxes can I connect to Synced?",
-      a: "Integrations are unlimited on Free, Pro, and Enterprise, with up to 4 accounts per integration. The limit that applies is the weekly Action Plan count: 20 on Free and 100 on Pro.",
+      a: "Inboxes are unlimited on Free, Pro, and Enterprise, 4 accounts each. The limit that applies is the weekly Action Plan count: 20 on Free and 100 on Pro.",
     },
     {
       q: "Is Google Drive an Inbox?",
