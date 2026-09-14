@@ -8,10 +8,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // The OG image route reads these at build time; make sure they're traced into
-  // the server bundle too, in case a card is ever rendered at request time.
+  // The OG image route reads the font at build time; trace it into the server bundle
+  // too, in case a card is ever rendered at request time. Never list anything under
+  // ./public here: Firebase App Hosting's adapter only copies public/ into the bundle
+  // when public/ doesn't already exist there, so tracing one file drops all the others.
   outputFileTracingIncludes: {
-    "/og/[...slug]": ["./assets/fonts/**", "./public/icon-light.png"],
+    "/og/[...slug]": ["./assets/**"],
   },
   // Dev only: let other devices on the network (phone, another laptop) load the dev
   // server's JS. Without this, Next blocks /_next dev resources for non-localhost

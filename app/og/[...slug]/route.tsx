@@ -6,6 +6,9 @@ import { CLUSTER_LABEL, getPage, pages } from "@/content/registry";
 // Build-time Open Graph cards for every registry page: /og/<slug>.png.
 // Mackinac Pro (the site's heading face) is Typekit-only and can't be embedded,
 // so cards use Young Serif (OFL), the closest open serif in weight and contrast.
+// Everything this route reads lives in assets/, never public/: Next traces these files
+// into the server bundle, and Firebase App Hosting skips copying public/ if it already
+// exists there, which would drop every other image on the site.
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
@@ -18,7 +21,7 @@ export function generateStaticParams() {
 }
 
 const serif = readFileSync(path.join(process.cwd(), "assets/fonts/YoungSerif-Regular.ttf"));
-const logo = `data:image/png;base64,${readFileSync(path.join(process.cwd(), "public/icon-light.png")).toString("base64")}`;
+const logo = `data:image/png;base64,${readFileSync(path.join(process.cwd(), "assets/og-logo.png")).toString("base64")}`;
 
 export async function GET(_req: Request, { params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
