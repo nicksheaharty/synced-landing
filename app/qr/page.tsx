@@ -11,7 +11,7 @@ export default function QRPage() {
       <main className="qr-main">
         <div className="qr-logo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/icon-light.png`} alt="" width={36} height={36} className="qr-icon" />
+          <img src={`${BASE}/icon-light.png`} alt="" width={36} height={34} className="qr-icon" />
           <span className="qr-brand">Synced</span>
         </div>
 
@@ -56,8 +56,8 @@ export default function QRPage() {
         }
 
         .qr-icon {
-          border-radius: 8px;
           display: block;
+          height: auto;
         }
 
         .qr-brand {

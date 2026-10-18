@@ -30,7 +30,7 @@ export function LogoText({ small }: { small?: boolean }) {
     <span
       style={{
         fontFamily: "p22-mackinac-pro, serif",
-        fontSize: small ? "1rem" : "1.25rem",
+        fontSize: small ? "1.2rem" : "1.5rem",
         fontWeight: 700,
         letterSpacing: "-0.01em",
         lineHeight: 1,
@@ -161,7 +161,7 @@ export default function Header() {
         <div className="container nav-inner">
           <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={26} className="nav-icon" />
+            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={25} className="nav-icon" />
             <LogoText />
           </a>
           <div className="nav-links">
@@ -194,7 +194,7 @@ export default function Header() {
         <div className="mobile-menu-top">
           <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo" onClick={() => setMenuOpen(false)}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={26} className="nav-icon" />
+            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={25} className="nav-icon" />
             <LogoText />
           </a>
           <button

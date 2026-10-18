@@ -102,7 +102,7 @@ img { display: block; max-width: 100%; }
   gap: 0.6rem;
   text-decoration: none;
 }
-.nav-icon { border-radius: 6px; display: block; }
+.nav-icon { display: block; height: auto; }
 .nav-links {
   display: flex;
   align-items: center;

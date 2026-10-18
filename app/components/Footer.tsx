@@ -76,7 +76,7 @@ export default function Footer() {
           <div className="corp-footer-brand">
             <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`${BASE}/icon-light.png`} alt="" width={24} height={24} className="nav-icon" />
+              <img src={`${BASE}/icon-light.png`} alt="" width={24} height={23} className="nav-icon" />
               <LogoText />
             </a>
             <p className="corp-footer-tagline">Your AI Inbox on Autopilot.</p>

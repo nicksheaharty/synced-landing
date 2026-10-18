@@ -13,7 +13,7 @@ export default function NotFound() {
       <main className="nf-main">
         <a href={`${BASE}/`} className="nf-logo" aria-label="Synced home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/icon-light.png`} alt="" width={28} height={28} style={{ borderRadius: 6 }} />
+          <img src={`${BASE}/icon-light.png`} alt="" width={28} height={26} style={{ height: "auto" }} />
           <span className="nf-brand">Synced</span>
         </a>
 
