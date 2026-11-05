@@ -4,11 +4,7 @@ import { BASE, WAITLIST_URL } from "./components/ui/links";
 export default function NotFound() {
   return (
     <>
-      <div className="bg-container">
-        <div className="bg-grid-base" />
-        <div className="ambient-blob-1" />
-        <div className="ambient-blob-2" />
-      </div>
+      <div className="bg-container" aria-hidden="true" />
 
       <main className="nf-main">
         <a href={`${BASE}/`} className="nf-logo" aria-label="Synced home">

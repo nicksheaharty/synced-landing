@@ -72,6 +72,19 @@ function Reveal({ children, className = "", as: Tag = "div" }: { children: React
   return <Tag className={className || undefined}>{children}</Tag>;
 }
 
+/** Pauses the looping CSS demo animations inside sections that are offscreen. */
+function usePauseOffscreen() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".viz, .learn-stage");
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) e.target.classList.toggle("anim-paused", !e.isIntersecting);
+    }, { rootMargin: "100px 0px" });
+    els.forEach((el) => { el.classList.add("anim-paused"); io.observe(el); });
+    return () => io.disconnect();
+  }, []);
+}
+
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
   return <span>{to.toLocaleString("en-US")}{suffix}</span>;
 }
@@ -97,9 +110,18 @@ function HeroPhone() {
     if (!el) return;
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!fine || still) return;
+    let onScreen = true;
+    const io = new IntersectionObserver(([e]) => {
+      onScreen = e.isIntersecting;
+      // Stop decoding the demo video while the hero is scrolled away.
+      const v = el.querySelector("video");
+      if (v) { if (onScreen) v.play().catch(() => {}); else v.pause(); }
+    });
+    io.observe(el);
+    if (!fine || still) return () => io.disconnect();
     let raf = 0;
     const onMove = (e: PointerEvent) => {
+      if (!onScreen) return;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const x = e.clientX / window.innerWidth - 0.5;
@@ -109,7 +131,7 @@ function HeroPhone() {
       });
     };
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => { window.removeEventListener("pointermove", onMove); cancelAnimationFrame(raf); };
+    return () => { window.removeEventListener("pointermove", onMove); cancelAnimationFrame(raf); io.disconnect(); };
   }, []);
 
   return (
@@ -225,6 +247,7 @@ function LearnsVisual() {
 /* ── page ─────────────────────────────────────────────────────────── */
 
 export default function Home() {
+  usePauseOffscreen();
   return (
     <>
       <Header />
@@ -237,11 +260,11 @@ export default function Home() {
             <div className="hero-bg" aria-hidden="true">
               <Grainient
                 intro={false}
+                speed={0}
+                grainAnimated={false}
                 dpr={1}
                 colors={["#F7F5FF", "#DCD4FF", "#9C8BFF", "#5B43F5"]}
                 angle={115}
-                speed={0.35}
-                flow={0.6}
                 softness={1}
                 silk={0.25}
                 grainAmount={0.07}

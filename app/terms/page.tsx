@@ -8,14 +8,6 @@ import Footer from "../components/Footer";
 
 export default function TermsOfService() {
   useEffect(() => {
-    const bgContainer = document.querySelector(".bg-container") as HTMLElement;
-    const handleMouseMove = (e: PointerEvent) => {
-      if (bgContainer) {
-        bgContainer.style.setProperty("--mouse-x", `${e.clientX}px`);
-        bgContainer.style.setProperty("--mouse-y", `${e.clientY}px`);
-      }
-    };
-    window.addEventListener("pointermove", handleMouseMove);
 
     const cards = document.querySelectorAll(".legal-card");
     const handleCardMouseMove = (e: MouseEvent) => {
@@ -32,7 +24,6 @@ export default function TermsOfService() {
     });
 
     return () => {
-      window.removeEventListener("pointermove", handleMouseMove);
       cards.forEach((card) => {
         card.removeEventListener("mousemove", handleCardMouseMove as any);
       });
@@ -42,14 +33,7 @@ export default function TermsOfService() {
   return (
     <>
       {/* Dynamic Background Elements */}
-      <div className="bg-container">
-        <div className="bg-grid-base" />
-        <div className="bg-grid-glow" />
-        <div className="cursor-glow" />
-        <div className="ambient-blob-1" />
-        <div className="ambient-blob-2" />
-        <div className="ambient-blob-3" />
-      </div>
+      <div className="bg-container" aria-hidden="true" />
 
       <Header />
 
@@ -182,9 +166,7 @@ export default function TermsOfService() {
         .legal-card {
           position: relative;
           overflow: hidden;
-          background: color-mix(in srgb, hsl(var(--card)) 65%, transparent);
-          -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
+          background: hsl(var(--card));
           border: 1px solid hsl(var(--border) / 0.6);
           border-radius: 16px;
           padding: clamp(1.5rem, 5vw, 3.5rem);
