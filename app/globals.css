@@ -73,8 +73,8 @@ img { display: block; max-width: 100%; }
   transition: top .4s cubic-bezier(.22, 1, .36, 1), width .4s cubic-bezier(.22, 1, .36, 1), background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
   border: 1px solid transparent;
   background: transparent;
-  padding-top: 1rem;
-  padding-bottom: 0.35rem;
+  padding-top: 1.6rem;
+  padding-bottom: 0.5rem;
 }
 .synced-nav.scrolled {
   top: .75rem;
