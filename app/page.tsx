@@ -18,7 +18,6 @@ import { BASE, WAITLIST_URL } from "./components/ui/links";
 import { Grainient } from "./components/ui/lazy-bits";
 import { LogoLoop, type LogoItem } from "./components/reactbits/LogoLoop/LogoLoop";
 import SpotlightCard from "./components/reactbits/SpotlightCard/SpotlightCard";
-import BlurText from "./components/reactbits/BlurText/BlurText";
 import "./home.css";
 
 
@@ -69,50 +68,12 @@ const TOOL_LOGOS: LogoItem[] = TOOLS.map((t) => ({
 
 /* ── motion helpers ───────────────────────────────────────────────── */
 
-/** Adds `.is-in` once the element scrolls into view. */
-function useInView<T extends Element>(threshold = 0.25) {
-  const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setInView(true); io.disconnect(); } },
-      { threshold, rootMargin: "0px 0px -8% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold]);
-  return [ref, inView] as const;
-}
-
-function Reveal({ children, className = "", delay = 0, as: Tag = "div" }: { children: ReactNode; className?: string; delay?: number; as?: "div" | "section" | "li" | "article" }) {
-  const [ref, inView] = useInView<HTMLDivElement>(0.15);
-  return (
-    <Tag ref={ref as never} className={`reveal${inView ? " is-in" : ""} ${className}`} style={{ "--d": `${delay}ms` } as CSSProperties}>
-      {children}
-    </Tag>
-  );
+function Reveal({ children, className = "", as: Tag = "div" }: { children: ReactNode; className?: string; delay?: number; as?: "div" | "section" | "li" | "article" }) {
+  return <Tag className={className || undefined}>{children}</Tag>;
 }
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
-  const [ref, inView] = useInView<HTMLSpanElement>(0.4);
-  const [n, setN] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let raf = 0;
-    const start = performance.now();
-    const dur = still ? 0 : 1400;
-    const tick = (now: number) => {
-      const p = dur ? Math.min(1, (now - start) / dur) : 1;
-      setN(Math.round(to * (1 - Math.pow(1 - p, 4))));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, to]);
-  return <span ref={ref}>{n.toLocaleString("en-US")}{suffix}</span>;
+  return <span>{to.toLocaleString("en-US")}{suffix}</span>;
 }
 
 /* ── hero phone ───────────────────────────────────────────────────── */
@@ -275,6 +236,8 @@ export default function Home() {
           <section className="hero">
             <div className="hero-bg" aria-hidden="true">
               <Grainient
+                intro={false}
+                dpr={1}
                 colors={["#F7F5FF", "#DCD4FF", "#9C8BFF", "#5B43F5"]}
                 angle={115}
                 speed={0.35}
@@ -289,8 +252,8 @@ export default function Home() {
             <div className="container hero-grid">
               <div className="hero-copy">
                 <h1 className="hero-title">
-                  <BlurText text="Your inbox" className="hero-line" animateBy="words" delay={90} />
-                  <BlurText text="on autopilot." className="hero-line hero-accent" animateBy="words" delay={90} />
+                  <span className="hero-line">Your inbox</span>
+                  <span className="hero-line hero-accent">on autopilot.</span>
                 </h1>
                 <p className="hero-sub">
                   Synced reads every message for you and the people you support, books the meetings and writes the replies. You approve each one with a tap.
@@ -344,18 +307,7 @@ export default function Home() {
 
           {/* Built for assistants */}
           <section className="dark-band">
-            <div className="dark-beams" aria-hidden="true">
-              <Grainient
-                colors={["#06002A", "#1A0F6B", "#4429F2", "#0B0638"]}
-                angle={35}
-                speed={0.3}
-                flow={0.7}
-                silk={0.3}
-                grainAmount={0.1}
-                interactive={false}
-                clickSwirl={false}
-              />
-            </div>
+            <div className="dark-beams" aria-hidden="true" />
             <div className="container dark-single">
               <Reveal className="dark-copy">
                 <h2 className="block-title light">Built for assistants.</h2>
@@ -365,15 +317,13 @@ export default function Home() {
           </section>
 
           {/* Learns you */}
-          <section className="block block-split">
-            <div className="container split">
-              <Reveal className="split-copy">
-                <h2 className="block-title">Gets better every time<br />you edit a draft.</h2>
+          <section className="block">
+            <div className="container">
+              <Reveal className="block-head center">
+                <h2 className="block-title one-line">Gets better every time you edit a draft.</h2>
                 <p className="block-sub">Synced picks up how your executive writes, who matters to them and when they like to meet.</p>
               </Reveal>
-              <Reveal className="split-visual" delay={120}>
-                <LearnsVisual />
-              </Reveal>
+              <div className="learn-wrap"><LearnsVisual /></div>
             </div>
           </section>
 
@@ -385,7 +335,7 @@ export default function Home() {
                 <p className="block-sub">Synced connects to the accounts you already have. Replies go out from the real address and land in Sent.</p>
               </Reveal>
               <Reveal className="int-loop">
-                <LogoLoop logos={TOOL_LOGOS} speed={42} logoHeight={110} gap={20} pauseOnHover fadeOut fadeOutColor="#F6F4FD" ariaLabel="Integrations" />
+                <LogoLoop intro={false} logos={TOOL_LOGOS} speed={42} logoHeight={110} gap={20} pauseOnHover fadeOut fadeOutColor="#F6F4FD" ariaLabel="Integrations" />
               </Reveal>
               <p className="int-more">
                 Dropbox, Notion and GitHub are on the way. <a href={`${BASE}/integrations`} className="text-link">See all integrations</a>

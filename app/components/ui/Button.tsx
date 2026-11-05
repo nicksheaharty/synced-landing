@@ -28,7 +28,9 @@ export function Button({ href, variant = "primary", size = "md", arrow, block, c
     </>
   );
 
-  if (variant === "primary") {
+  // The WebGL specular light is reserved for the large calls to action (hero, closing
+  // section) so a page never runs more than a couple of live canvases.
+  if (variant === "primary" && size === "lg") {
     return (
       <PrimaryButton href={href} className={cls} {...ext} {...rest}>
         {content}
