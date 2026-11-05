@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PiCaretDownBold, PiListBold, PiXBold } from "react-icons/pi";
 import { Button } from "./ui/Button";
-import { GlassSurface } from "./ui/lazy-bits";
 import { BASE, WAITLIST_URL } from "./ui/links";
 
 
@@ -159,22 +158,7 @@ export default function Header() {
   return (
     <>
       <nav className={`synced-nav${scrolled ? " scrolled" : ""}`}>
-        <div className="nav-glass" aria-hidden="true">
-          <GlassSurface
-            width="100%"
-            height="100%"
-            borderRadius={18}
-            brightness={60}
-            opacity={0.93}
-            blur={8}
-            backgroundOpacity={0.62}
-            saturation={1.6}
-            distortionScale={-70}
-            redOffset={0}
-            greenOffset={3}
-            blueOffset={6}
-          />
-        </div>
+        <div className="nav-glass" aria-hidden="true" />
         <div className="container nav-inner">
           <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}

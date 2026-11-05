@@ -14,7 +14,6 @@
   border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
   background: hsl(var(--card));
   box-shadow: 0 0 0 1px hsl(var(--border) / .7), 0 30px 80px -40px rgba(35, 27, 72, .18);
-  overflow: clip;
 }
 @media (max-width: 640px) {
   .page-sheet { margin-top: 84px; }
@@ -59,6 +58,7 @@
   position: relative;
   padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
   overflow: clip;
+  border-radius: var(--sheet-radius) var(--sheet-radius) 0 0;
 }
 .hero-bg {
   position: absolute;
@@ -138,8 +138,7 @@
   position: absolute;
   inset: 8% 4% 12%;
   border-radius: 50%;
-  background: radial-gradient(closest-side, hsl(248 95% 62% / .38), transparent);
-  filter: blur(30px);
+  background: radial-gradient(closest-side, hsl(248 95% 62% / .32), hsl(248 95% 62% / .12) 60%, transparent);
 }
 .hero-phone {
   position: relative;
@@ -158,11 +157,6 @@
     rotateZ(4deg);
   transform-style: preserve-3d;
   transition: transform .9s var(--ease);
-  animation: phone-float 7s ease-in-out infinite;
-}
-@keyframes phone-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -10px; }
 }
 .hero-phone-screen {
   position: relative;
@@ -195,7 +189,6 @@
   transform: translateX(-42%);
   border-radius: 50%;
   background: radial-gradient(closest-side, rgba(35, 20, 110, .28), transparent);
-  filter: blur(6px);
 }
 
 /* ── Proof strip ── */
@@ -349,7 +342,6 @@
   position: absolute;
   inset: 0;
   opacity: .22;
-  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 .dark-single { position: relative; z-index: 1; max-width: 760px; text-align: center; }
@@ -401,27 +393,12 @@
 .learn-to { font-size: .9rem; font-weight: 700; }
 .learn-sub { font-size: .76rem; color: hsl(var(--muted-fg)); }
 .learn-body { margin: 0; font-size: .93rem; line-height: 1.7; color: hsl(var(--fg)); }
-.edit s, .edit ins {
-  display: inline-block;
-  vertical-align: bottom;
-  white-space: nowrap;
-  overflow: hidden;
-  text-decoration: none;
-}
-.edit s { color: hsl(var(--muted-fg)); max-width: 32ch; text-decoration: line-through transparent; animation: edit-out 6s var(--ease) infinite; }
-.edit ins { color: hsl(var(--primary)); font-weight: 700; background: hsl(var(--primary) / .08); border-radius: 4px; max-width: 0; padding: 0; animation: edit-in 6s var(--ease) infinite; }
+/* Tracked-change style edit: old text gets struck and dimmed, new text fades in after it. */
+.edit s { color: hsl(var(--muted-fg)); text-decoration: line-through; text-decoration-color: hsl(0 70% 55% / 0); animation: edit-out 6s var(--ease) infinite; }
+.edit ins { margin-left: .3em; color: hsl(var(--primary)); font-weight: 700; text-decoration: none; background: hsl(var(--primary) / .08); border-radius: 4px; padding: 0 .25rem; animation: edit-in 6s var(--ease) infinite; }
 .edit-2 s, .edit-2 ins { animation-delay: .5s; }
-@keyframes edit-out {
-  0%, 16% { max-width: 32ch; opacity: 1; text-decoration-color: transparent; }
-  24% { max-width: 32ch; opacity: 1; text-decoration-color: hsl(0 70% 55%); }
-  34%, 90% { max-width: 0; opacity: 0; text-decoration-color: hsl(0 70% 55%); }
-  100% { max-width: 32ch; opacity: 1; text-decoration-color: transparent; }
-}
-@keyframes edit-in {
-  0%, 28% { max-width: 0; padding: 0; opacity: 0; }
-  38%, 90% { max-width: 10ch; padding: 0 .25rem; opacity: 1; }
-  100% { max-width: 0; padding: 0; opacity: 0; }
-}
+@keyframes edit-out { 0%, 18% { opacity: 1; text-decoration-color: hsl(0 70% 55% / 0); } 26%, 90% { opacity: .45; text-decoration-color: hsl(0 70% 55%); } 100% { opacity: 1; text-decoration-color: hsl(0 70% 55% / 0); } }
+@keyframes edit-in { 0%, 28% { opacity: 0; } 38%, 90% { opacity: 1; } 100% { opacity: 0; } }
 .learn-toast {
   position: absolute;
   right: 1rem;
@@ -587,8 +564,8 @@
   .hero-phone, .viz-reads-track, .prep-steps li, .mini-card-top, .swipe-label,
   .edit s, .edit ins, .learn-toast, .sec-ring { animation: none !important; }
   .prep-steps li, .learn-toast { opacity: 1; }
-  .edit s { display: none; }
-  .edit ins { max-width: none; padding: 0 .25rem; }
+  .edit s { opacity: .45; text-decoration-color: hsl(0 70% 55%); }
+  .edit ins { opacity: 1; }
 }
 
 
@@ -605,3 +582,6 @@
   .block-title.one-line { white-space: nowrap; font-size: clamp(2rem, 3.3vw, 3.1rem); }
 }
 .learn-wrap { max-width: 640px; margin: 0 auto; }
+
+/* Looping demo animations only run while their section is on screen (see page.tsx). */
+.anim-paused, .anim-paused * { animation-play-state: paused !important; }

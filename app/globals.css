@@ -36,9 +36,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (min-width: 768px) {
-  body { background-attachment: fixed; }
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "p22-mackinac-pro", serif;
@@ -84,7 +81,8 @@ img { display: block; max-width: 100%; }
   padding-top: 0.35rem;
   padding-bottom: 0.35rem;
 }
-/* Glass surface behind the condensed pill (React Bits GlassSurface). */
+/* Frosted glass behind the condensed pill. Plain CSS blur (GPU-cheap); the
+   SVG-displacement GlassSurface caused scroll tearing in Chrome. */
 .nav-glass {
   position: absolute;
   inset: 0;
@@ -92,18 +90,17 @@ img { display: block; max-width: 100%; }
   border-radius: 18px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .35s ease;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .66));
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  backdrop-filter: blur(18px) saturate(170%);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, .95),
+    inset -1px -1px 0 rgba(35, 27, 72, .06),
+    0 0 0 1px rgba(35, 27, 72, .07),
+    0 10px 30px -12px rgba(28, 22, 55, .25);
+  transition: opacity .3s ease;
 }
 .synced-nav.scrolled .nav-glass { opacity: 1; }
-.nav-glass > * { width: 100% !important; height: 100% !important; }
-.nav-glass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .84), rgba(255, 255, 255, .74));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 0 0 1px rgba(255, 255, 255, .55), 0 10px 30px -12px rgba(28, 22, 55, .25);
-}
 .synced-nav { isolation: isolate; }
 /* At the top the nav spans the full window; once scrolled it condenses into the pill above. */
 .synced-nav .nav-inner {
@@ -390,9 +387,7 @@ img { display: block; max-width: 100%; }
 /* Secondary: frosted glass that presses in on hover */
 .btn-secondary {
   color: hsl(var(--fg));
-  background: linear-gradient(180deg, rgba(255, 255, 255, .82) 0%, rgba(255, 255, 255, .5) 100%);
-  -webkit-backdrop-filter: blur(14px) saturate(170%);
-  backdrop-filter: blur(14px) saturate(170%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .86) 100%);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, .95),
     inset 0 -1px 2px rgba(35, 27, 72, .06),
@@ -618,7 +613,6 @@ img { display: block; max-width: 100%; }
 .cta-block-actions { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
 
 @media (prefers-reduced-transparency: reduce) {
-  .btn-secondary { background: hsl(var(--card)); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 
 /* ── Shared page hero background (components/ui/PageHeroBackground) ── */
@@ -639,6 +633,5 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(90deg, hsl(var(--bg) / .85) 0%, hsl(var(--bg) / .45) 50%, hsl(var(--bg) / .2) 100%);
 }
 @media (prefers-reduced-transparency: reduce) {
-  .nav-glass { display: none; }
-  .synced-nav.scrolled { background: hsl(var(--card)); box-shadow: 0 0 0 1px hsl(var(--border)); }
+  .nav-glass { background: hsl(var(--card)); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }

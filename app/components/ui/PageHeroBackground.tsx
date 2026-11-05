@@ -6,11 +6,11 @@ export function PageHeroBackground() {
     <div className="page-hero-bg" aria-hidden="true">
       <Grainient
         intro={false}
+        speed={0}
+        grainAnimated={false}
         dpr={1}
         colors={["#F7F5FF", "#E4DDFF", "#B3A5FF", "#7B66FF"]}
         angle={120}
-        speed={0.3}
-        flow={0.5}
         silk={0.2}
         grainAmount={0.06}
         interactive={false}
