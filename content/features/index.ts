@@ -17,10 +17,10 @@ const hub: Page = {
   description:
     "Synced's features: cross-app search, drafted replies, meeting scheduling, follow-up tracking, Action Plans, the Decide queue, and Tasks.",
   eyebrow: "Product",
-  intro: "Each feature below works on the messages in your connected Inboxes. Synced does the prep work and asks you only for the decisions.",
+  intro: "Each feature below works on the messages in the inboxes you connect, whether they're your own or the ones you handle for an executive. Synced does the prep work and asks you only for the decisions.",
   primaryIntent: "synced features",
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   schema: "CollectionPage",
   icon: "lightning",
   body: [{ type: "index", clusters: ["feature"] }],

@@ -1,0 +1,40 @@
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1040px; margin: 0 auto; }
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 22px;
+  background: hsl(var(--card));
+  box-shadow: 0 0 0 1px hsl(var(--border) / .9);
+}
+.plan-card.is-featured { box-shadow: 0 0 0 1.5px hsl(var(--primary) / .55), 0 30px 60px -30px rgba(68, 41, 242, .35); }
+.plan-badge {
+  position: absolute;
+  top: -.7rem;
+  left: 2rem;
+  padding: .28rem .7rem;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: hsl(var(--primary));
+}
+.plan-name { font-family: "p22-mackinac-pro", serif; font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; color: hsl(var(--fg)); }
+.plan-price { display: flex; align-items: baseline; gap: .3rem; }
+.plan-amount { font-family: "p22-mackinac-pro", serif; font-size: 2.5rem; font-weight: 700; letter-spacing: -.03em; color: hsl(var(--fg)); }
+.plan-amount.sm { font-size: 1.75rem; }
+.plan-period { font-size: .88rem; color: hsl(var(--muted-fg)); }
+.plan-note { margin: .5rem 0 1.5rem; font-size: .84rem; color: hsl(var(--muted-fg)); }
+.plan-features { list-style: none; margin: 0 0 2rem; padding: 0; display: flex; flex-direction: column; gap: .7rem; flex: 1; }
+.plan-features li { display: flex; gap: .55rem; font-size: .88rem; line-height: 1.45; color: hsl(var(--fg)); }
+.plan-features svg { flex: 0 0 auto; margin-top: .22rem; color: hsl(var(--primary)); }
+@media (max-width: 960px) {
+  .plan-grid { grid-template-columns: 1fr; max-width: 420px; }
+}
+@media (max-width: 640px) {
+  .plan-card { padding: 1.5rem; }
+}
+.plan-foot { margin: 2rem 0 0; text-align: center; font-size: .82rem; color: hsl(var(--muted-fg)); }

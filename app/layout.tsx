@@ -3,9 +3,9 @@ import "./globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://syncedinbox.com").replace(/\/$/, "");
-const title = "Your AI Inbox on Autopilot | Synced";
+const title = "Synced | Your Inbox on Autopilot";
 const description =
-  "Synced is an AI inbox that searches your email and files, drafts replies, coordinates calendars, and manages follow-ups automatically.";
+  "Synced is the AI inbox for executive and admin assistants. It reads every message for the people you support, books meetings, finds files and drafts replies in their voice. You approve every send.";
 
 export const metadata: Metadata = {
   title,
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         foundingLocation: { "@type": "Place", name: "San Francisco, California" },
         address: { "@type": "PostalAddress", addressLocality: "San Francisco", addressRegion: "CA", addressCountry: "US" },
         email: "contact@syncedinbox.com",
-        description: "Synced (syncedinbox.com) makes an AI inbox assistant for email and messages.",
+        description: "Synced (syncedinbox.com) makes an AI inbox for executive and admin assistants, and for professionals who run their own busy inbox.",
         founder: [
           { "@id": `${siteUrl}/team#aum-dhruv` },
           { "@id": `${siteUrl}/team#nick-harty` },
@@ -128,8 +128,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/pxn1uhe.css" />
-        <link rel="icon" href={`${base}/favicon-light.png`} media="(prefers-color-scheme: light)" />
-        <link rel="icon" href={`${base}/favicon-dark.png`} media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href={`${base}/favicon-light-96.png`} media="(prefers-color-scheme: light)" />
+        <link rel="icon" href={`${base}/favicon-dark-96.png`} media="(prefers-color-scheme: dark)" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}

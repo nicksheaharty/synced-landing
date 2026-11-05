@@ -14,8 +14,9 @@ import {
 } from "react-icons/pi";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { CtaSection } from "../components/ui/CtaSection";
+import { PageHeroBackground } from "../components/ui/PageHeroBackground";
 
-const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
 const coreLoop = [
   { icon: PiPlugsConnectedDuotone, label: "Connect an Inbox" },
   { icon: PiListChecksDuotone, label: "Synced drafts an Action Plan" },
@@ -37,7 +38,7 @@ const webSteps = [
   },
   {
     title: "Connect Gmail",
-    body: "Add more Inboxes like Outlook, Slack, or Teams anytime from Settings.",
+    body: "Add Outlook, Slack, Teams, or the inboxes you manage for an executive anytime from Settings, up to 4 accounts each.",
   },
   {
     title: "Check Messages, Decide, and Tasks",
@@ -60,7 +61,7 @@ const mobileSteps = [
   },
   {
     title: "Connect Gmail",
-    body: "Required to finish setup. Add Outlook, Slack, or Teams whenever you're ready.",
+    body: "Required to finish setup. Add Outlook, Slack, Teams, or the inboxes you manage for someone else whenever you're ready.",
   },
   {
     title: "Open Messages",
@@ -77,13 +78,14 @@ export default function GetStartedPage() {
 
       <main className="flex flex-col flex-1 relative z-2">
         {/* Intro */}
-        <section className="learn-hero-section">
+        <section className="learn-hero-section page-hero">
+          <PageHeroBackground />
           <div className="container">
             <span className="eyebrow">Get started</span>
             <h1 className="learn-title">Set up Synced in under 5 minutes.</h1>
             <p className="learn-sub">
-              If you have private-beta access, sign in, connect Gmail, and start reviewing what
-              Synced already handled for you. Pick your platform below.
+              If you have private-beta access, sign in, connect Gmail and the inboxes you handle,
+              and start approving what Synced already prepared. Pick your platform below.
             </p>
             <div className="loop-strip">
               {coreLoop.map(({ icon: Icon, label }, i) => (
@@ -218,23 +220,7 @@ export default function GetStartedPage() {
         </section>
 
         {/* CTA */}
-        <section className="cta-section">
-          <div className="container">
-            <div className="cta-inner">
-              <div className="cta-copy-block">
-                <div className="uppercase-label">Ready when you are</div>
-                <h2 className="cta-title">
-                  Get early access<br />to Synced.
-                </h2>
-                <p className="cta-sub">Join the waitlist and we&apos;ll let you know the moment you&apos;re in.</p>
-              </div>
-              <a href={WAITLIST_URL} className="btn-primary btn-lg">
-                Get Early Access
-                <PiArrowRightDuotone size={18} />
-              </a>
-            </div>
-          </div>
-        </section>
+        <CtaSection />
       </main>
 
       <Footer />
@@ -445,43 +431,10 @@ export default function GetStartedPage() {
           color: hsl(var(--muted-fg));
         }
 
-        .cta-section { padding: 2rem 0 8rem; }
-        .cta-inner {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) auto;
-          align-items: center;
-          gap: clamp(2rem, 7vw, 6rem);
-          padding: clamp(2.5rem, 5vw, 4rem);
-          border: 1px solid hsl(var(--border) / .7);
-          border-radius: 32px;
-          background:
-            radial-gradient(circle at 92% 15%, hsl(var(--primary) / .09), transparent 34%),
-            hsl(var(--card) / .78);
-          box-shadow: 0 24px 70px rgba(35, 27, 72, .06), inset 0 1px 0 hsl(var(--card));
-        }
-        .cta-copy-block .uppercase-label { margin-bottom: .8rem; }
-        .cta-title {
-          font-family: "p22-mackinac-pro", serif;
-          font-size: clamp(2rem, 4vw, 2.85rem);
-          font-weight: 700;
-          letter-spacing: -0.03em;
-          line-height: 1.1;
-          color: hsl(var(--fg));
-          margin: 0;
-        }
-        .cta-sub {
-          font-size: 1rem;
-          color: hsl(var(--muted-fg));
-          max-width: 420px;
-          line-height: 1.65;
-          margin-top: 1rem;
-        }
-        .cta-inner > .btn-primary { min-width: 190px; justify-content: center; }
-
         @media (max-width: 900px) {
           .platform-grid { grid-template-columns: 1fr; }
           .glossary-grid { grid-template-columns: 1fr 1fr; }
-          .cta-inner { grid-template-columns: 1fr; justify-items: start; }
+          
         }
         @media (max-width: 640px) {
           .learn-hero-section { padding: 8.5rem 0 2.5rem; }
@@ -490,13 +443,7 @@ export default function GetStartedPage() {
           .start-section { padding: 0.5rem 0 4rem; }
           .glossary-section { padding: 3.5rem 0; }
           .glossary-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-          .cta-section { padding: 1rem 0 4rem; }
-          .cta-inner {
-            gap: 1.4rem;
-            border-radius: 22px;
-            padding: 1.75rem 1.25rem 1.25rem;
-          }
-          .cta-inner > .btn-primary { width: 100%; min-width: 0; }
+
         }
       `}</style>
     </>

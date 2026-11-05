@@ -7,18 +7,18 @@ export const decide: Page = {
   title: "Decide: The Approval Queue for AI Drafts and Invites | Synced",
   h1: "Decide",
   navLabel: "Decide",
-  cardText: "The queue where drafted replies, calendar invites, and open questions wait for your yes.",
+  cardText: "The card stack where drafted replies, calendar invites, and open questions wait for your yes.",
   description:
     "Decide is Synced's approval queue. AI-drafted replies, calendar invites, and questions wait there until you approve, edit, reprompt, or dismiss them.",
   eyebrow: "Feature",
   intro:
-    "Decide holds the few things Synced won't do without you. Everything else in an Action Plan is already done by the time a card shows up.",
+    "Decide holds the few things Synced won't do without you. Everything else in an Action Plan is already done by the time a card shows up, so an assistant can clear a morning's worth of prepared replies and invites one card at a time.",
   answer:
-    "Decide is the queue in Synced, the AI inbox assistant, where work that needs human judgment waits. Each card is a drafted message to send, a calendar event to create or change, or a question Synced couldn't answer from your connected sources. You can approve it, edit it, tell Synced what to change, or dismiss it. Nothing drafted by Synced is sent until you approve it in Decide.",
+    "Decide is the card stack in Synced, the AI inbox assistant, where work that needs human judgment waits. Each card is a drafted message to send, a calendar event to create or change, or a question Synced couldn't answer from your connected sources. You go through the cards one at a time and approve, edit, tell Synced what to change, or dismiss each one. Nothing drafted by Synced is sent until you approve it in Decide.",
   primaryIntent: "synced decide queue",
   related: ["/features/drafting", "/features/tasks", "/glossary/human-in-the-loop-approval", "/how-it-works"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   icon: "hand",
   body: [
     { type: "h2", text: "The three kinds of card in Decide" },
@@ -86,7 +86,11 @@ export const decide: Page = {
     { type: "h2", text: "Clearing Decide on the web and on iPhone" },
     {
       type: "p",
-      text: "On the web, Decide is a tab next to Messages and Tasks. On the [iOS app](/ios) it's a stack of cards with a counter (3 / 7): tap the buttons to answer, or swipe a card to push it to the back of the stack for later. Swiping never approves or discards anything. When the stack is empty, Decide says All caught up.",
+      text: "On the web, Decide is a tab next to Messages and Tasks. On the [iOS app](/ios) it's a stack of cards with a counter (3 / 7), built for going through a lot of them quickly: tap to approve, or swipe a card to push it to the back of the stack for later. Swiping never approves or discards anything. When the stack is empty, Decide says All caught up.",
+    },
+    {
+      type: "p",
+      text: "For an [executive assistant](/for/executive-assistants) covering several inboxes, this is the whole morning in one place: the invites and replies Synced prepared for each account, in one stack. Every edit you make on a draft also feeds the style notes Synced keeps, so the next draft for that person needs fewer.",
     },
     {
       type: "p",

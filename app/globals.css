@@ -80,14 +80,38 @@ img { display: block; max-width: 100%; }
   top: .75rem;
   width: calc(100% - 2rem);
   max-width: 1120px;
-  background: color-mix(in srgb, hsl(var(--card)) 76%, transparent);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  backdrop-filter: blur(24px) saturate(160%);
-  border-color: hsl(var(--card) / .72);
   border-radius: 18px;
   padding-top: 0.35rem;
   padding-bottom: 0.35rem;
-  box-shadow: 0 12px 40px rgba(28, 22, 55, .07), inset 0 1px 0 hsl(var(--card) / .8);
+}
+/* Glass surface behind the condensed pill (React Bits GlassSurface). */
+.nav-glass {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+.synced-nav.scrolled .nav-glass { opacity: 1; }
+.nav-glass > * { width: 100% !important; height: 100% !important; }
+.nav-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .84), rgba(255, 255, 255, .74));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 0 0 1px rgba(255, 255, 255, .55), 0 10px 30px -12px rgba(28, 22, 55, .25);
+}
+.synced-nav { isolation: isolate; }
+/* At the top the nav spans the full window; once scrolled it condenses into the pill above. */
+.synced-nav .nav-inner {
+  transition: max-width .55s cubic-bezier(.22, 1, .36, 1), padding .55s cubic-bezier(.22, 1, .36, 1);
+}
+.synced-nav:not(.scrolled) .nav-inner {
+  max-width: 100%;
+  padding-inline: clamp(1.25rem, 2.4vw, 2.25rem);
 }
 .nav-inner {
   display: flex;
@@ -305,59 +329,101 @@ img { display: block; max-width: 100%; }
   .mobile-menu { display: none; }
 }
 
-/* ── Global Buttons ── */
-.btn-primary {
+/* ── Global Buttons (components/ui/Button) ── */
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   height: 2.5rem;
   padding: 0 1.2rem;
+  border: none;
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 600;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  background: hsl(var(--primary));
-  color: hsl(248 100% 98%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 1px 2px rgba(30,20,80,.14);
-  transition: filter .18s ease, transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .18s ease;
   white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow .25s ease, background .25s ease, filter .2s ease, transform .3s cubic-bezier(.22, 1, .36, 1);
 }
-.btn-primary:hover  { filter: brightness(1.06); box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 5px 14px rgba(68,41,242,.18); }
+/* Liquid-glass rim: a 1px gradient ring, bright at the top edge and fading down. */
+.btn-primary::before,
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Primary: solid indigo with a lit top-left edge and a shaded bottom-right edge */
+.btn-primary {
+  color: hsl(248 100% 98%);
+  background: hsl(var(--primary));
+  box-shadow: 0 1px 2px rgba(30, 20, 80, .22), 0 6px 16px -8px rgba(68, 41, 242, .5);
+}
+.btn-primary::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, .7) 0%, rgba(255, 255, 255, .15) 30%, rgba(255, 255, 255, 0) 50%, rgba(10, 4, 60, .15) 70%, rgba(10, 4, 60, .55) 100%);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 1px 2px rgba(30, 20, 80, .22), 0 10px 22px -10px rgba(68, 41, 242, .6);
+}
+.btn-primary:active { transform: scale(.97); transition-duration: 80ms; }
+/* SpecularButton draws the edge light itself; keep our sizing and drop the static rim. */
+.btn-primary.specular-button { height: 2.5rem; padding: 0 1.2rem; font-size: .875rem; font-weight: 600; letter-spacing: 0; line-height: 1; gap: .4rem; }
+.btn-primary.specular-button.btn-lg { height: 2.75rem; padding: 0 1.4rem; font-size: .9375rem; }
+.btn-primary.specular-button.btn-block { display: flex; width: 100%; }
+.btn-primary.specular-button::before { display: none; }
+/* Before the specular upgrade (and on touch screens) keep a soft light edge. */
+.btn-primary-plain::before { background: linear-gradient(135deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 45%, rgba(10, 4, 60, 0) 60%, rgba(10, 4, 60, .45) 100%); }
+.btn-primary.specular-button .specular-button__label { gap: .4rem; }
+
+/* Secondary: frosted glass that presses in on hover */
+.btn-secondary {
+  color: hsl(var(--fg));
+  background: linear-gradient(180deg, rgba(255, 255, 255, .82) 0%, rgba(255, 255, 255, .5) 100%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .95),
+    inset 0 -1px 2px rgba(35, 27, 72, .06),
+    0 0 0 1px hsl(var(--border) / .9),
+    0 6px 16px -8px rgba(35, 27, 72, .22);
+}
+.btn-secondary::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .6) 100%);
+}
+.btn-secondary:hover {
+  background: linear-gradient(180deg, rgba(236, 233, 250, .7) 0%, rgba(246, 244, 253, .75) 100%);
+  box-shadow:
+    inset 0 2px 5px rgba(35, 27, 72, .16),
+    inset 0 1px 1px rgba(35, 27, 72, .1),
+    inset 0 -1px 0 rgba(255, 255, 255, .8),
+    0 0 0 1px hsl(var(--border) / .9),
+    0 0 0 rgba(35, 27, 72, 0);
+  transform: translateY(.5px);
+}
+.btn-secondary:hover::before { opacity: .35; }
+.btn-secondary:active { transform: translateY(1px) scale(.985); transition-duration: 80ms; }
+
+.btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-link:focus-visible, .footer-link:focus-visible {
+  outline: 3px solid hsl(var(--primary) / .28);
+  outline-offset: 3px;
+}
 .nav-cta { font-size: 0.9375rem; }
 @media (max-width: 640px) {
   .nav-cta { display: none; }
 }
-.btn-primary:active { transform: scale(.97); transition-duration: 80ms; }
-.btn-primary:focus-visible, .nav-link:focus-visible, .footer-link:focus-visible {
-  outline: 3px solid hsl(var(--primary) / .28);
-  outline-offset: 3px;
-}
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  height: 2.5rem;
-  padding: 0 1.2rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  background: color-mix(in srgb, hsl(248 89% 65%) 10%, transparent);
-  color: hsl(248 89% 50%);
-  transition: background .15s, box-shadow .15s, transform .1s;
-  white-space: nowrap;
-}
-.btn-ghost:hover {
-  background: hsl(var(--card));
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-  transform: translateY(-1px);
-}
-.btn-ghost:active { transform: translateY(0); }
+.btn-block { display: flex; width: 100%; }
 
 .btn-lg {
   height: 2.75rem;
@@ -457,7 +523,7 @@ img { display: block; max-width: 100%; }
   .feature-card,
   .team-card,
   .btn-primary,
-  .btn-ghost {
+  .btn-secondary {
     transition: none !important;
   }
 }
@@ -541,4 +607,38 @@ img { display: block; max-width: 100%; }
 .footer-copy {
   font-size: 0.82rem;
   color: hsl(var(--muted-fg));
+}
+
+/* ── Shared closing call to action (components/ui/CtaSection) ── */
+.cta-block { position: relative; z-index: 2; overflow: hidden; padding: clamp(5rem, 10vw, 8rem) 0; border-top: 1px solid hsl(var(--border) / .6); text-align: center; }
+.cta-block-bg { position: absolute; inset: 0; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent); mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent); }
+.cta-block > .container { position: relative; }
+.cta-block-title { margin: 0 0 .75rem; font-family: "p22-mackinac-pro", serif; font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; letter-spacing: -.035em; color: hsl(var(--fg)); }
+.cta-block-sub { margin: 0 0 2rem; color: hsl(var(--muted-fg)); }
+.cta-block-actions { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .btn-secondary { background: hsl(var(--card)); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* ── Shared page hero background (components/ui/PageHeroBackground) ── */
+.page-hero { position: relative; isolation: isolate; overflow: clip; }
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .75;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 45%, transparent 100%);
+}
+.page-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, hsl(var(--bg) / .85) 0%, hsl(var(--bg) / .45) 50%, hsl(var(--bg) / .2) 100%);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .nav-glass { display: none; }
+  .synced-nav.scrolled { background: hsl(var(--card)); box-shadow: 0 0 0 1px hsl(var(--border)); }
 }

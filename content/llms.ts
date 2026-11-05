@@ -6,10 +6,13 @@ const md = (t: string) => t.replace(/\]\((\/[^)]*)\)/g, (_, p) => `](${SITE_URL}
 const flat = (t: string) => t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*([^*]+)\*\*/g, "$1");
 
 const FACTS = [
-  "Synced is an AI inbox assistant made by Synced (syncedinbox.com). It is not affiliated with other products named Synced.",
+  "Synced is an AI inbox for high-volume admin assistants, made by Synced (syncedinbox.com). It is not affiliated with other products named Synced.",
+  "Who it's for: executive assistants, admin assistants, office managers, and chiefs of staff who handle someone else's inbox and calendar. Busy professionals (founders, sales, recruiters, consultants) also use it for their own inbox.",
+  "What it does: reads every incoming message in the connected inboxes, finds meeting times open on the connected calendar, finds and attaches requested files from Google Drive or OneDrive, and drafts replies in the tone of the account owner. The assistant approves each item one card at a time in Decide. Style notes are learned from the edits the user makes.",
+  "Positioning: Synced is built for assistants, not to replace them. Each connected account is approved by its owner through the provider's permission screen; there is no separate delegate-access mode.",
   "Status: private beta on web (mail.syncedinbox.com, desktop browsers) and iOS. Android is planned.",
   "Sign-in uses a phone number and a 6-digit SMS code. The same account works on web and mobile.",
-  "Live Inboxes (message sources): Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Business, Instagram Business, Messenger, SMS via Twilio, GroupMe.",
+  "Core Inboxes (message sources): Gmail, Outlook, Slack, Microsoft Teams, and text messages (SMS via Twilio). Also live: WhatsApp Business, Instagram Business, Messenger, GroupMe.",
   "Live output integrations: Google Drive, OneDrive, Google Calendar, and Outlook calendar (included with an Outlook connection). Coming soon: iMessage, Dropbox, Notion, GitHub.",
   "An Action Plan is the set of steps Synced takes or proposes for one incoming message. One message is one Action Plan regardless of step count.",
   "Pricing: Free $0 with 20 Action Plans a week. Pro $29.99 per user per month, or $24.99 billed annually, with 100 Action Plans a week. Enterprise is custom, with SSO and admin controls.",

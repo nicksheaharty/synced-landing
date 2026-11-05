@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PiCaretDownBold, PiListBold, PiXBold } from "react-icons/pi";
+import { Button } from "./ui/Button";
+import { GlassSurface } from "./ui/lazy-bits";
+import { BASE, WAITLIST_URL } from "./ui/links";
 
-const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 type NavLink = { label: string; href: string; note?: string };
 
@@ -158,10 +159,26 @@ export default function Header() {
   return (
     <>
       <nav className={`synced-nav${scrolled ? " scrolled" : ""}`}>
+        <div className="nav-glass" aria-hidden="true">
+          <GlassSurface
+            width="100%"
+            height="100%"
+            borderRadius={18}
+            brightness={60}
+            opacity={0.93}
+            blur={8}
+            backgroundOpacity={0.62}
+            saturation={1.6}
+            distortionScale={-70}
+            redOffset={0}
+            greenOffset={3}
+            blueOffset={6}
+          />
+        </div>
         <div className="container nav-inner">
           <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={25} className="nav-icon" />
+            <img src={`${BASE}/icon-light-sm.png`} alt="" width={26} height={25} className="nav-icon" />
             <LogoText />
           </a>
           <div className="nav-links">
@@ -174,9 +191,7 @@ export default function Header() {
             )}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-            <a href={WAITLIST_URL} className="btn-primary nav-cta">
-              Get Early Access
-            </a>
+            <Button href={WAITLIST_URL} className="nav-cta">Get Early Access</Button>
             <button
               type="button"
               className="nav-menu-btn"
@@ -194,7 +209,7 @@ export default function Header() {
         <div className="mobile-menu-top">
           <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo" onClick={() => setMenuOpen(false)}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${BASE}/icon-light.png`} alt="" width={26} height={25} className="nav-icon" />
+            <img src={`${BASE}/icon-light-sm.png`} alt="" width={26} height={25} className="nav-icon" />
             <LogoText />
           </a>
           <button
@@ -228,9 +243,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="mobile-menu-footer">
-          <a href={WAITLIST_URL} className="btn-primary btn-lg mobile-menu-cta" onClick={() => setMenuOpen(false)}>
+          <Button href={WAITLIST_URL} size="lg" className="mobile-menu-cta" onClick={() => setMenuOpen(false)}>
             Get Early Access
-          </a>
+          </Button>
           <span className="mobile-menu-note">Free plan, no credit card</span>
         </div>
       </div>

@@ -21,7 +21,7 @@ export const syncedVsGeminiInGmail: Page = {
   primaryIntent: "synced vs gemini in gmail",
   related: ["/compare/synced-vs-copilot-in-outlook", "/integrations/gmail", "/pricing", "/security"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   body: [
     { type: "h2", text: "Synced and Gemini in Gmail side by side" },
     {
@@ -59,6 +59,7 @@ export const syncedVsGeminiInGmail: Page = {
     {
       type: "list",
       items: [
+        "You're an assistant working on someone else's mail. Gemini in Gmail is built around the signed-in user's own mailbox. Synced is built for [executive and admin assistants](/for/executive-assistants) who handle inboxes and calendars for the people they support, across email, Slack, Teams, and texts.",
         "You don't want to prompt. Most of Gemini's Gmail features start when you click Help me write, tap Summarize, or ask in the side panel. Synced reads each new message as it arrives, writes an [Action Plan](/glossary/action-plan), and shows you finished drafts in [Decide](/features/decide).",
         "The reply needs more than words. Synced's plan for a message can find the attachment in Drive or OneDrive, pick open slots from Google Calendar, and draft the reply with both included.",
         "Your mail isn't all in Gmail. Synced connects Outlook on Pro, alongside Gmail.",

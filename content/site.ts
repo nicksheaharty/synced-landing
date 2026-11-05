@@ -6,7 +6,7 @@ export const WEB_APP_URL = "https://mail.syncedinbox.com";
 export const CONTACT_EMAIL = "contact@syncedinbox.com";
 
 export const SITE_DESCRIPTION =
-  "Synced is an AI inbox assistant that searches your email and files, drafts replies, coordinates calendars, and manages follow-ups automatically.";
+  "Synced is an AI inbox for high-volume admin assistants. It reads everything that comes in for the people an assistant supports, finds meeting times, attaches files, and drafts replies in the executive's voice, then waits for approval before anything sends.";
 
 export const PEOPLE = {
   aum: {

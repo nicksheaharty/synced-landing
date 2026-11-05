@@ -7,36 +7,40 @@ export const executiveAssistants: Page = {
   title: "AI Inbox Assistant for Executive Assistants | Synced",
   h1: "Synced for executive assistants",
   navLabel: "Executive assistants",
-  cardText: "Scheduling requests, document asks, and follow-ups drafted for you, with an honest note on delegated access.",
+  cardText: "Meeting requests, file asks, and replies in your executive's voice, ready before you open the inbox.",
   description:
-    "How executive assistants can use Synced to draft scheduling replies, find documents, and track follow-ups, and what it doesn't do yet for delegated inbox access.",
+    "Synced is an AI inbox for executive assistants. It reads the inboxes you manage, finds times and files, drafts replies in your executive's voice, and waits for approval.",
   eyebrow: "Use case",
   icon: "briefcase",
   intro:
-    "Half your day is the same four requests in different wording: can we meet, can you send, can you move, did they get back to us. Synced drafts those so you can spend your judgment on the ones that need it. Read the section on delegated access before you sign up.",
+    "Most of an assistant's day is the same few requests in different wording: can we meet, can you send, can you move, did they get back to us. Synced reads everything that comes in for the people you support and gets that work ready before you open it.",
   answer:
-    "Synced, the AI inbox assistant, drafts scheduling replies, finds files in Google Drive or OneDrive, and tracks threads waiting on a response, with every draft held for approval. Synced connects accounts per user: each person signs in with their own phone number and connects Inboxes through the provider's own permission screen. It does not currently advertise a delegated or shared-access mode for an assistant working inside an executive's account, so executive assistants should confirm fit with the Synced team first.",
+    "Synced is an AI inbox built for executive assistants. It reads the email, Slack, Teams, and text messages that come in for the executives you support, finds meeting times on the connected calendar, attaches files from Google Drive or OneDrive, and drafts replies the way your executive writes. You approve each one from a card stack in Decide, and nothing is sent without that approval. Synced is built to help assistants do more, not to replace them.",
   primaryIntent: "ai inbox assistant for executive assistants",
   published: "2026-09-13",
-  updated: "2026-09-13",
-  related: ["/for/founders", "/for/consultants", "/guides/how-to-delegate-email", "/glossary/email-delegation"],
+  updated: "2026-11-05",
+  related: ["/for/admin-assistants", "/features/scheduling", "/features/decide", "/guides/how-to-delegate-email"],
   body: [
-    { type: "h2", text: "How Synced connects accounts, and what that means for an EA" },
+    { type: "h2", text: "What Synced does with an executive's inbox" },
     {
       type: "p",
-      text: "Start here, because it decides whether Synced fits your setup. A Synced account belongs to one person. That person signs in with their phone number and a 6-digit code, then connects Gmail, Outlook, Slack, or another Inbox by approving that provider's permission screen. Synced then acts on the accounts connected to that login.",
+      text: "Synced reads every new message in the accounts you connect and works out what each one is asking for. For the requests that fill an assistant's day, it does the groundwork before you look:",
+    },
+    {
+      type: "features",
+      items: [
+        { icon: "calendar", title: "Someone asks to meet", body: "Synced checks the executive's connected calendar, finds times that are open, and prepares the invite and the reply offering them." },
+        { icon: "folder", title: "Someone asks for a file", body: "Synced finds the deck, contract, or pre-read in Google Drive or OneDrive and attaches it to the draft." },
+        { icon: "draft", title: "A reply is owed", body: "Synced drafts it from the full thread, in the tone your executive uses with that person." },
+        { icon: "tasks", title: "Only a person can do it", body: "Sign this, call them, pick the restaurant. Synced turns it into a Task with the sender, a date, and a link back to the thread." },
+      ],
     },
     {
       type: "p",
-      text: "Synced doesn't advertise a delegate mode today: no \"assistant seat\" that works inside an executive's mailbox under the assistant's own login, no shared Decide queue between an executive and an EA, and no per-person permissions on one account. If your work depends on Gmail delegation or Outlook delegate access, that part of your workflow isn't covered yet. Enterprise lists admin controls, so ask sales what's on the way through the Contact Sales form on [pricing](/pricing).",
+      text: "The aim is that 95% of the work is done before you open the inbox, and your time goes to the messages that need judgment.",
     },
-    {
-      type: "callout",
-      title: "What does work today",
-      text: "Synced handles the messages that land in the accounts connected to your own login. For many EAs that's a lot: the scheduling threads you're cc'd on, the Slack or Teams DMs where your executive asks for things, and requests sent straight to you from the executive's team and outside contacts.",
-    },
-    { type: "h2", text: "Scheduling, document, and follow-up requests Synced drafts for an EA" },
-    { type: "h3", text: "Someone asks for time with your executive" },
+    { type: "h2", text: "A typical morning of requests, prepared by Synced" },
+    { type: "h3", text: "A chief of staff wants time with your executive" },
     {
       type: "message",
       from: "Tom (chief of staff, partner company)",
@@ -45,14 +49,10 @@ export const executiveAssistants: Page = {
       text: "Looping in Maya's assistant. Could we get 45 minutes with Maya the week of the 22nd? In person if she's in Chicago, otherwise video.",
       stepsLabel: "2 Tasks Ready for Approval",
       steps: [
-        "Checked the connected Google Calendar for 45-minute openings the week of the 22nd",
+        "Checked Maya's connected calendar for 45-minute openings the week of the 22nd",
         "Drafted a reply offering three times and asking which format they prefer",
       ],
-      caption: "Illustration. Synced reads availability from the Google Calendar connected to your Synced account.",
-    },
-    {
-      type: "p",
-      text: "The calendar Synced checks is the one on the Google or Outlook account you connect. If you manage your executive's schedule from a separate calendar, the proposed times will only be as accurate as what that connected calendar shows.",
+      caption: "Illustration. Synced reads availability from the calendar on the account you connected.",
     },
     { type: "h3", text: "Your executive asks for a document in Slack" },
     {
@@ -85,23 +85,58 @@ export const executiveAssistants: Page = {
       type: "p",
       text: "That's one less spreadsheet of who owes you what. More in the guide on [automating email follow-ups](/guides/how-to-automate-email-follow-ups).",
     },
+    { type: "h2", text: "Approving a morning's work from one card stack" },
+    {
+      type: "p",
+      text: "Everything Synced prepares that would send a message or touch a calendar lands in [Decide](/features/decide). On the [iOS app](/ios) it's a stack of cards you clear one at a time: read the draft, tap to approve, edit a line in place, or tap Reprompt and say what to change (\"make it Thursday\", \"warmer\"). Swipe a card to push it to the back for later. Swiping never approves or discards anything.",
+    },
+    {
+      type: "p",
+      text: "Meeting changes come in a fixed order: the calendar event first, then the reply that confirms it. Synced won't tell someone \"see you Thursday\" before the Thursday event exists.",
+    },
+    { type: "h2", text: "Drafts that learn how your executive writes" },
+    {
+      type: "p",
+      text: "Every edit you make teaches Synced a little more about that executive. Cut the greeting on internal notes a few times, or keep sign-offs to initials, and that can become a style note. You can read those notes in Settings under Personal Voice, rewrite them yourself, or switch the feature off. Instructions you give on a single request always win. More on [drafting](/features/drafting).",
+    },
+    { type: "h2", text: "Connecting the accounts you manage" },
+    {
+      type: "p",
+      text: "You sign in to Synced with your own phone number and a 6-digit code. Then you connect the inboxes you handle. Each Inbox type takes up to 4 accounts, so your Gmail, your executive's Gmail, and a shared Outlook can sit in one list, with Slack or Teams alongside.",
+    },
+    {
+      type: "p",
+      text: "Each account connects through Google's or Microsoft's own permission screen, so the account owner approves the connection. Synced has no separate delegate seat that works through Gmail delegation or Outlook delegate access, and there's no shared Decide queue where an executive approves what you prepared in their own app. If that's a requirement, ask about the Enterprise plan through the Contact Sales form on [pricing](/pricing).",
+    },
+    { type: "h2", text: "Scheduling with other assistants" },
+    {
+      type: "p",
+      text: "Most executive scheduling happens between two assistants, each protecting a calendar. Today Synced handles your side: it reads the other assistant's request, checks your executive's calendar, and drafts the reply. Synced is designed so that when both assistants use it, the booking between them can happen without the back-and-forth.",
+    },
     { type: "h2", text: "Which integrations matter for an executive assistant" },
     {
       type: "list",
       items: [
-        "[Gmail](/integrations/gmail) or [Outlook](/integrations/outlook): the inbox where scheduling and document requests reach you.",
-        "[Slack](/integrations/slack) or [Microsoft Teams](/integrations/microsoft-teams): where your executive and their team ask you for things between meetings.",
-        "[Google Calendar](/integrations/google-calendar): availability for proposed times, and events once a time is agreed.",
-        "[Google Drive](/integrations/google-drive) or [OneDrive](/integrations/onedrive): decks, pre-reads, travel documents, and contracts to attach.",
+        "[Gmail](/integrations/gmail) or [Outlook](/integrations/outlook): where most scheduling and document requests arrive.",
+        "[Slack](/integrations/slack) or [Microsoft Teams](/integrations/microsoft-teams): where your executive and their team ask for things between meetings.",
+        "[Google Calendar](/integrations/google-calendar), or the calendar included with Outlook: availability for proposed times, and events once a time is agreed.",
+        "[Google Drive](/integrations/google-drive) or [OneDrive](/integrations/onedrive): decks, pre-reads, travel documents, and contracts to attach. Dropbox is coming soon.",
+        "[Text messages](/integrations/sms): requests that come in by text to a connected business number.",
       ],
+    },
+    { type: "h2", text: "Built for assistants, not to replace them" },
+    {
+      type: "p",
+      text: "Several AI products are pitched as a replacement for the assistant. Synced assumes the opposite: the assistant knows the executive, the relationships, and the politics of a calendar, and an AI that does the prep makes that person faster. The same goes for chiefs of staff and office managers who handle messages for someone else. Admin teams with very high volume can also see [Synced for admin assistants](/for/admin-assistants).",
     },
     { type: "h2", text: "Where Synced isn't the right tool for an EA" },
     {
       type: "list",
       items: [
-        "Delegated mailbox access. If you work inside your executive's Gmail or Outlook as a delegate, Synced doesn't advertise support for that today.",
-        "Shared approval between you and your executive. Decide is per account, so there's no built-in handoff where you prepare a draft and they approve it in their own app.",
-        "Travel and expense booking. Synced drafts messages and finds files. It doesn't book flights or file expenses.",
+        "Delegate access without the owner's approval. Every connected account goes through the provider's permission screen.",
+        "Shared approval between you and your executive. Decide belongs to the person signed in to that Synced account.",
+        "Travel and expense booking. Synced drafts messages, finds files, and prepares calendar events. It doesn't book flights or file expenses.",
+        "Sending on its own. There's no setting to skip approval for AI-drafted messages.",
       ],
     },
     {
@@ -112,19 +147,23 @@ export const executiveAssistants: Page = {
   faqs: [
     {
       q: "Can an executive assistant use Synced on their executive's inbox?",
-      a: "Synced connects accounts per user and doesn't currently advertise a delegated or shared-access mode for assistants. It works on the accounts connected to your own Synced login. Ask the Synced team through Contact Sales if delegated access is a requirement.",
+      a: "Yes, by connecting it. Each Inbox type takes up to 4 accounts, and each account connects through the provider's own permission screen, which the account owner approves. Synced doesn't work through Gmail delegation or Outlook delegate access as a separate mode.",
     },
     {
       q: "Will Synced send emails on my executive's behalf without approval?",
       a: "No. Every AI-drafted message waits in Decide for approval from the person signed in to that Synced account.",
     },
     {
+      q: "Does Synced learn how my executive writes?",
+      a: "Synced drafts from the full thread and keeps style notes learned from the edits you make. You can view, rewrite, or turn off those notes in Settings under Personal Voice.",
+    },
+    {
       q: "Does Synced work with Outlook calendars?",
       a: "Yes. Connecting an Outlook account includes its calendar, so Synced can propose times from it and prepare events for approval, the same as with Google Calendar. See [Outlook](/integrations/outlook).",
     },
     {
-      q: "Can Synced turn a request into a to-do for me?",
-      a: "Yes. When a message delegates something to a person rather than something Synced can draft, it can become a Task in your Tasks list.",
+      q: "Is Synced trying to replace executive assistants?",
+      a: "No. Synced is built for assistants. It prepares the routine work and the assistant approves, edits, and handles anything that needs judgment.",
     },
   ],
 };

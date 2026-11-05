@@ -18,7 +18,7 @@ export const drafting: Page = {
   primaryIntent: "ai email drafting",
   related: ["/features/decide", "/features/search", "/glossary/smart-reply", "/guides/how-to-use-ai-to-draft-email-replies"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   icon: "draft",
   body: [
     { type: "h2", text: "How Synced writes a reply" },
@@ -60,10 +60,14 @@ export const drafting: Page = {
       type: "p",
       text: "When it's further off, tap Reprompt and say what's wrong: \"shorter\", \"too formal\", \"wrong date, it's Friday.\" You can type it or dictate it. Synced starts from the draft as you left it, keeps your manual edits, and makes the targeted change instead of rewriting from scratch.",
     },
-    { type: "h2", text: "Drafts that sound like you" },
+    { type: "h2", text: "Drafts that sound like you, or the executive you write for" },
     {
       type: "p",
       text: "Synced keeps a short list of style notes, learned from the edits you make to its drafts. Cut the greeting on quick threads a few times and that can become a note. You can read the notes in Settings under Personal Voice, rewrite them yourself (up to 8 lines), or switch the feature off. Instructions you give on a specific request always win over the general notes.",
+    },
+    {
+      type: "p",
+      text: "For an [executive assistant](/for/executive-assistants), this is how drafts for your executive get closer to the way they write: every edit you make on their replies teaches Synced a little more. The notes belong to your Synced account, so they describe the style you edit toward.",
     },
     {
       type: "p",

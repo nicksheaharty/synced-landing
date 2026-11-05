@@ -1,6 +1,7 @@
 import type { Page } from "../types";
 import { founders } from "./founders";
 import { executiveAssistants } from "./executive-assistants";
+import { adminAssistants } from "./admin-assistants";
 import { sales } from "./sales";
 import { recruiters } from "./recruiters";
 import { consultants } from "./consultants";
@@ -11,16 +12,16 @@ import { smallBusinessOwners } from "./small-business-owners";
 const hub: Page = {
   slug: "/for",
   cluster: "use-case",
-  title: "Who Synced Is For: Founders, EAs, Sales, Recruiters | Synced",
+  title: "Who Synced Is For: Assistants, Founders, Sales, More | Synced",
   h1: "Who Synced is for.",
   navLabel: "Use cases",
   description:
-    "How founders, executive assistants, sales teams, recruiters, consultants, and small business owners use Synced to clear email and messages.",
+    "Synced is built for executive and admin assistants who handle someone else's inbox, and for founders, sales, recruiters, and consultants running their own.",
   eyebrow: "Use cases",
-  intro: "Synced fits people whose job runs through their inbox. Here's what that looks like by role, including where it isn't the right tool.",
+  intro: "Synced is built first for assistants who handle the inbox and calendar of the people they support. It works the same way for anyone running a busy inbox of their own. Here's what that looks like by role, including where it isn't the right tool.",
   primaryIntent: "who uses ai inbox assistant",
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   schema: "CollectionPage",
   icon: "users",
   body: [{ type: "index", clusters: ["use-case"] }],
@@ -28,8 +29,9 @@ const hub: Page = {
 
 export const pages: Page[] = [
   hub,
-  founders,
   executiveAssistants,
+  adminAssistants,
+  founders,
   sales,
   recruiters,
   consultants,

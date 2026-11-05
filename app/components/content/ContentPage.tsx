@@ -1,13 +1,15 @@
-import { PiArrowRightDuotone, PiCaretDownBold } from "react-icons/pi";
+import { PiCaretDownBold } from "react-icons/pi";
 import type { Page } from "@/content/types";
 import { breadcrumbs } from "@/content/registry";
-import { PEOPLE, WAITLIST_URL, href } from "@/content/site";
+import { PEOPLE, href } from "@/content/site";
 import { jsonLd, pageGraph } from "@/content/schema";
 import Header from "../Header";
 import Footer from "../Footer";
+import { CtaSection } from "../ui/CtaSection";
 import Blocks, { RelatedLinks, slugId } from "./Blocks";
 import Inline from "./Inline";
 import { ConnectorTile } from "../ConnectorIcon";
+import { PageHeroBackground } from "../ui/PageHeroBackground";
 
 function formatDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -32,7 +34,8 @@ export default function ContentPage({ page }: { page: Page }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(pageGraph(page)) }} />
 
       <main className="ui-main">
-        <section className="ui-hero">
+        <section className="ui-hero page-hero">
+          <PageHeroBackground />
           <div className="container">
             <nav aria-label="Breadcrumb">
               <ol className="ui-crumbs">
@@ -121,24 +124,7 @@ export default function ContentPage({ page }: { page: Page }) {
           </section>
         ) : null}
 
-        <section className="ui-cta">
-          <div className="container">
-            <div className="ui-cta-inner">
-              <div>
-                <div className="ui-label">Get started</div>
-                <h2 className="ui-cta-title">{cta.title}</h2>
-                <p className="ui-cta-sub">{cta.sub}</p>
-              </div>
-              <div className="ui-cta-action">
-                <a href={WAITLIST_URL} className="btn-primary btn-lg">
-                  Get Early Access
-                  <PiArrowRightDuotone size={18} />
-                </a>
-                <span className="ui-cta-note">Free plan. No credit card.</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CtaSection title={cta.title} sub={cta.sub} />
       </main>
 
       <Footer />

@@ -21,7 +21,7 @@ export const syncedVsSuperhuman: Page = {
   primaryIntent: "synced vs superhuman",
   related: ["/alternatives/superhuman-alternatives", "/compare/synced-vs-shortwave", "/pricing", "/security"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   body: [
     { type: "h2", text: "Synced and Superhuman side by side" },
     {
@@ -59,6 +59,7 @@ export const syncedVsSuperhuman: Page = {
     {
       type: "list",
       items: [
+        "You handle email for someone else. Superhuman is built to get one person through their own inbox faster. Synced is built for [executive and admin assistants](/for/executive-assistants): it reads the inboxes you manage for the people you support and has the reply, the meeting time, and the file ready before you open them.",
         "Your requests don't all arrive by email. Synced connects Slack, Microsoft Teams chats, WhatsApp Business, Instagram Business DMs, Messenger, SMS via your own Twilio number, and GroupMe as Inboxes next to Gmail and Outlook.",
         "You want the file and the meeting time handled along with the reply. For each message Synced writes an [Action Plan](/glossary/action-plan): it finds the file in Google Drive or OneDrive, checks Google Calendar for open slots, and drafts the response in one pass.",
         "You want a hard rule that nothing goes out unreviewed. In Synced, approval before sending is the only mode. See [human-in-the-loop approval](/glossary/human-in-the-loop-approval).",

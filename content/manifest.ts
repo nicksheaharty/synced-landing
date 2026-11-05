@@ -38,6 +38,7 @@ export const PLANNED: Record<string, string[]> = {
     "/for",
     "/for/founders",
     "/for/executive-assistants",
+    "/for/admin-assistants",
     "/for/sales",
     "/for/recruiters",
     "/for/consultants",
