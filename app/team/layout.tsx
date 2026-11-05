@@ -3,12 +3,12 @@ import PageStructuredData from "../components/PageStructuredData";
 
 export const metadata: Metadata = {
   title: "Meet the Team Building Synced",
-  description: "Meet the founders building Synced, the AI inbox assistant that turns messages into completed work.",
+  description: "Meet the founders building Synced, the AI inbox for high-volume admin assistants.",
   alternates: { canonical: "/team" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Meet the Team Building Synced",
-    description: "Meet the founders building Synced, the AI inbox assistant that turns messages into completed work.",
+    description: "Meet the founders building Synced, the AI inbox for high-volume admin assistants.",
     url: "/team",
     type: "website",
     siteName: "Synced",

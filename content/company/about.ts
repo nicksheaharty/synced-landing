@@ -6,45 +6,45 @@ export const about: Page = {
   title: "About Synced, the AI Inbox Assistant | Synced",
   h1: "About Synced.",
   navLabel: "About",
-  cardText: "What Synced is, who builds it, and where the product stands today.",
+  cardText: "What Synced is, who it's built for, who builds it, and where the product stands today.",
   description:
-    "Synced (syncedinbox.com) is an AI inbox assistant that reads your messages, drafts replies and documents for approval, and tracks follow-ups. Who builds it and why.",
+    "Synced (syncedinbox.com) is an AI inbox for high-volume admin assistants. It gets replies, meeting times, and files ready for approval. Who builds it and why.",
   eyebrow: "Company",
   intro:
-    "Synced (syncedinbox.com) is an AI inbox assistant. It reads what comes into your email and messaging accounts and gets the work those messages ask for ready before you open them.",
+    "Synced (syncedinbox.com) is an AI inbox for high-volume admin assistants. It reads everything that comes in for the people an assistant supports and gets the work ready before the assistant opens it.",
   answer:
-    "Synced (syncedinbox.com) is an AI inbox assistant made by Synced Inc., a San Francisco company founded in 2025 by Aum Dhruv (CEO) and Nick Harty (CTO). Synced connects to email, messaging apps, cloud storage, and calendar, then drafts replies, finds files, proposes meeting times, and tracks follow-ups. Every AI-drafted message waits for your approval before it is sent. Synced is in private beta on the web and iOS.",
+    "Synced (syncedinbox.com) is an AI inbox for high-volume admin assistants, made by Synced Inc., a San Francisco company founded in 2025 by Aum Dhruv (CEO) and Nick Harty (CTO). Synced reads incoming email, Slack, Microsoft Teams, and text messages, finds meeting times that are open, attaches the files people ask for, and drafts replies the way the sender's boss writes. The assistant approves each one, and nothing is sent without that approval. Synced is in private beta on the web and iOS.",
   primaryIntent: "about synced ai inbox assistant company",
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   schema: "AboutPage",
   icon: "user",
   body: [
     { type: "h2", text: "What Synced is" },
     {
       type: "p",
-      text: "Synced is an AI inbox assistant, and the name refers to that product at syncedinbox.com. It connects to your email and messaging accounts, your cloud storage, and your calendar. When a message arrives, Synced reads it, searches your connected sources for context, and writes an [Action Plan](/glossary/action-plan): the steps needed to get that message handled.",
+      text: "Synced is an AI inbox for assistants who handle a lot of messages for other people, and the name refers to that product at syncedinbox.com. It connects to the email, Slack, Teams, and text accounts an assistant covers, plus Google Calendar, Google Drive, and OneDrive. When a message arrives, Synced writes an [Action Plan](/glossary/action-plan) and does the prep: someone asks to meet, Synced finds a time that's open; someone asks for a file, Synced finds it and attaches it; a reply is owed, Synced drafts it in the executive's voice.",
     },
     {
       type: "p",
-      text: "The tagline in use is \"Your AI Inbox on Autopilot.\" The idea underneath it is simpler: instead of you prompting an AI, Synced comes to you with the decisions only you can make, and handles the rest.",
+      text: "The assistant clears that prepared work from a card stack in [Decide](/features/decide), approving, editing, or redirecting each item. Nothing sends without approval, and every edit teaches Synced more about how that executive writes. Busy professionals who run their own inbox use it the same way, with one fewer person in the loop.",
     },
-    { type: "h2", text: "The problem Synced was built for" },
+    { type: "h2", text: "Built for assistants, not to replace them" },
     {
       type: "p",
-      text: "Most messages ask for something. A file, a time to meet, an answer, a decision. Reading the message takes seconds; doing what it asks means opening Drive, checking a calendar, rereading a thread, and writing a reply. That second part is where the day goes, and it's spread across Gmail, Outlook, Slack, Teams, and a handful of chat apps.",
+      text: "A lot of AI products in this space are pitched as a replacement for the assistant. Others, like AI email clients, help one person get through their own mail faster, or only work for the account owner inside Gmail or Outlook. Synced is built for the person who handles someone else's inbox and calendar, across every app the requests come through.",
     },
     {
       type: "p",
-      text: "Summaries and smart replies help with reading. Synced is aimed at the doing. More on that thinking in [Your inbox is a to-do list](/blog/your-inbox-is-a-to-do-list).",
+      text: "The goal is that 95% of the work is done before the assistant opens the inbox. Assistants mostly schedule with other assistants, so Synced is also designed so that when both sides use it, booking between them can happen without the back-and-forth. More on the thinking in [Your inbox is a to-do list](/blog/your-inbox-is-a-to-do-list).",
     },
     { type: "h2", text: "How Synced works, briefly" },
     {
       type: "steps",
       items: [
-        { title: "Connect your Inboxes", body: "Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Business, Instagram Business, Messenger, SMS via Twilio, and GroupMe are live. See [Inboxes](/features/inboxes)." },
-        { title: "Synced writes an Action Plan for each message", body: "It searches Google Drive, OneDrive, and Google Calendar for what the message needs, then drafts the reply, the document, or the proposed meeting times." },
-        { title: "You decide", body: "Anything that needs your judgment, including every AI-drafted message, goes to the [Decide](/features/decide) queue, on web and iPhone. You approve, edit, or answer a question." },
+        { title: "Connect the inboxes you handle", body: "Gmail, Outlook, Slack, Microsoft Teams, and text messages, plus a few other messaging apps. See [Inboxes](/features/inboxes)." },
+        { title: "Synced writes an Action Plan for each message", body: "It checks Google Calendar, Google Drive, and OneDrive for what the message needs, then drafts the reply, the document, or the proposed meeting times." },
+        { title: "You decide", body: "Anything that needs a person's judgment, including every AI-drafted message, goes to the [Decide](/features/decide) queue, on web and iPhone. You approve, edit, or answer a question." },
         { title: "Synced finishes the work", body: "Approved replies go out from your own account. To-dos meant for a person land in [Tasks](/features/tasks), and follow-ups are tracked." },
       ],
     },
@@ -52,13 +52,13 @@ export const about: Page = {
     { type: "h2", text: "Who builds Synced" },
     {
       type: "p",
-      text: "Synced Inc. was founded in 2025 in San Francisco by Aum Dhruv and Nick Harty, who have been building things together since middle school.",
+      text: "Synced Inc. was founded in 2025 in San Francisco by Aum Dhruv and Nick Harty. They met on a 6th-grade math team in Florida and have been building things together for about a decade. Both have done the job Synced is built for: turning a stream of messages into finished tasks for someone else.",
     },
     {
       type: "list",
       items: [
-        "**Aum Dhruv, CEO.** Studied ORFE at Princeton. Built TigerMeet.org, used across Princeton, Penn, UF, and Brandeis for more than 10,000 meetings. Interned at Amazon on AR hardware and worked at the SEC.",
-        "**Nick Harty, CTO.** Studied Engineering and Economics at Wharton. Shipped product inside regulated institutions and coordinated 400 congressional offices for the Congressional App Challenge.",
+        "**Aum Dhruv, CEO.** Princeton (ORFE). Did message-to-task work at the SEC, interned at Amazon on AR hardware, and built TigerMeet.org, used across Princeton, Penn, UF, and Brandeis for more than 10,000 meetings.",
+        "**Nick Harty, CTO.** Penn (Engineering and Economics at Wharton). Worked as an assistant to a Hollywood producer and coordinated with more than 300 congressional offices for the Congressional App Challenge.",
       ],
     },
     { type: "p", text: "Photos and links are on the [team page](/team)." },
@@ -67,10 +67,11 @@ export const about: Page = {
       type: "list",
       items: [
         "Private beta. New users join through the [Get Early Access](/get-started) waitlist.",
+        "More than 70% of the messages sent by people using Synced go through it, and Synced has completed more than 11,000 tasks.",
         "Web app at mail.syncedinbox.com for desktop browsers, and an [iOS app](/ios). Same account and history on both.",
         "[Android](/android) is planned. There's no date yet.",
         "Plans: Free, Pro, and Enterprise. Details on [pricing](/pricing).",
-        "iMessage, Dropbox, Notion, and GitHub connectors are coming soon, along with more listed in the app.",
+        "Dropbox is coming soon for files, alongside iMessage, Notion, GitHub, and more connectors listed in the app.",
       ],
     },
     { type: "h2", text: "Principles Synced is built on" },

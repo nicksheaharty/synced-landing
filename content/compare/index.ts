@@ -21,10 +21,10 @@ const hub: Page = {
   description:
     "Side-by-side comparisons of Synced with other AI email tools, with pricing, platforms, and data policies sourced from each vendor's own pages.",
   eyebrow: "Compare",
-  intro: "Honest comparisons. Every competitor detail links to the vendor's own page with the date we checked it, and each page says where the other tool is the better pick.",
+  intro: "Most AI email tools help one person get through their own inbox faster. Synced is built for assistants who handle inboxes for other people, with the aim that most of the work is done before the inbox is opened. Every competitor detail below links to the vendor's own page with the date we checked it, and each page says where the other tool is the better pick.",
   primaryIntent: "synced alternatives comparison",
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   schema: "CollectionPage",
   icon: "arrows",
   body: [{ type: "index", clusters: ["compare", "alternatives"] }],

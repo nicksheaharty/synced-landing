@@ -18,7 +18,7 @@ export const inboxes: Page = {
   primaryIntent: "connect inboxes synced",
   related: ["/integrations", "/glossary/inbox-connector", "/glossary/output-integration", "/features/search"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   icon: "envelope",
   body: [
     { type: "h2", text: "Inboxes vs. output integrations" },
@@ -36,6 +36,11 @@ export const inboxes: Page = {
         ["Shows up in Messages", "Yes", "No"],
       ],
       caption: "More connectors, from Jira to QuickBooks, are listed as coming soon in the app.",
+    },
+    { type: "h2", text: "Connecting the inboxes you manage for someone else" },
+    {
+      type: "p",
+      text: "Each Inbox type takes up to 4 accounts, which is how an [executive assistant](/for/executive-assistants) puts their own email and the executive's in one Messages list. Every account connects through the provider's own permission screen, so the account owner approves it. For most assistants the core set is Gmail or Outlook, Slack or Microsoft Teams, and texts; the other messaging apps are there when requests come in through them.",
     },
     { type: "h2", text: "What each Inbox brings into Synced" },
     {

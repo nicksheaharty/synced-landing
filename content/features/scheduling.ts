@@ -18,7 +18,7 @@ export const scheduling: Page = {
   primaryIntent: "ai meeting scheduling from email",
   related: ["/integrations/google-calendar", "/features/decide", "/glossary/calendar-coordination", "/guides/how-to-schedule-meetings-over-email"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   icon: "calendar",
   body: [
     { type: "h2", text: "What Synced does with a meeting request" },
@@ -72,6 +72,11 @@ export const scheduling: Page = {
     {
       type: "p",
       text: "Synced reads availability from, and creates events on, [Google Calendar](/integrations/google-calendar), which is included on the Free plan. Connecting an Outlook account also lets Synced work with that account's calendar. Google's `calendar` permission covers reading availability and creating or modifying events; `contacts.readonly` is what powers attendee suggestions.",
+    },
+    { type: "h2", text: "Scheduling for the executive you support" },
+    {
+      type: "p",
+      text: "Assistants spend much of the day scheduling with other assistants. Connect your executive's Google or Outlook account and Synced reads requests sent to them, checks their calendar, and drafts the reply from that account for you to approve. With more than one account connected, the event card lets you pick which calendar the meeting goes on. Synced is designed so that when both assistants on a thread use it, the booking can happen without the usual back-and-forth. More on [Synced for executive assistants](/for/executive-assistants).",
     },
     { type: "h2", text: "Where Synced scheduling stops" },
     {

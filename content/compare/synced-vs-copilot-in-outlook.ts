@@ -21,7 +21,7 @@ export const syncedVsCopilotInOutlook: Page = {
   primaryIntent: "synced vs copilot in outlook",
   related: ["/compare/synced-vs-gemini-in-gmail", "/integrations/outlook", "/pricing", "/security"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   body: [
     { type: "h2", text: "Synced and Copilot in Outlook side by side" },
     {
@@ -58,6 +58,7 @@ export const syncedVsCopilotInOutlook: Page = {
     {
       type: "list",
       items: [
+        "You're an assistant working on someone else's mail. Copilot in Outlook is built around the signed-in user's own mail. Synced is built for [executive and admin assistants](/for/executive-assistants) who handle inboxes and calendars for the people they support, across email, Slack, Teams, and texts.",
         "You use Gmail too. Copilot in Outlook works with Microsoft accounts, and Gmail only through account linking in new Outlook. Synced connects Gmail and Outlook directly as separate Inboxes.",
         "Customer or team messages come in outside Microsoft. Synced reads Slack, WhatsApp Business, Instagram Business DMs, Messenger, SMS via your own Twilio number, and GroupMe, as well as Microsoft Teams chats.",
         "You want the work prepared before you ask. Synced writes an [Action Plan](/glossary/action-plan) for each new message and puts the finished draft in [Decide](/features/decide). Draft with Copilot starts when you open the compose box and enter a prompt.",

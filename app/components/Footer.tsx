@@ -4,8 +4,7 @@ import {
 } from "react-icons/pi";
 import { LogoText } from "./Header";
 
-const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import { BASE, WAITLIST_URL } from "./ui/links";
 
 // Hardcoded rather than read from content/registry: the footer is imported by
 // client pages, and pulling the registry in would ship every page's copy to the browser.
@@ -25,8 +24,8 @@ const columns = [
   {
     heading: "Use cases",
     links: [
-      { label: "Founders", href: `${BASE}/for/founders` },
       { label: "Executive assistants", href: `${BASE}/for/executive-assistants` },
+      { label: "Founders", href: `${BASE}/for/founders` },
       { label: "Sales", href: `${BASE}/for/sales` },
       { label: "Recruiters", href: `${BASE}/for/recruiters` },
       { label: "Small businesses", href: `${BASE}/for/small-business-owners` },
@@ -76,10 +75,10 @@ export default function Footer() {
           <div className="corp-footer-brand">
             <a href={`${BASE}/`} aria-label="Synced home" className="nav-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`${BASE}/icon-light.png`} alt="" width={24} height={23} className="nav-icon" />
+              <img src={`${BASE}/icon-light-sm.png`} alt="" width={24} height={23} className="nav-icon" />
               <LogoText />
             </a>
-            <p className="corp-footer-tagline">Your AI Inbox on Autopilot.</p>
+            <p className="corp-footer-tagline">Your inbox on autopilot.</p>
             <div className="footer-social-links">
               <a href="https://www.linkedin.com/company/syncedinbox/" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Synced on LinkedIn">
                 <PiLinkedinLogoDuotone size={19} />

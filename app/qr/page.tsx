@@ -2,8 +2,7 @@
 
 import { QRCodeSVG } from "qrcode.react";
 
-const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import { BASE, WAITLIST_URL } from "../components/ui/links";
 
 export default function QRPage() {
   return (
@@ -11,7 +10,7 @@ export default function QRPage() {
       <main className="qr-main">
         <div className="qr-logo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/icon-light.png`} alt="" width={36} height={34} className="qr-icon" />
+          <img src={`${BASE}/icon-light-sm.png`} alt="" width={36} height={34} className="qr-icon" />
           <span className="qr-brand">Synced</span>
         </div>
 

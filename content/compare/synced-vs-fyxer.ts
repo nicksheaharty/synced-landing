@@ -21,7 +21,7 @@ export const syncedVsFyxer: Page = {
   primaryIntent: "synced vs fyxer",
   related: ["/alternatives/fyxer-alternatives", "/compare/synced-vs-superhuman", "/pricing", "/security"],
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   body: [
     { type: "h2", text: "Synced and Fyxer side by side" },
     {
@@ -58,6 +58,7 @@ export const syncedVsFyxer: Page = {
     {
       type: "list",
       items: [
+        "You're an assistant working on someone else's inbox. Fyxer is aimed at helping one person get through their own email. Synced is built for [executive and admin assistants](/for/executive-assistants): connect the inboxes you handle, and every edit you make teaches it more about how that executive writes.",
         "Your requests don't stop at email. Synced reads Slack, Microsoft Teams chats, WhatsApp Business, Instagram Business DMs, Messenger, SMS via your own Twilio number, and GroupMe as Inboxes. Fyxer's pages list Gmail and Outlook.",
         "The reply needs something attached. Synced's [Action Plan](/glossary/action-plan) for a message can find the file in Google Drive or OneDrive and pull open slots from Google Calendar, then put everything in one draft.",
         "You want a free way in. Synced's Free plan covers 20 Action Plans a week with Gmail, Drive, OneDrive, and Calendar. Fyxer offers a 7-day trial, then paid plans.",

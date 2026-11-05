@@ -12,7 +12,7 @@ export const tasks: Page = {
     "Synced Tasks turns requests in your email, Slack, and texts into to-dos for you, with the sender, a date, a priority, and a link back to the conversation.",
   eyebrow: "Feature",
   intro:
-    "Some messages ask for things no assistant can do for you: sign it, pick one, show up. Synced writes those down so they don't live only in a thread you've already read.",
+    "Some messages ask for things no AI can do for you: sign it, pick one, show up. Synced writes those down so they don't live only in a thread you've already read.",
   answer:
     "Tasks in Synced, the AI inbox assistant, are to-dos for you rather than for Synced. When a message in a connected Inbox asks you to do something only a person can do, like signing a document or choosing between options, Synced adds a Task with who asked, a date if the message implied one, a deadline if it named one, and a priority. Each Task links back to the conversation it came from.",
   primaryIntent: "synced tasks",

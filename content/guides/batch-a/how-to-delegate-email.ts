@@ -148,7 +148,7 @@ export const delegateEmail: Page = {
     },
     {
       type: "p",
-      text: "If you need another person to read and answer your mail directly, use delegate access; Synced doesn't replace that. How assistants use Synced for their own inbox work is covered in [Synced for executive assistants](/for/executive-assistants).",
+      text: "If you need another person to read and answer your mail directly, use delegate access; Synced doesn't replace that. How assistants use Synced on the inboxes they handle is covered in [Synced for executive assistants](/for/executive-assistants).",
     },
     {
       type: "sources",

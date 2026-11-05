@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {
@@ -53,8 +54,10 @@ export default function SecurityPage() {
           <h1>Your inbox stays under your control.</h1>
           <p>
             Synced connects to the services you authorize to help search messages and files,
-            draft replies, coordinate calendars, and manage follow-ups. These are the core
-            safeguards and controls behind that access.
+            draft replies, coordinate calendars, and manage follow-ups. When an assistant connects
+            an executive&apos;s account, that account&apos;s owner approves the connection on
+            Google&apos;s or Microsoft&apos;s own permission screen. These are the core safeguards
+            and controls behind that access.
           </p>
         </section>
         <section className="container security-grid-shell" aria-label="Synced security controls">
@@ -74,10 +77,11 @@ export default function SecurityPage() {
           <div className="security-detail">
             <h2>Read the complete data policy</h2>
             <p>
-              The <a href="/privacy">Privacy Policy</a> describes the Google scopes Synced may
+              The <Link href="/privacy">Privacy Policy</Link> describes the Google scopes Synced may
               request, service providers used to deliver features, retention and deletion, and
               Google API Services User Data Policy compliance. Synced has completed Google&apos;s
               OAuth verification for restricted scopes, including the CASA security assessment.
+              A SOC 2 audit is in progress; Synced is not SOC 2 certified yet.
             </p>
           </div>
         </section>

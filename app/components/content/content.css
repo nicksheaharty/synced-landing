@@ -541,46 +541,12 @@ ol.ui-list li::before {
 .ui-faq-answer a { color: hsl(var(--primary)); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: hsl(var(--primary) / .3); }
 
 /* ── CTA band (from homepage) ── */
-.ui-cta { padding: 2rem 0 8rem; }
-.ui-cta-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(2rem, 7vw, 6rem);
-  padding: clamp(2.5rem, 5vw, 4rem);
-  border: 1px solid hsl(var(--border) / .7);
-  border-radius: 32px;
-  background:
-    radial-gradient(circle at 92% 15%, hsl(var(--primary) / .09), transparent 34%),
-    hsl(var(--card) / .78);
-  box-shadow: 0 24px 70px rgba(35, 27, 72, .06), inset 0 1px 0 hsl(var(--card));
-}
-.ui-cta-title {
-  margin: 0;
-  font-family: "p22-mackinac-pro", serif;
-  font-size: clamp(2rem, 4vw, 2.85rem);
-  font-weight: 700;
-  letter-spacing: -.03em;
-  line-height: 1.1;
-  color: hsl(var(--fg));
-}
-.ui-cta-sub { max-width: 460px; margin: 1rem 0 0; font-size: 1rem; line-height: 1.65; color: hsl(var(--muted-fg)); }
-.ui-cta-action { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
-.ui-cta-action .btn-primary { min-width: 190px; justify-content: center; }
-.ui-cta-note { font-size: .75rem; color: hsl(var(--muted-fg)); opacity: .8; }
 
-@media (max-width: 900px) {
-  .ui-cta-inner { grid-template-columns: 1fr; justify-items: start; }
-  .ui-cta-action { align-items: flex-start; }
-}
 @media (max-width: 640px) {
   .ui-hero { padding: 8rem 0 2rem; }
   .ui-answer { padding: 1.15rem 1.2rem; margin-bottom: 2.25rem; }
   .ui-section { padding: 3.5rem 0; }
-  .ui-cta { padding: 1rem 0 4rem; }
-  .ui-cta-inner { gap: 1.4rem; padding: 1.75rem 1.25rem 1.25rem; border-radius: 22px; }
-  .ui-cta-title { font-size: clamp(1.9rem, 10vw, 2.45rem); line-height: 1.03; }
-  .ui-cta-action, .ui-cta-action .btn-primary { width: 100%; min-width: 0; }
+
 }
 @media (prefers-reduced-motion: reduce) {
   .ui-card, .ui-feature, .ui-icon-tile, .ui-copy, .ui-faq-caret { transition: none !important; }

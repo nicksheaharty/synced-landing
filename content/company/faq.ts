@@ -12,10 +12,10 @@ export const faq: Page = {
   eyebrow: "Company",
   intro: "The questions people ask most, answered briefly. Each answer links to the page that covers the topic in full.",
   answer:
-    "Synced (syncedinbox.com) is an AI inbox assistant in private beta on the web and iOS. Synced reads messages from connected Inboxes like Gmail, Outlook, and Slack, drafts replies and documents, and waits for your approval before sending anything it wrote. The Free plan includes 20 Action Plans a week; Pro is $29.99 per user per month with 100.",
+    "Synced (syncedinbox.com) is an AI inbox for high-volume admin assistants, in private beta on the web and iOS. Synced reads messages from connected inboxes like Gmail, Outlook, Slack, and Teams, finds meeting times and files, drafts replies, and waits for approval before sending anything it wrote. The Free plan includes 20 Action Plans a week; Pro is $29.99 per user per month with 100.",
   primaryIntent: "synced frequently asked questions",
   published: "2026-09-13",
-  updated: "2026-09-13",
+  updated: "2026-11-05",
   icon: "question",
   body: [
     {
@@ -31,11 +31,27 @@ export const faq: Page = {
   faqs: [
     {
       q: "What is Synced?",
-      a: "Synced (syncedinbox.com) is an AI inbox assistant. It connects to your email, messaging apps, cloud storage, and calendar, then drafts replies, finds files, proposes meeting times, and tracks follow-ups. See [How it works](/how-it-works).",
+      a: "Synced (syncedinbox.com) is an AI inbox for high-volume admin assistants. It reads everything that comes in for the people an assistant supports, finds open meeting times, attaches requested files, and drafts replies the way the executive writes. The assistant approves each one. See [How it works](/how-it-works).",
+    },
+    {
+      q: "Who is Synced for?",
+      a: "Synced is built first for executive assistants, admin assistants, office managers, and chiefs of staff who handle someone else's inbox and calendar. Founders, sales reps, recruiters, and consultants use it for their own inbox. See [who Synced is for](/for).",
+    },
+    {
+      q: "Can an assistant use Synced for an executive's inbox?",
+      a: "Yes. Connect the accounts you manage, up to 4 per Inbox type. Each one connects through the provider's permission screen, which the account owner approves. See [Synced for executive assistants](/for/executive-assistants).",
+    },
+    {
+      q: "Is Synced meant to replace assistants?",
+      a: "No. Synced is built for assistants. It prepares the routine work and the assistant approves it, edits it, and handles what needs judgment. Every edit teaches Synced more about how the executive writes.",
     },
     {
       q: "How is Synced different from a regular email client?",
-      a: "Synced comes to you with the decisions only you can make instead of waiting for you to prompt it. For each message it writes an Action Plan and does the preparation, so you mostly approve and edit. More on [How it works](/how-it-works).",
+      a: "Synced comes to you with the decisions only a person can make instead of waiting for a prompt. For each message it writes an Action Plan and does the preparation, so you mostly approve and edit. More on [How it works](/how-it-works).",
+    },
+    {
+      q: "How is Synced different from Superhuman or Fyxer?",
+      a: "Those tools help one person get through their own email faster. Synced is built for assistants handling inboxes for other people, works across email, Slack, Teams, and texts, and aims to have most of the work done before the inbox is opened. See [Synced vs Superhuman](/compare/synced-vs-superhuman) and [Synced vs Fyxer](/compare/synced-vs-fyxer).",
     },
     {
       q: "What is an Action Plan?",
@@ -51,11 +67,11 @@ export const faq: Page = {
     },
     {
       q: "Which Inboxes can I connect today?",
-      a: "Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Business, Instagram Business, Messenger, SMS via Twilio, and GroupMe are live. Inboxes are unlimited on every plan. See [Integrations](/integrations).",
+      a: "Gmail, Outlook, Slack, Microsoft Teams, and text messages (SMS via Twilio) are the core ones. WhatsApp Business, Instagram Business, Messenger, and GroupMe are also live. Inboxes are unlimited on every plan, 4 accounts each. See [Integrations](/integrations).",
     },
     {
       q: "Which file and calendar tools does Synced work with?",
-      a: "Google Drive, OneDrive, and Google Calendar are live output integrations. Synced uses them to find attachments and propose meeting times. See [Google Drive](/integrations/google-drive) and [Google Calendar](/integrations/google-calendar).",
+      a: "Google Drive, OneDrive, and Google Calendar are live output integrations, and Outlook calendar comes with an Outlook connection. Synced uses them to find attachments and propose meeting times. Dropbox is coming soon. See [Google Drive](/integrations/google-drive) and [Google Calendar](/integrations/google-calendar).",
     },
     {
       q: "Does Synced work with iMessage, Dropbox, Notion, or GitHub?",
@@ -115,7 +131,7 @@ export const faq: Page = {
     },
     {
       q: "How is Synced different from the AI built into Gmail?",
-      a: "Synced works across Gmail, Outlook, Slack, Teams, and messaging apps in one place, and writes an Action Plan for each message rather than only helping inside one mailbox. The side-by-side is in [Synced vs Gemini in Gmail](/compare/synced-vs-gemini-in-gmail).",
+      a: "Gemini in Gmail and Copilot in Outlook are built around the signed-in user's own mailbox. Synced works across Gmail, Outlook, Slack, Teams, and texts in one place, covers inboxes an assistant manages for someone else, and writes an Action Plan for each message. The side-by-side is in [Synced vs Gemini in Gmail](/compare/synced-vs-gemini-in-gmail).",
     },
     {
       q: "Does Synced work for teams?",

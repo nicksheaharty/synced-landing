@@ -1,5 +1,5 @@
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const WAITLIST_URL = "https://forms.gle/g64ZQ3Wy7hhp1M6X7";
+import { Button } from "./components/ui/Button";
+import { BASE, WAITLIST_URL } from "./components/ui/links";
 
 export default function NotFound() {
   return (
@@ -13,7 +13,7 @@ export default function NotFound() {
       <main className="nf-main">
         <a href={`${BASE}/`} className="nf-logo" aria-label="Synced home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/icon-light.png`} alt="" width={28} height={26} style={{ height: "auto" }} />
+          <img src={`${BASE}/icon-light-sm.png`} alt="" width={28} height={26} style={{ height: "auto" }} />
           <span className="nf-brand">Synced</span>
         </a>
 
@@ -22,8 +22,8 @@ export default function NotFound() {
           <h1 className="nf-title">Page not found</h1>
           <p className="nf-sub">This page doesn&apos;t exist, or it moved.</p>
           <div className="nf-actions">
-            <a href={`${BASE}/`} className="btn-primary">Go home</a>
-            <a href={WAITLIST_URL} className="btn-ghost">Get Early Access</a>
+            <Button href={`${BASE}/`}>Go home</Button>
+            <Button href={WAITLIST_URL} variant="secondary">Get Early Access</Button>
           </div>
         </div>
       </main>
