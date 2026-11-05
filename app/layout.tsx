@@ -128,8 +128,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/pxn1uhe.css" />
-        <link rel="icon" href={`${base}/favicon-light-96.png`} media="(prefers-color-scheme: light)" />
-        <link rel="icon" href={`${base}/favicon-dark-96.png`} media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href={`${base}/favicon.ico`} sizes="any" />
+        <link rel="icon" type="image/png" href={`${base}/favicon-2026-light.png`} media="(prefers-color-scheme: light)" />
+        <link rel="icon" type="image/png" href={`${base}/favicon-2026-dark.png`} media="(prefers-color-scheme: dark)" />
+        <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
