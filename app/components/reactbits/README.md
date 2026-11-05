@@ -9,5 +9,4 @@ Used on the marketing site:
 - Threads: shared closing CTA (components/ui/CtaSection)
 - LogoLoop: integrations strip
 - SpotlightCard: security cards
-- BlurText: homepage headline entrance (needs `motion`)
 - SpecularButton: every primary button (components/ui/Button). Synced edit: accepts `href` and renders an <a>.

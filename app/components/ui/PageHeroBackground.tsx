@@ -5,6 +5,8 @@ export function PageHeroBackground() {
   return (
     <div className="page-hero-bg" aria-hidden="true">
       <Grainient
+        intro={false}
+        dpr={1}
         colors={["#F7F5FF", "#E4DDFF", "#B3A5FF", "#7B66FF"]}
         angle={120}
         speed={0.3}
