@@ -140,11 +140,11 @@ function HeroPhone() {
       <div className="hero-phone">
         <div className="hero-phone-screen">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="hero-phone-poster" src={`${BASE}/hero-swipe-poster.webp`} alt="" width={786} height={1704} fetchPriority="high" decoding="async" />
+          <img className="hero-phone-poster" src={`${BASE}/hero-swipe-poster.webp?v=2`} alt="" width={786} height={1704} fetchPriority="high" decoding="async" />
           {playVideo ? (
             <video autoPlay muted loop playsInline preload="auto" onPlaying={(e) => e.currentTarget.classList.add("is-playing")}>
-              <source src={`${BASE}/hero-swipe.webm`} type="video/webm" />
-              <source src={`${BASE}/hero-swipe.mp4`} type="video/mp4" />
+              <source src={`${BASE}/hero-swipe.webm?v=2`} type="video/webm" />
+              <source src={`${BASE}/hero-swipe.mp4?v=2`} type="video/mp4" />
             </video>
           ) : null}
           <div className="hero-phone-glare" />
