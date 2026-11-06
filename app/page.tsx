@@ -29,7 +29,7 @@ const STATS = [
 ];
 
 const PINGS: [string, string, string][] = [
-  ["Gary Chen", "gmail", "need the board deck back ASAP"],
+  ["Garry Tan", "gmail", "need the board deck back ASAP"],
   ["Dana · Brightline", "gmail", "Does 3pm Tuesday work for Nick?"],
   ["Jordan Blake", "outlook", "Could you send the signed MSA?"],
   ["Alex Rivera", "slack", "can Nick still make Thursday?"],
@@ -206,7 +206,7 @@ function SwipeVisual() {
   return (
     <div className="viz viz-swipe">
       <div className="mini-card mini-card-back">
-        <div className="mini-head"><span className="mini-av">GC</span><span>Gary Chen</span></div>
+        <div className="mini-head"><span className="mini-av">GT</span><span>Garry Tan</span></div>
         <div className="mini-line" /><div className="mini-line short" />
       </div>
       <div className="mini-card mini-card-top">
@@ -225,14 +225,14 @@ function LearnsVisual() {
     <div className="learn-stage">
       <div className="learn-draft">
         <div className="learn-draft-head">
-          <span className="mini-av">GC</span>
+          <span className="mini-av">GT</span>
           <div>
             <div className="learn-to">Re: board deck</div>
-            <div className="learn-sub">Draft for Gary Chen</div>
+            <div className="learn-sub">Draft for Garry Tan</div>
           </div>
         </div>
         <p className="learn-body">
-          <span className="edit"><s>Hi Gary, I hope this finds you well!</s><ins>Gary —</ins></span>
+          <span className="edit"><s>Hi Garry, I hope this finds you well!</s><ins>Garry —</ins></span>
           {" "}Rebuilt the deck from v7 and restored the revenue slides. Updated version attached.
           <br />
           <span className="edit edit-2"><s>Best regards, Nick Harty</s><ins>— N</ins></span>
